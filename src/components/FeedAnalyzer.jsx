@@ -131,7 +131,7 @@ export default function FeedAnalyzer() {
       </div>
 
       {/* RIGHT SIDE - Instagram Feed Images */}
-      <div className="w-full lg:w-2/3">
+      <div className="w-full lg:w-2/3 overflow-y-auto">
         <div className="bg-white p-4 rounded-xl shadow-sm h-full">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">Feed de Instagram</h2>
