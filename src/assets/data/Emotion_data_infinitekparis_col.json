@@ -1,0 +1,2373 @@
+{
+    "by_post": {
+        "3553707351530868050": {
+            "comments": [
+                {
+                    "commentText": "Que belleza, cada detalle se ve espectacular 👏",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.004524268675595522
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.9678181409835815
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.003083559451624751
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0010811426909640431
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.019509226083755493
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.00218939664773643
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0017942932900041342
+                        }
+                    ],
+                    "top_label": "joy"
+                },
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Donde encontrárla??",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.5501457452774048
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.07896140962839127
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.051004666835069656
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.013026474043726921
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.2598848044872284
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.02126709371805191
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.025709794834256172
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 3,
+            "emotion_counts": {
+                "joy": 1,
+                "others": 2
+            }
+        },
+        "3549167925250157855": {
+            "comments": [
+                {
+                    "commentText": "Que precio tienen. Gracias",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8452368378639221
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.08772114664316177
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.005394549109041691
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.004039013292640448
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.04665817320346832
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.004712760914117098
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.006237555295228958
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Cómo hago para pedir productos?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9064062833786011
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.007137972395867109
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.005637401714920998
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.006535532418638468
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.05807359889149666
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.004059521947056055
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.012149668298661709
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 2,
+            "emotion_counts": {
+                "others": 2
+            }
+        },
+        "3547810100095587585": {
+            "comments": [
+                {
+                    "commentText": "✨👏",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "others": 1
+            }
+        },
+        "3559997600520168888": {
+            "comments": [
+                {
+                    "commentText": "😍😍",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "others": 1
+            }
+        },
+        "3554835092628120975": {
+            "comments": [
+                {
+                    "commentText": "Precio gracias",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.16445912420749664
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.7663331627845764
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.010288622230291367
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0078008659183979034
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.03805829584598541
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.004938121885061264
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.008121753111481667
+                        }
+                    ],
+                    "top_label": "joy"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "joy": 1
+            }
+        },
+        "3554916105074430179": {
+            "comments": [
+                {
+                    "commentText": "Esa marca es colombiana? Donde ae consigue",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8491523861885071
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.006131036207079887
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.004339339677244425
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0040170373395085335
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.12502488493919373
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.004178838804364204
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.007156569976359606
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Mary donde los puedo conseguir",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.7781848907470703
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.050493985414505005
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.02046792395412922
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.013348566368222237
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.10520930588245392
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.014383328147232533
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.017911992967128754
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Recomiéndanos tónicos, por fi 🥰",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9356300234794617
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.01727670058608055
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.013037208467721939
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.01548188179731369
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.00452819000929594
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.006521666422486305
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.00752433855086565
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "🔥🔥🔥",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Justo en mis 30's 👏",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.5091594457626343
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.12015237659215927
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2849717438220978
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.00442682346329093
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.05094195157289505
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.007819014601409435
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.02252861298620701
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Que precio tienen los 2",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9001035094261169
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.005446974188089371
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.00550450012087822
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.003090381156653166
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.07763969898223877
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.003362376010045409
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.004852536600083113
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Se ven interesantes🤩",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9485548138618469
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.03463515266776085
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0027267318218946457
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0007868892280384898
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.009906008839607239
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.001067325472831726
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0023231315426528454
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precios ?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8492284417152405
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.03453277051448822
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.01945566199719906
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.006728971842676401
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.07606890052556992
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.003289496758952737
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.010695862583816051
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Anotado 👏",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.7803826928138733
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.15649190545082092
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.009630394168198109
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.005037346854805946
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.03971434384584427
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.002886482747271657
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.005856823176145554
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Pésimo servicio realice la compra y no me responden el chat para seguimiento de mi producto no me indicaron en qué fecha llega nada",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.02644641138613224
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.001387267024256289
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.01430364791303873
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.909683108329773
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.004492756444960833
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.03777393326163292
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.005912872962653637
+                        }
+                    ],
+                    "top_label": "anger"
+                }
+            ],
+            "total_comments": 10,
+            "emotion_counts": {
+                "others": 9,
+                "anger": 1
+            }
+        },
+        "3557161271310483213": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "others": 1
+            }
+        },
+        "3558573938499659328": {
+            "comments": [
+                {
+                    "commentText": "😍😍😍😍",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Son los mejores❤️❤️❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.006528280675411224
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.9855102300643921
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0012163352221250534
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0006900756852701306
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.003806713968515396
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0012767778243869543
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0009715445339679718
+                        }
+                    ],
+                    "top_label": "joy"
+                }
+            ],
+            "total_comments": 2,
+            "emotion_counts": {
+                "others": 1,
+                "joy": 1
+            }
+        },
+        "3549938712697610981": {
+            "comments": [
+                {
+                    "commentText": "👏🏻👏🏻👏🏻",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "@andrea_moreno1121 tenemos que hacerlo!!",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.19998307526111603
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.7372605204582214
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0013676162343472242
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.004068313632160425
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.05171457305550575
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0024367771111428738
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.003169106785207987
+                        }
+                    ],
+                    "top_label": "joy"
+                },
+                {
+                    "commentText": "✨manifiesta tu mapa de sueños✨😍",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9925198554992676
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0031399803701788187
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0015106224454939365
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.00030815709033049643
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.0014239096781238914
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.00031869858503341675
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0007785972557030618
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "❤️❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "🤩🤩🤩",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Fantástico en su belleza",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.18418362736701965
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.7450828552246094
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.019433604553341866
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0032650260254740715
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.038199424743652344
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.003641217015683651
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.00619420874863863
+                        }
+                    ],
+                    "top_label": "joy"
+                },
+                {
+                    "commentText": "Superr, ❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.7038418650627136
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.16328327357769012
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.013898693025112152
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0034580882638692856
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.10516874492168427
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.002993510803207755
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.007355701643973589
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "❤️❤️❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "🙌🙌🙌",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 10,
+            "emotion_counts": {
+                "others": 8,
+                "joy": 2
+            }
+        },
+        "3550513037402541546": {
+            "comments": [
+                {
+                    "commentText": "Hacen envíos a México ?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9717695116996765
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.007291681598871946
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.003142876783385873
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0020074318163096905
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.011440610513091087
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0018424269510433078
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0025055140722543
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "others": 1
+            }
+        },
+        "3546286866816599113": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8610875606536865
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.010215647518634796
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0307374969124794
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.037439312785863876
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.038905687630176544
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.010999824851751328
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.01061447523534298
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Jejejejjejeje",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.4476475417613983
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.486809104681015
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0066642556339502335
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.005534496624022722
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.04163426533341408
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0063323588110506535
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.005377971101552248
+                        }
+                    ],
+                    "top_label": "joy"
+                }
+            ],
+            "total_comments": 3,
+            "emotion_counts": {
+                "others": 2,
+                "joy": 1
+            }
+        },
+        "3544846807516433505": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "others": 1
+            }
+        },
+        "3545697837577784026": {
+            "comments": [
+                {
+                    "commentText": "Qué procedimientos de cabina recomiendas para el acné? Quiero acabar con el acné completamente, sin necesidad de dieta 😭🤣",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9901754260063171
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.004533133003860712
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0006018083659000695
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0011673494009301066
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.0023773398716002703
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0003770377952605486
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0007679378031753004
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Donde venden esa dupla?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9585238695144653
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0041339886374771595
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.002501977141946554
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0014346251264214516
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.0276117455214262
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0026415535248816013
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.003152255667373538
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Osea que el retinol de noche y la vitamina C de día y encima  el protector solar? Aquí estoy confirmando a ver si entendí.",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8250693678855896
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0016521477373316884
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.013900218531489372
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.07248784601688385
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.06876049935817719
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.011839537881314754
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.006290327291935682
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Si los dos son muy buenos 🔥❤️😍 ya los use de esa marca recomendados , quiero de nuevo",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.12425568699836731
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.8637553453445435
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0030629662796854973
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0010411253897473216
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.004566167946904898
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0021530238445848227
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0011656294809654355
+                        }
+                    ],
+                    "top_label": "joy"
+                },
+                {
+                    "commentText": "Se puede usar vitamina c y niacinamida?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9758676290512085
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0028658730443567038
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0022131395526230335
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0013050601119175553
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.012555944733321667
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0016012409469112754
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.003591214306652546
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Gracias por tu contenido 😍 Duda, ¿Bioretinol y retinol son lo mismo? Y de ello, ¿Aplican los mismos consejos para mezclar estos dos ingredientes?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9944987893104553
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0009600530611351132
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0009176883031614125
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0008587029296904802
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.0018067253986373544
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0002575030375737697
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0007005762308835983
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Ok pero los puedes usar en una misma rutina, es decir, yo uso uno por la mañana y el retinal que es el tengo por la noche? Pero podría los dos por la noche????",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9932363629341125
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0013510819990187883
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0012364350259304047
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0005594319081865251
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.0026773756835609674
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.00031312531791627407
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0006261091330088675
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Pero a qué edad se usa los dos ?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9162862300872803
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.007494956720620394
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0014055382926017046
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0019081615610048175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.06965803354978561
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0013013901188969612
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0019457362359389663
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Se pueden usar en verano?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9675109386444092
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.0046269833110272884
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0025137634947896004
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.001851822598837316
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.018922869116067886
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0017978366231545806
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0027758032083511353
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "El retinol ayuda a quitar manchas? gracias",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8787919878959656
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.07716137170791626
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.005360591225326061
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.005335742142051458
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.01679469272494316
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.004704304970800877
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.011851347982883453
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 10,
+            "emotion_counts": {
+                "others": 9,
+                "joy": 1
+            }
+        },
+        "3538262710305065956": {
+            "comments": [
+                {
+                    "commentText": "Buenas tardes cuanto vale el bloqueador gracias",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9678024649620056
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.007473320700228214
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0021133949048817158
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.00302443141117692
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.013406200334429741
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0031142551451921463
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0030659630428999662
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 1,
+            "emotion_counts": {
+                "others": 1
+            }
+        },
+        "3544152849711592109": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precio de este ser",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.6421631574630737
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.145814910531044
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.00963982567191124
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0029475369956344366
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.1865415722131729
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.002523510716855526
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.01036948524415493
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precio",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.3751378059387207
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.3003043532371521
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.05752670019865036
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.04128531739115715
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.16799134016036987
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.02972527965903282
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.028029171749949455
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 3,
+            "emotion_counts": {
+                "others": 3
+            }
+        },
+        "3541106422059893515": {
+            "comments": [
+                {
+                    "commentText": "😍😍😍😍",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "♥️♥️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "La compré y realmente es maravillosa. Solo hay un problema, la tinta se seca o se evapora (disculpen si no es la palabra) el hecho es que la uso poco, pero en el frasco se va reduciendo de forma muy rápida. @infinitekparis_col",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9266767501831055
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.06076926365494728
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0053085763938724995
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0028795176185667515
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.0030460150446742773
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0008349752170033753
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0004849709221161902
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 3,
+            "emotion_counts": {
+                "others": 3
+            }
+        },
+        "3551946537011779826": {
+            "comments": [
+                {
+                    "commentText": "Hola, hay envíos a México ? Y cuánto tardan ?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9796659350395203
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.002242984250187874
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0019298363476991653
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.0029557303059846163
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.00805282685905695
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0019968063570559025
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.003155865240842104
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.23776322603225708
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.1208328828215599
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.2151942402124405
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.11919257044792175
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14208641648292542
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0862901583313942
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.07864045351743698
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 2,
+            "emotion_counts": {
+                "others": 2
+            }
+        },
+        "3536101530039815420": {
+            "comments": [
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8610875606536865
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.010215647518634796
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0307374969124794
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.037439312785863876
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.038905687630176544
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.010999824851751328
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.01061447523534298
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Quiero el kit porfa",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8748279809951782
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.08888176083564758
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.005119044333696365
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.005090795457363129
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.015006688423454762
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.005522539839148521
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0055512017570436
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Buen día ! En Venezuela?",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9320397973060608
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.020493771880865097
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.006912740878760815
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.002693974645808339
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.029829153791069984
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.003672524821013212
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.004358065314590931
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8610875606536865
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.010215647518634796
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0307374969124794
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.037439312785863876
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.038905687630176544
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.010999824851751328
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.01061447523534298
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Información",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.6049667596817017
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.2070424109697342
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.03552405908703804
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.026852034032344818
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.07834380120038986
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.025010129436850548
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.0222608782351017
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precio..",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.6834594011306763
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.09279666095972061
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.05004219710826874
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.009365692734718323
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.14145107567310333
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0054256790317595005
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.01745929755270481
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Precio plis",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.851956844329834
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.07301140576601028
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.014152617193758488
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.007780470885336399
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.039258360862731934
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.003923707641661167
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.009916567243635654
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Porfa que precio tiene? Estoy en Medellín",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.9646467566490173
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.004979266319423914
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.004624886903911829
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.002180373063310981
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.014328221790492535
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.002760563977062702
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.006479865405708551
+                        }
+                    ],
+                    "top_label": "others"
+                },
+                {
+                    "commentText": "Desde noviembre del año pasado hice un pedido y no lo he recibido ! Que pasaaaaaaaa",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.13446766138076782
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.006085842847824097
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.01486815232783556
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.4661419093608856
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.30559977889060974
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.0399961844086647
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.03284040093421936
+                        }
+                    ],
+                    "top_label": "anger"
+                },
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "others",
+                            "score": 0.8610875606536865
+                        },
+                        {
+                            "label": "joy",
+                            "score": 0.010215647518634796
+                        },
+                        {
+                            "label": "sadness",
+                            "score": 0.0307374969124794
+                        },
+                        {
+                            "label": "anger",
+                            "score": 0.037439312785863876
+                        },
+                        {
+                            "label": "surprise",
+                            "score": 0.038905687630176544
+                        },
+                        {
+                            "label": "disgust",
+                            "score": 0.010999824851751328
+                        },
+                        {
+                            "label": "fear",
+                            "score": 0.01061447523534298
+                        }
+                    ],
+                    "top_label": "others"
+                }
+            ],
+            "total_comments": 10,
+            "emotion_counts": {
+                "others": 9,
+                "anger": 1
+            }
+        }
+    },
+    "overall": {
+        "total_comments": 65,
+        "emotion_counts": {
+            "joy": 7,
+            "others": 56,
+            "anger": 2
+        }
+    }
+}

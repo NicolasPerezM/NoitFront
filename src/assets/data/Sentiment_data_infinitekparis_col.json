@@ -1,0 +1,1327 @@
+{
+    "by_post": {
+        "3553707351530868050": {
+            "comments": [
+                {
+                    "commentText": "Que belleza, cada detalle se ve espectacular 👏",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.002433335641399026
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.017021656036376953
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.9805450439453125
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Donde encontrárla??",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.033562541007995605
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8792439699172974
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.08719354122877121
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 3,
+            "positive_comments": 2,
+            "negative_comments": 0,
+            "neutral_comments": 1
+        },
+        "3549167925250157855": {
+            "comments": [
+                {
+                    "commentText": "Que precio tienen. Gracias",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.008734547533094883
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.0751001387834549
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.9161653518676758
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Cómo hago para pedir productos?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.09480591118335724
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8883559107780457
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.01683809608221054
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 2,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 1
+        },
+        "3547810100095587585": {
+            "comments": [
+                {
+                    "commentText": "✨👏",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 0
+        },
+        "3559997600520168888": {
+            "comments": [
+                {
+                    "commentText": "😍😍",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 0
+        },
+        "3554835092628120975": {
+            "comments": [
+                {
+                    "commentText": "Precio gracias",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.11828798055648804
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.403220534324646
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.47849151492118835
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 0
+        },
+        "3554916105074430179": {
+            "comments": [
+                {
+                    "commentText": "Esa marca es colombiana? Donde ae consigue",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.06866340339183807
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8996953368186951
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.03164127096533775
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Mary donde los puedo conseguir",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.0645478144288063
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8408722281455994
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.09457998722791672
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Recomiéndanos tónicos, por fi 🥰",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.13181135058403015
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.7058367729187012
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.16235190629959106
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "🔥🔥🔥",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Justo en mis 30's 👏",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.7748162746429443
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.19730980694293976
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.027873918414115906
+                        }
+                    ],
+                    "top_label": "NEG"
+                },
+                {
+                    "commentText": "Que precio tienen los 2",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.25355270504951477
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.609187126159668
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.13726015388965607
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Se ven interesantes🤩",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.01808440312743187
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.1964370608329773
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.7854785919189453
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Precios ?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.20776289701461792
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6763138175010681
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.1159231960773468
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Anotado 👏",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.2061479538679123
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6731884479522705
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.12066355347633362
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Pésimo servicio realice la compra y no me responden el chat para seguimiento de mi producto no me indicaron en qué fecha llega nada",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.9243944883346558
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.0700085312128067
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.005597023293375969
+                        }
+                    ],
+                    "top_label": "NEG"
+                }
+            ],
+            "total_comments": 10,
+            "positive_comments": 2,
+            "negative_comments": 2,
+            "neutral_comments": 6
+        },
+        "3557161271310483213": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 0
+        },
+        "3558573938499659328": {
+            "comments": [
+                {
+                    "commentText": "😍😍😍😍",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Son los mejores❤️❤️❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.016351571306586266
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.06935928761959076
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.914289116859436
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 2,
+            "positive_comments": 2,
+            "negative_comments": 0,
+            "neutral_comments": 0
+        },
+        "3549938712697610981": {
+            "comments": [
+                {
+                    "commentText": "👏🏻👏🏻👏🏻",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "@andrea_moreno1121 tenemos que hacerlo!!",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.02533106505870819
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.26763492822647095
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.7070340514183044
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "✨manifiesta tu mapa de sueños✨😍",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.05286261811852455
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.7272011637687683
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.21993623673915863
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "❤️❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "🤩🤩🤩",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Fantástico en su belleza",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.028073899447917938
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.18305929005146027
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.7888668179512024
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Superr, ❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.16652914881706238
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.5286091566085815
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.3048616945743561
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "❤️❤️❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "🙌🙌🙌",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 10,
+            "positive_comments": 8,
+            "negative_comments": 0,
+            "neutral_comments": 2
+        },
+        "3550513037402541546": {
+            "comments": [
+                {
+                    "commentText": "Hacen envíos a México ?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.0486828088760376
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8986929059028625
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.05262430012226105
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 0,
+            "negative_comments": 0,
+            "neutral_comments": 1
+        },
+        "3546286866816599113": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.14682941138744354
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6876580119132996
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.1655125617980957
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Jejejejjejeje",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.054918743669986725
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.654845118522644
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.29023614525794983
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 3,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 2
+        },
+        "3544846807516433505": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 0
+        },
+        "3545697837577784026": {
+            "comments": [
+                {
+                    "commentText": "Qué procedimientos de cabina recomiendas para el acné? Quiero acabar con el acné completamente, sin necesidad de dieta 😭🤣",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.09542889147996902
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8727937340736389
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.03177732229232788
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Donde venden esa dupla?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.02456546574831009
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.9152919054031372
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.06014274060726166
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Osea que el retinol de noche y la vitamina C de día y encima  el protector solar? Aquí estoy confirmando a ver si entendí.",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.13480302691459656
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8505421280860901
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.014654903672635555
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Si los dos son muy buenos 🔥❤️😍 ya los use de esa marca recomendados , quiero de nuevo",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.0023187173064798117
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.04842005670070648
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.9492611885070801
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Se puede usar vitamina c y niacinamida?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.11627714335918427
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8581851720809937
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.025537772104144096
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Gracias por tu contenido 😍 Duda, ¿Bioretinol y retinol son lo mismo? Y de ello, ¿Aplican los mismos consejos para mezclar estos dos ingredientes?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.04366069287061691
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8815258741378784
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.07481344044208527
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Ok pero los puedes usar en una misma rutina, es decir, yo uso uno por la mañana y el retinal que es el tengo por la noche? Pero podría los dos por la noche????",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.028948495164513588
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.9543907642364502
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.01666063815355301
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Pero a qué edad se usa los dos ?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.07205937057733536
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8999683856964111
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.02797224372625351
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Se pueden usar en verano?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.07356381416320801
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8831731081008911
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.043263062834739685
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "El retinol ayuda a quitar manchas? gracias",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.08491584658622742
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8576993942260742
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.05738481134176254
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 10,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 9
+        },
+        "3538262710305065956": {
+            "comments": [
+                {
+                    "commentText": "Buenas tardes cuanto vale el bloqueador gracias",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.03641261160373688
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.8934605121612549
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.07012687623500824
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 1,
+            "positive_comments": 0,
+            "negative_comments": 0,
+            "neutral_comments": 1
+        },
+        "3544152849711592109": {
+            "comments": [
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "Precio de este ser",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.47409164905548096
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.3234943747520447
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.20241394639015198
+                        }
+                    ],
+                    "top_label": "NEG"
+                },
+                {
+                    "commentText": "Precio",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.3285953998565674
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.5144187211990356
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.15698586404323578
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 3,
+            "positive_comments": 1,
+            "negative_comments": 1,
+            "neutral_comments": 1
+        },
+        "3541106422059893515": {
+            "comments": [
+                {
+                    "commentText": "😍😍😍😍",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "♥️♥️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                },
+                {
+                    "commentText": "La compré y realmente es maravillosa. Solo hay un problema, la tinta se seca o se evapora (disculpen si no es la palabra) el hecho es que la uso poco, pero en el frasco se va reduciendo de forma muy rápida. @infinitekparis_col",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.0360829196870327
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6382612586021423
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.32565587759017944
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 3,
+            "positive_comments": 2,
+            "negative_comments": 0,
+            "neutral_comments": 1
+        },
+        "3551946537011779826": {
+            "comments": [
+                {
+                    "commentText": "Hola, hay envíos a México ? Y cuánto tardan ?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.057592082768678665
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.886716902256012
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.05569101870059967
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "❤️",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.21312911808490753
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.28887060284614563
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.49800029397010803
+                        }
+                    ],
+                    "top_label": "POS"
+                }
+            ],
+            "total_comments": 2,
+            "positive_comments": 1,
+            "negative_comments": 0,
+            "neutral_comments": 1
+        },
+        "3536101530039815420": {
+            "comments": [
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.14682941138744354
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6876580119132996
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.1655125617980957
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Quiero el kit porfa",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.08408881723880768
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.7868226170539856
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.12908855080604553
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Buen día ! En Venezuela?",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.029414132237434387
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.7359151244163513
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.2346707284450531
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.14682941138744354
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6876580119132996
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.1655125617980957
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Información",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.29766952991485596
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.5370869040489197
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.16524359583854675
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Precio..",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.24057966470718384
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6269546151161194
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.13246574997901917
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Precio plis",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.08959218859672546
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.7012843489646912
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.209123432636261
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Porfa que precio tiene? Estoy en Medellín",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.026474805548787117
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.9333888292312622
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.04013640433549881
+                        }
+                    ],
+                    "top_label": "NEU"
+                },
+                {
+                    "commentText": "Desde noviembre del año pasado hice un pedido y no lo he recibido ! Que pasaaaaaaaa",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.8839059472084045
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.10953732579946518
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.006556748878210783
+                        }
+                    ],
+                    "top_label": "NEG"
+                },
+                {
+                    "commentText": "Precio por favor",
+                    "scores": [
+                        {
+                            "label": "NEG",
+                            "score": 0.14682941138744354
+                        },
+                        {
+                            "label": "NEU",
+                            "score": 0.6876580119132996
+                        },
+                        {
+                            "label": "POS",
+                            "score": 0.1655125617980957
+                        }
+                    ],
+                    "top_label": "NEU"
+                }
+            ],
+            "total_comments": 10,
+            "positive_comments": 0,
+            "negative_comments": 1,
+            "neutral_comments": 9
+        }
+    },
+    "overall": {
+        "total_comments": 65,
+        "positive_comments": 26,
+        "negative_comments": 4,
+        "neutral_comments": 35,
+        "positive_ratio": 0.4,
+        "negative_ratio": 0.062,
+        "neutral_ratio": 0.538
+    }
+}

@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar.jsx";
+import Topbar from "../components/Topbar.jsx";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DashboardLayout</title>
+</head>
+<body>
+	<div id="app" class="relative h-screen">
+		<header class="[grid-area:header]"><Topbar client:load/></header>
+		<aside class="[grid-area:sidebar]"><Sidebar client:load/></aside>
+		<main class="[grid-area:content] bg-amber-950 overflow-y-auto">Content</main>
+		<slot />
+	</div>
+</body>
+</html>
+<style>
+#app {
+	display: grid;
+	overflow: hidden;
+	grid-template-areas: 
+	"sidebar header header"
+	"sidebar content content";
+	grid-template-columns: 260px 1fr;
+	grid-template-rows: 40px 1fr;
+}
+</style>
+
