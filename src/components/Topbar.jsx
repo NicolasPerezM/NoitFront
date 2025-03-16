@@ -5,7 +5,6 @@ export default function Topbar() {
     { id: "feed", name: "FeedAnalyzer", icon: Home },
     { id: "post", name: "Post Analyzer", icon: Calendar, active: true },
     { id: "comments", name: "Comments Analyzer", icon: Zap },
-    { id: "optimizacion", name: "Optimización", icon: PenTool },
   ]
 
   return (
@@ -36,7 +35,7 @@ export default function Topbar() {
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
         <div className="ml-4 relative">
-          <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
+          <div className="h-8 w-8 rounded-full bg-primary text-black flex items-center justify-center">
             <span className="text-xs font-medium">UA</span>
           </div>
         </div>
