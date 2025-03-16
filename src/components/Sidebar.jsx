@@ -14,17 +14,12 @@ import {
   export default function Sidebar() {
     const navItems = [
       { id: "dashboard", name: "Dashboard General", icon: BarChart2 },
-      { id: "analisis", name: "Análisis por Cuenta", icon: Search },
-      { id: "feed", name: "Feed Analyzer", icon: Calendar },
-      { id: "post", name: "Post Analyzer", icon: FileText },
-      { id: "comments", name: "General Comments Analyzer", icon: MessageCircle },
-      { id: "estrategias", name: "Estrategias de Marca", icon: TrendingUp },
       { id: "market", name: "Market Analysis", icon: Globe, active: true },
       { id: "configuracion", name: "Configuración", icon: Settings },
     ]
   
     return (
-      <div className="flex flex-col h-full w-64">
+      <div className="flex flex-col h-full">
         {/* Logo */}
         <div className="flex items-center justify-center h-16 border-b border-gray-200 ">
           <span className="text-xl font-semibold text-primary">LOGO</span>

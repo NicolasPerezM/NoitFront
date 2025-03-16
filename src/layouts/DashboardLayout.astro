@@ -15,8 +15,7 @@ import Topbar from "../components/Topbar.jsx";
 	<div id="app" class="relative h-screen">
 		<header class="[grid-area:header]"><Topbar client:load/></header>
 		<aside class="[grid-area:sidebar]"><Sidebar client:load/></aside>
-		<main class="[grid-area:content] bg-amber-950 overflow-y-auto">Content</main>
-		<slot />
+		<main class="[grid-area:content]  overflow-y-auto"><slot/></main>
 	</div>
 </body>
 </html>
@@ -27,7 +26,7 @@ import Topbar from "../components/Topbar.jsx";
 	grid-template-areas: 
 	"sidebar header header"
 	"sidebar content content";
-	grid-template-columns: 260px 1fr;
+	grid-template-columns: 220px 1fr;
 	grid-template-rows: 40px 1fr;
 }
 </style>
