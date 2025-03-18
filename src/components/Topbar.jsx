@@ -2,9 +2,9 @@ import { Bell, Home, Calendar, Zap, PenTool } from "lucide-react"
 
 export default function Topbar() {
   const navItems = [
-    { id: "feed", name: "FeedAnalyzer", icon: Home },
-    { id: "post", name: "Post Analyzer", icon: Calendar, active: true },
-    { id: "comments", name: "Comments Analyzer", icon: Zap },
+    { id: "feed", name: "FeedAnalyzer", icon: Home, href: "/feedAnalyzer" },
+    { id: "post", name: "Post Analyzer", icon: Calendar, href: "/postAnalyzer" },
+    { id: "comments", name: "Comments Analyzer", icon: Zap, href: "/commentsAnalyzer" },
   ]
 
   return (
@@ -15,7 +15,7 @@ export default function Topbar() {
         {navItems.map((item) => (
           <a
             key={item.id}
-            href="#"
+            href={item.href}
             className={`flex items-center px-3 py-2 text-sm font-medium rounded-md ${
               item.active
                 ? "text-primary border-b-2 border-primary"

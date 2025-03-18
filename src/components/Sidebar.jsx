@@ -21,8 +21,10 @@ import {
     return (
       <div className="flex flex-col h-full">
         {/* Logo */}
+        
         <div className="flex items-center justify-center h-16 border-b border-gray-200 ">
-          <span className="text-xl font-semibold text-primary">LOGO</span>
+          <img src="/data/661173d22e87885e52d592e7_Group 73.svg" alt="" className="w-12 h-12" />
+          <span className="text-xl font-semibold text-primary">MOBIUS</span>
         </div>
   
         {/* Navigation */}
