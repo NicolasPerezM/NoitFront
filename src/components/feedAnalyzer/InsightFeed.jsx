@@ -8,14 +8,14 @@ export default function AnalysisSummary({ insightData }) {
   return (
     <div className="w-full lg:w-1/3 overflow-auto pr-0 lg:pr-4">
       {/* Analysis Summary */}
-      <div className="bg-white p-4 rounded-xl shadow-sm mb-4">
-        <h3 className="text-md font-semibold mb-3">Análisis del Feed</h3>
-        <p className="text-sm text-gray-600 mb-4">{insightData.final_insight}</p>
+      <div className="bg-dark-blue p-4 rounded-xl shadow-sm mb-4">
+        <h3 className="text-md font-semibold mb-3 text-theme-primary">Análisis del Feed</h3>
+        <p className="text-sm  mb-4">{insightData.final_insight}</p>
 
         <div className="space-y-4">
           <div>
-            <h4 className="text-sm font-medium text-gray-700 mb-2">Puntos Fuertes</h4>
-            <ul className="text-sm text-gray-600 space-y-1 pl-5 list-disc">
+            <h4 className="text-sm font-medium mb-2 text-theme-primary">Puntos Fuertes</h4>
+            <ul className="text-sm  space-y-1 pl-5 list-disc">
               <li>Calidad visual consistente</li>
               <li>Buena respuesta en contenido de producto</li>
               <li>Interacción positiva en publicaciones con personas</li>
@@ -23,8 +23,8 @@ export default function AnalysisSummary({ insightData }) {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-gray-700 mb-2">Áreas de Mejora</h4>
-            <ul className="text-sm text-gray-600 space-y-1 pl-5 list-disc">
+            <h4 className="text-sm font-medium text-theme-primary mb-2">Áreas de Mejora</h4>
+            <ul className="text-sm space-y-1 pl-5 list-disc">
               <li>Aumentar frecuencia de publicación</li>
               <li>Incorporar más llamadas a la acción</li>
               <li>Experimentar con formatos de carrusel</li>
@@ -34,9 +34,9 @@ export default function AnalysisSummary({ insightData }) {
       </div>
 
       {/* Additional Analysis */}
-      <div className="bg-white p-4 rounded-xl shadow-sm mb-4">
-        <h3 className="text-md font-semibold mb-3">Análisis de Contenido</h3>
-        <p className="text-sm text-gray-600 mb-4">
+      <div className="bg-dark-blue p-4 rounded-xl shadow-sm mb-4">
+        <h3 className="text-md font-semibold mb-3 text-theme-primary">Análisis de Contenido</h3>
+        <p className="text-sm mb-4">
           El análisis de contenido muestra que las publicaciones con personas tienen un 45% más de engagement que las
           publicaciones de solo producto.
         </p>
@@ -46,7 +46,7 @@ export default function AnalysisSummary({ insightData }) {
             <span className="text-gray-600">Fotos de producto</span>
             <span className="font-medium">32%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-theme-gray rounded-full h-2">
             <div className="bg-primary h-2 rounded-full" style={{ width: "32%" }}></div>
           </div>
 
@@ -54,7 +54,7 @@ export default function AnalysisSummary({ insightData }) {
             <span className="text-gray-600">Fotos con personas</span>
             <span className="font-medium">58%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-theme-gray rounded-full h-2">
             <div className="bg-primary h-2 rounded-full" style={{ width: "58%" }}></div>
           </div>
 
@@ -62,7 +62,7 @@ export default function AnalysisSummary({ insightData }) {
             <span className="text-gray-600">Carruseles</span>
             <span className="font-medium">45%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-theme-gray rounded-full h-2">
             <div className="bg-primary h-2 rounded-full" style={{ width: "45%" }}></div>
           </div>
 
@@ -70,16 +70,16 @@ export default function AnalysisSummary({ insightData }) {
             <span className="text-gray-600">Videos</span>
             <span className="font-medium">72%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-dark-blue rounded-full h-2">
             <div className="bg-primary h-2 rounded-full" style={{ width: "72%" }}></div>
           </div>
         </div>
       </div>
 
       {/* Recommendations */}
-      <div className="bg-white p-4 rounded-xl shadow-sm">
-        <h3 className="text-md font-semibold mb-3">Recomendaciones</h3>
-        <ul className="text-sm text-gray-600 space-y-2 pl-5 list-disc">
+      <div className="bg-dark-blue p-4 rounded-xl shadow-sm">
+        <h3 className="text-md font-semibold mb-3 text-theme-primary">Recomendaciones</h3>
+        <ul className="text-sm space-y-2 pl-5 list-disc">
           <li>Aumentar la frecuencia de publicación a 3-4 veces por semana</li>
           <li>Incluir más contenido con personas usando el producto</li>
           <li>Experimentar con formatos de carrusel para mostrar múltiples ángulos</li>

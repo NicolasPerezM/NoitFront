@@ -181,7 +181,7 @@ export default function PostAnalyzer() {
     .map(([tag, count]) => ({ tag, count }))
 
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6 p-4">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
@@ -231,17 +231,17 @@ export default function PostAnalyzer() {
       </div>
 
       {/* General Analysis - Now at the top */}
-      <div className="bg-white rounded-xl shadow-sm p-6">
-        <h2 className="text-xl font-bold mb-4">Análisis General</h2>
+      <div className="bg-dark-blue rounded-xl shadow-sm p-6">
+        <h2 className="text-xl font-bold mb-4 text-theme-primary">Análisis General</h2>
 
         {/* Metrics Overview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <div className="text-sm text-gray-500 mb-1">Total Likes</div>
-            <div className="text-2xl font-bold text-gray-800">{totalLikes}</div>
+          <div className="bg-theme-blue p-4 rounded-lg">
+            <div className="text-sm  mb-1">Total Likes</div>
+            <div className="text-2xl font-bold text-theme-gray">{totalLikes}</div>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg">
-            <div className="text-sm text-gray-500 mb-1">Total Comentarios</div>
+            <div className="text-sm  mb-1">Total Comentarios</div>
             <div className="text-2xl font-bold text-gray-800">{totalComments}</div>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg">

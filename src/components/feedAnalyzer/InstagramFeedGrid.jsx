@@ -6,19 +6,19 @@ import React from "react";
  */
 export default function InstagramGrid({ posts }) {
   return (
-    <div className="w-full lg:w-2/3 overflow-y-auto">
-      <div className="bg-white p-4 rounded-xl shadow-sm h-full">
+    <div className="w-full lg:w-2/3 overflow-hidden h-full">
+      <div className="bg-dark-blue p-4 rounded-xl shadow-sm h-full">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-3xl font-semibold">Feed de Instagram</h2>
+          <h2 className="text-3xl font-semibold text-theme-primary">Feed de Instagram</h2>
           <p className="italic text-lg">@infnitekparis</p>
         </div>
 
         {/* Instagram Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full h-[90%] p-4">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="relative group aspect-square overflow-hidden rounded-md border border-gray-100"
+              className="relative group overflow-hidden rounded-md  cursor-pointer"
             >
               <img
                 src={post.image || "/placeholder.svg"}

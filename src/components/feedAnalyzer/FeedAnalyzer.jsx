@@ -5,7 +5,7 @@ import { ThumbsUp, MessageSquare } from "lucide-react";
 import useFetchData from "../../hooks/useFetch";
 import Loader from "../Loader";
 
-// Importamos los componentes refactorizados
+
 import InsightFeed from "./insightFeed";
 import InstagramFeedGrid from "./InstagramFeedGrid";
 
@@ -31,7 +31,7 @@ export default function FeedAnalyzer() {
         <Loader
           size="lg"
           color="primary"
-          text=""
+          text="Cargando..."
           fullScreen={false}
           speed="normal"
           logo={
@@ -50,7 +50,7 @@ export default function FeedAnalyzer() {
     return <div>No hay datos de posts disponibles</div>;
   if (!insightData) return <div>No hay datos de insights disponibles</div>;
 
-  // Creamos el array de posts basándonos en postData
+
   const posts = postData.map((post, index) => ({
     id: index + 1,
     image: `/data/${
@@ -82,7 +82,7 @@ export default function FeedAnalyzer() {
   }));
 
   return (
-    <div className="flex flex-row-reverse h-full gap-6">
+    <div className="flex flex-row-reverse h-full gap-6 p-4">
       <InsightFeed insightData={insightData} />
 
       <InstagramFeedGrid posts={posts} />

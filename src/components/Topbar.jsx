@@ -8,7 +8,7 @@ export default function Topbar() {
   ]
 
   return (
-    <div className="h-full px-6 flex items-center justify-between">
+    <div className="h-12 px-6 flex items-center justify-between border-b-4 border-dark-blue">
       
       {/* Left section - Navigation */}
       <div className="flex space-x-1">
@@ -19,7 +19,7 @@ export default function Topbar() {
             className={`flex items-center px-3 py-2 text-sm font-medium rounded-md ${
               item.active
                 ? "text-primary border-b-2 border-primary"
-                : "text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+                : "text-theme-gray hover:text-theme-primary hover:bg-dark-blue"
             }`}
           >
             <item.icon className="h-4 w-4 mr-1" />
