@@ -1,4 +1,5 @@
 import { Bell, Home, Calendar, Zap, PenTool } from "lucide-react"
+import ThemeToggle from "./ThemeToggle"
 
 export default function Topbar() {
   const navItems = [
@@ -34,11 +35,7 @@ export default function Topbar() {
           <Bell className="h-5 w-5" />
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
-        <div className="ml-4 relative">
-          <div className="h-8 w-8 rounded-full bg-primary text-black flex items-center justify-center">
-            <span className="text-xs font-medium">UA</span>
-          </div>
-        </div>
+        <ThemeToggle variant="icon" size="sm"/>
       </div>
     </div>
   )

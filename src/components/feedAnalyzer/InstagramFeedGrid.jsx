@@ -14,7 +14,7 @@ export default function InstagramGrid({ posts }) {
         </div>
 
         {/* Instagram Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full h-[90%] p-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full h-[90%]">
           {posts.map((post) => (
             <div
               key={post.id}

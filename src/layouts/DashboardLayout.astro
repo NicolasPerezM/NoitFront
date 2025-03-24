@@ -12,7 +12,7 @@ import Topbar from "../components/Topbar.jsx";
 	<title>DashboardLayout</title>
 </head>
 <body>
-	<div id="app" class="relative h-screen bg-theme-blue text-white">
+	<div id="app" class="relative h-screen bg-lightest dark:bg-darkest text-white">
 		<header class="[grid-area:header]"><Topbar client:load/></header>
 		<aside class="[grid-area:sidebar]"><Sidebar client:load/></aside>
 		<main class="[grid-area:content]  overflow-y-auto"><slot/></main>
