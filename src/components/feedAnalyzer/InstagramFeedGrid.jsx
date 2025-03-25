@@ -7,10 +7,10 @@ import React from "react";
 export default function InstagramGrid({ posts }) {
   return (
     <div className="w-full lg:w-2/3 overflow-hidden h-full">
-      <div className="bg-dark-blue p-4 rounded-xl shadow-sm h-full">
+      <div className="bg-theme-light dark:bg-theme-dark p-4 rounded-xl shadow-xl h-full">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-3xl font-semibold text-theme-primary">Feed de Instagram</h2>
-          <p className="italic text-lg">@infnitekparis</p>
+          <h2 className="text-3xl font-semibold text-theme-darkest dark:text-theme-light">Feed de Instagram</h2>
+          <p className="italic text-lg text-theme-primary hover:text-theme-darkest dark:text-theme-light dark:hover:text-theme-primary cursor-pointer">@infnitekparis</p>
         </div>
 
         {/* Instagram Grid */}
@@ -25,8 +25,8 @@ export default function InstagramGrid({ posts }) {
                 alt={`Post ${post.id}`}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity duration-300 flex items-center justify-center opacity-0 group-hover:opacity-70">
-                <div className="text-white text-center">
+              <div className="absolute inset-0 bg-theme-gray bg-opacity-0 group-hover:bg-opacity-10 transition-opacity duration-300 flex items-center justify-center opacity-0 group-hover:opacity-85">
+                <div className="text-theme-white text-center">
                   <div className="flex items-center justify-center space-x-4">
                     <div className="flex items-center">
                       <post.iconLikes className="h-5 w-5 mr-1" />

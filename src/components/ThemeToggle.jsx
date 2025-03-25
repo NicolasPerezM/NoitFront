@@ -50,7 +50,7 @@ export default function ThemeToggle({
   // Configuración de clases basada en el tamaño; define estilos para cada variante visual.
   const sizeMap = {
     sm: {
-      icon: "h-8 w-8 p-1.5",
+      icon: "h-6 w-6 p-1.5",
       switch: "h-6 w-12",
       button: "text-xs px-2 py-1",
     },
@@ -77,7 +77,7 @@ export default function ThemeToggle({
         aria-label={`Cambiar a modo ${theme === "light" ? "oscuro" : "claro"}`}
         title={`Cambiar a modo ${theme === "light" ? "oscuro" : "claro"}`}
         onClick={toggleTheme}
-        className={`${positionClass} ${sizeMap[size].icon} rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ${className}`}
+        className={`${positionClass} ${sizeMap[size].icon} cursor-pointer rounded-full bg-theme-gray dark:bg-theme-light dark:hover:bg-theme-darkest text-theme-white dark:text-theme-darkest  hover:bg-theme-darkest  hover:text-theme-primary transition-colors ${className}`}
       >
         {theme === "light" ? (
           <Moon className="h-full w-full" />

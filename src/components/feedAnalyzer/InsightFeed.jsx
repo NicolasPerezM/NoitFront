@@ -6,15 +6,16 @@ import React from "react";
  */
 export default function AnalysisSummary({ insightData }) {
   return (
+    
     <div className="w-full lg:w-1/3 overflow-auto pr-0 lg:pr-4">
       {/* Analysis Summary */}
-      <div className="bg-dark-blue p-4 rounded-xl shadow-sm mb-4">
-        <h3 className="text-md font-semibold mb-3 text-theme-primary">Análisis del Feed</h3>
+      <div className="bg-theme-light  dark:bg-theme-dark p-4 rounded-xl shadow-xl mb-4">
+        <h3 className="text-2xl font-semibold mb-3 text-theme-darkest dark:text-theme-light">Análisis del Feed</h3>
         <p className="text-sm  mb-4">{insightData.final_insight}</p>
 
         <div className="space-y-4">
           <div>
-            <h4 className="text-sm font-medium mb-2 text-theme-primary">Puntos Fuertes</h4>
+            <h4 className="text-sm font-medium mb-2 text-theme-darkest dark:text-theme-light ">Puntos Fuertes</h4>
             <ul className="text-sm  space-y-1 pl-5 list-disc">
               <li>Calidad visual consistente</li>
               <li>Buena respuesta en contenido de producto</li>
@@ -23,7 +24,7 @@ export default function AnalysisSummary({ insightData }) {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-theme-primary mb-2">Áreas de Mejora</h4>
+            <h4 className="text-sm font-medium text-theme-darkest dark:text-theme-light  mb-2">Áreas de Mejora</h4>
             <ul className="text-sm space-y-1 pl-5 list-disc">
               <li>Aumentar frecuencia de publicación</li>
               <li>Incorporar más llamadas a la acción</li>
@@ -34,8 +35,8 @@ export default function AnalysisSummary({ insightData }) {
       </div>
 
       {/* Additional Analysis */}
-      <div className="bg-dark-blue p-4 rounded-xl shadow-sm mb-4">
-        <h3 className="text-md font-semibold mb-3 text-theme-primary">Análisis de Contenido</h3>
+      <div className="bg-dark-blue p-4 rounded-xl shadow-sm mb-4 bg-theme-light dark:bg-theme-dark">
+        <h3 className="text-md font-semibold mb-3 text-theme-darkest dark:text-theme-light ">Análisis de Contenido</h3>
         <p className="text-sm mb-4">
           El análisis de contenido muestra que las publicaciones con personas tienen un 45% más de engagement que las
           publicaciones de solo producto.
@@ -77,8 +78,8 @@ export default function AnalysisSummary({ insightData }) {
       </div>
 
       {/* Recommendations */}
-      <div className="bg-dark-blue p-4 rounded-xl shadow-sm">
-        <h3 className="text-md font-semibold mb-3 text-theme-primary">Recomendaciones</h3>
+      <div className="bg-dark-blue p-4 rounded-xl shadow-sm bg-theme-light dark:bg-theme-dark">
+        <h3 className="text-md font-semibold mb-3 text-theme-darkest dark:text-theme-light ">Recomendaciones</h3>
         <ul className="text-sm space-y-2 pl-5 list-disc">
           <li>Aumentar la frecuencia de publicación a 3-4 veces por semana</li>
           <li>Incluir más contenido con personas usando el producto</li>

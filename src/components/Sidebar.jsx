@@ -19,12 +19,12 @@ import {
     ]
   
     return (
-      <div className="flex flex-col h-full border-r-4 border-dark-blue">
+      <div className="flex flex-col h-full border-r-2 dark:border-theme-dark border-theme-light bg-theme-light dark:bg-theme-dark">
         {/* Logo */}
         
-        <div className="flex items-center justify-center gap-2 h-12 border-b-4 border-dark-blue ">
+        <div className="flex items-center justify-center gap-2 h-14">
           <img src="/data/661173d22e87885e52d592e7_Group 73.svg" alt="" className="w-8 h-8" />
-          <span className="text-xl font-semibold text-theme-primary">MOBIUS</span>
+          <span className="text-xl font-semibold text-theme-darkest dark:text-theme-light">MOBIUS</span>
         </div>
   
         {/* Navigation */}
@@ -35,7 +35,7 @@ import {
                 <a
                   href="#"
                   className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg ${
-                    item.active ? "bg-primary text-white" : "text-theme-gray hover:bg-dark-blue hover:text-theme-primary"
+                    item.active ? "bg-primary text-white" : "text-theme-darkest dark:text-theme-light hover:bg-theme-primary hover:text-theme-white"
                   }`}
                 >
                   <item.icon className="h-5 w-5 mr-3" />

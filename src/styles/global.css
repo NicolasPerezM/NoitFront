@@ -3,8 +3,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-darkest: #111111;   /* Negro mate, el más oscuro */
-    --color-gray: #888888;       /* Gris */
-    --color-lightest: #dddddd;   /* Color más claro */
-    --color-primary: #E81840;    /* Color primario y más llamativo */
+    --color-theme-darkest: #111111;   /* Negro mate, el más oscuro */
+    --color-theme-dark: #232323;
+    --color-theme-gray: #888888;       /* Gris */
+    --color-theme-light: #dddddd;   /* Color más claro */
+    --color-theme-primary: #E81840;    /* Color primario y más llamativo */
+    --color-theme-white: #fcdee4
 }
