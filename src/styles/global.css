@@ -8,5 +8,10 @@
     --color-theme-gray: #888888;       /* Gris */
     --color-theme-light: #dddddd;   /* Color más claro */
     --color-theme-primary: #E81840;    /* Color primario y más llamativo */
-    --color-theme-white: #fcdee4
+    --color-theme-white: #fcdee4;
+    --color-theme-complementary: #18e8c0;
+    --color-theme-analogous: #e8c018;
+    --color-theme-analogous-two:#e85818;
+    --color-theme-split: #18e858;
+    --color-theme-split-two: #18a8e8;
 }
