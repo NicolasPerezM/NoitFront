@@ -3,12 +3,54 @@ import { useState } from "react"
 import GeneralAnalysis from "./GeneralAnalysis"
 import PostCard from "./PostCard"
 import TabsInstagram from "../TabsInstagram"
+import InstagramHeader from "../InstagramHeader"
+import useFetchData from "../../../hooks/useFetch"
+import Loader from "../../Loader"
+
 
 // Página principal que orquesta el análisis de posts.
 // Los datos se simulan aquí; en un entorno real se obtendrían de una API.
 export default function PostAnalyzer() {
   const [selectedAccount, setSelectedAccount] = useState("mi_cuenta")
   const [sortBy, setSortBy] = useState("date")
+
+  const {
+      data: headerData,
+      loading: headerLoading,
+      error: headerError,
+    } = useFetchData("/data/Processed_data_infinitekparis_col.json");
+
+  const {
+    data: statsData,
+    loading: statsLoading,
+    error: statsError
+  } = useFetchData("/data/instagram_statistics_infinitekparis_col.json")
+
+  if (headerLoading || statsLoading)
+      return (
+        <div className="w-full h-full flex items-center justify-center">
+          <Loader
+            size="lg"
+            color="primary"
+            text="Cargando..."
+            fullScreen={false}
+            speed="normal"
+            logo={
+              <img
+                src="/data/661173d22e87885e52d592e7_Group 73.svg"
+                alt="Logo"
+                className="object-contain h-full w-full"
+              />
+            }
+          />
+        </div>
+      );
+    if(statsError) return <div>Error en stats: {statsError.message}</div>
+    if(!statsData) return <div>No hay datos en stats</div>
+    if (headerError) return <div>Error en header: {headerError.message}</div>
+    if (!headerData) return <div>No hay datos de header disponibles</div>
+  
+    const accountData = headerData.UserInfo
 
   const accounts = [
     { id: "mi_cuenta", name: "Mi Cuenta" },
@@ -131,13 +173,16 @@ export default function PostAnalyzer() {
 
   return (
     <div className="flex flex-col space-y-4 p-4">
-      <div className="mt-4"><TabsInstagram/></div>
+      <div className="mt-4">
+        <InstagramHeader accountData={accountData}/>
+        <TabsInstagram/>
+        </div>
       <GeneralAnalysis
         posts={posts}
-        totalLikes={totalLikes}
-        totalComments={totalComments}
+        totalLikes={statsData.total_likes}
+        totalComments={statsData.total_comments}
         totalShares={totalShares}
-        avgEngagement={avgEngagement}
+        avgEngagement={statsData.avg_engagement_rate}
         topHashtags={topHashtags}
         bestPost={bestPost}
       />

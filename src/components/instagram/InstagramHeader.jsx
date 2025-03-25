@@ -3,6 +3,7 @@
 import { RefreshCw } from "lucide-react"
 
 export default function InstagramHeader({ accountData }) {
+  
   return (
     <div className="bg-theme-white dark:bg-theme-darkest shadow-xl border-t rounded-lg dark:border-theme-dark border-theme-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -16,8 +17,8 @@ export default function InstagramHeader({ accountData }) {
               />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-bold text-theme-darkest dark:text-theme dark:text-[#FF3A5E]">{accountData.fullName}</h1>
+              <div className="flex items-center gap-4">
+                <h1 className="text-3xl font-bold text-theme-darkest dark:text-theme-white">{accountData.fullName}</h1>
                 {accountData.verified && (
                   <span className="text-blue-500">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -30,23 +31,23 @@ export default function InstagramHeader({ accountData }) {
                   </span>
                 )}
               </div>
-              <p className="text-gray-600 dark:text-gray-400">@{accountData.username}</p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{accountData.businessCategory}</p>
+              <p className="text-theme-dark dark:text-theme-light italic">@{accountData.username}</p>
+              <p className="text-theme-gray text-sm mt-1">{accountData.businessCategory}</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <div className="flex flex-col items-center">
-              <span className="font-bold">{accountData.followersCount.toLocaleString()}</span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Seguidores</span>
+              <span className="font-bold text-xl">{accountData.followersCount.toLocaleString()}</span>
+              <span className="text-sm text-theme-gray">Seguidores</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-bold">{accountData.followsCount.toLocaleString()}</span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Siguiendo</span>
+              <span className="font-bold text-xl">{accountData.followsCount.toLocaleString()}</span>
+              <span className="text-sm text-theme-gray">Siguiendo</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="font-bold">{accountData.totalPosts.toLocaleString()}</span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Posts</span>
+              <span className="font-bold text-xl">{accountData.totalPosts.toLocaleString()}</span>
+              <span className="text-sm text-theme-gray">Posts</span>
             </div>
           </div>
         </div>

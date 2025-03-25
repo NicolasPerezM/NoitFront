@@ -8,24 +8,24 @@ import { BarChart2, Hash, TrendingUp, Lightbulb } from "lucide-react"
  */
 export default function generalAnalysis({ posts, totalLikes, totalComments, totalShares, avgEngagement, topHashtags, bestPost }) {
   return (
-    <div className="bg-theme-light dark:bg-theme-dark rounded-xl shadow-sm p-6">
+    <div className="bg-theme-light dark:bg-theme-dark rounded-xl border-t-1 border-b-1 border-theme-light dark:border-theme-primary shadow-sm p-6">
       <h2 className="text-xl font-bold mb-4 text-theme-darkest dark:text-theme-light">Análisis General</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <div className="bg-theme-white dark:bg-theme-darkest shadow-xl p-4 rounded-lg">
           <div className="text-sm mb-1 text-theme-darkest dark:text-theme-light font-medium">Total Likes</div>
-          <div className="text-3xl font-bold text-theme-dark dark:text-theme-light">{totalLikes}</div>
+          <div className="text-3xl font-bold text-theme-dark dark:text-theme-white">{totalLikes}</div>
         </div>
-        <div className="bg-theme-gray p-4 rounded-lg">
-          <div className="text-sm mb-1  text-theme-darkest font-medium">Total Comentarios</div>
-          <div className="text-2xl font-bold text-theme-light">{totalComments}</div>
+        <div className="bg-theme-white dark:bg-theme-darkest shadow-xl p-4 rounded-lg">
+          <div className="text-sm mb-1  text-theme-darkest dark:text-theme-light font-medium">Total Comentarios</div>
+          <div className="text-2xl font-bold text-theme-dark dark:text-theme-white">{totalComments}</div>
         </div>
-        <div className="bg-theme-gray p-4 rounded-lg">
-          <div className="text-sm mb-1 text-theme-darkest font-medium">Total Compartidos</div>
-          <div className="text-2xl font-bold text-theme-light">{totalShares}</div>
+        <div className="bg-theme-white dark:bg-theme-darkest shadow-xl p-4 rounded-lg">
+          <div className="text-sm mb-1 text-theme-darkest dark:text-theme-light font-medium">Total Compartidos</div>
+          <div className="text-2xl font-bold text-theme-dark dark:text-theme-white">{totalShares}</div>
         </div>
-        <div className="bg-theme-gray p-4 rounded-lg">
-          <div className="text-sm text-theme-darkest font-medium mb-1">Engagement Promedio</div>
-          <div className="text-2xl font-bold text-theme-white">{avgEngagement}%</div>
+        <div className="bg-theme-white dark:bg-theme-darkest shadow-xl p-4 rounded-lg">
+          <div className="text-sm text-theme-darkest dark:text-theme-light font-medium mb-1">Engagement Promedio</div>
+          <div className="text-2xl font-bold text-theme-dark dark:text-theme-white">{avgEngagement}%</div>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
