@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { ThumbsUp, MessageSquare } from "lucide-react";
-import useFetchData from "../../hooks/useFetch";
-import Loader from "../Loader";
+import useFetchData from "../../../hooks/useFetch";
+import Loader from "../../Loader";
 import TabsInstagram from "../TabsInstagram"
 
 
-import InsightFeed from "./insightFeed";
+import InsightFeed from "./InsightFeed";
 import InstagramFeedGrid from "./InstagramFeedGrid";
 
 export default function FeedAnalyzer() {
