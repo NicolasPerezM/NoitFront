@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ThumbsUp, MessageSquare } from "lucide-react";
+import { ThumbsUp, MessageSquare, Verified } from "lucide-react";
 import useFetchData from "../../../hooks/useFetch";
 import Loader from "../../Loader";
 import TabsInstagram from "../TabsInstagram"
+import InstagramHeader from "../InstagramHeader"
 
 
 import InsightFeed from "./InsightFeed";
@@ -26,7 +27,13 @@ export default function FeedAnalyzer() {
     error: insightError,
   } = useFetchData("/data/global_insights_infinitekparis_col.json");
 
-  if (postLoading || insightLoading)
+  const {
+    data: headerData,
+    loading: headerLoading,
+    error: headerError,
+  } = useFetchData("/data/Processed_data_infinitekparis_col.json");
+
+  if (postLoading || insightLoading || headerLoading)
     return (
       <div className="w-full h-full flex items-center justify-center">
         <Loader
@@ -47,10 +54,13 @@ export default function FeedAnalyzer() {
     );
   if (postError) return <div>Error en posts: {postError.message}</div>;
   if (insightError) return <div>Error en insights: {insightError.message}</div>;
+  if (headerError) return <div>Error en header: {headerError.message}</div>
   if (!postData || postData.length === 0)
     return <div>No hay datos de posts disponibles</div>;
   if (!insightData) return <div>No hay datos de insights disponibles</div>;
+  if (!headerData) return <div>No hay datos de header disponibles</div>
 
+  const accountData = headerData.UserInfo
 
   const posts = postData.map((post, index) => ({
     id: index + 1,
@@ -85,6 +95,7 @@ export default function FeedAnalyzer() {
   return (
     <div className="flex flex-col h-full gap-4 p-4 my-4">
       <div>
+        <InstagramHeader accountData={accountData}/>
         <TabsInstagram />
       </div>
       <div className="flex flex-row h-full gap-4">
