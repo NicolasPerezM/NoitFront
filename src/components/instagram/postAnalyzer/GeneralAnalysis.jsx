@@ -21,7 +21,7 @@ export default function generalAnalysis({ posts, totalLikes, totalComments, tota
           <div className="text-2xl font-bold ">{totalComments}</div>
         </div>
         <div className="bg-theme-white dark:bg-theme-darkest hover:bg-theme-split shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light dark:hover:text-theme-darkest">
-          <div className="text-sm mb-1 font-medium">Total Compartidos</div>
+          <div className="text-sm mb-1 font-medium">Tiempo de Respuesta</div>
           <div className="text-2xl font-bold ">{totalShares}</div>
         </div>
         <div className="bg-theme-white dark:bg-theme-darkest hover:bg-theme-split-two shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light dark:hover:text-theme-darkest overflow-hidden">

@@ -8,6 +8,7 @@ import useFetchData from "../../../hooks/useFetch";
 import Loader from "../../Loader";
 import EngagementTrends from "./EngagementTrends";
 import EngagementByDay from "./EngagementByDay";
+import PostTypePieChart from "./PostTypePieChart";
 
 // Página principal que orquesta el análisis de posts.
 // Los datos se simulan aquí; en un entorno real se obtendrían de una API.
@@ -51,8 +52,10 @@ export default function PostAnalyzer() {
   if (headerError) return <div>Error en header: {headerError.message}</div>;
   if (!headerData) return <div>No hay datos de header disponibles</div>;
 
-  const accountData = headerData.UserInfo;
-  const { engagement_trends, engagement_by_day_of_week } = statsData;
+  const {UserInfo, PostTypeCounts} = headerData;
+  
+  const { engagement_trends, engagement_by_day_of_week} = statsData;
+  
 
   const engagementByDayArray = Object.entries(engagement_by_day_of_week).map(
     ([day, rate]) => ({
@@ -228,16 +231,7 @@ export default function PostAnalyzer() {
   ];
 
   // Cálculo de métricas generales
-  const totalLikes = posts.reduce((sum, post) => sum + post.likes, 0);
-  const totalComments = posts.reduce((sum, post) => sum + post.comments, 0);
-  const totalShares = posts.reduce((sum, post) => sum + post.shares, 0);
-  const avgEngagement = (
-    posts.reduce((sum, post) => sum + post.engagement, 0) / posts.length
-  ).toFixed(1);
-  const bestPost = posts.reduce(
-    (best, post) => (post.engagement > best.engagement ? post : best),
-    posts[0]
-  );
+  
 
   // Cálculo de hashtags más usados en todos los posts
   const hashtagCounts = {};
@@ -254,27 +248,27 @@ export default function PostAnalyzer() {
   return (
     <div className="flex flex-col space-y-4 p-4">
       <div className="mt-4">
-        <InstagramHeader accountData={accountData} />
+        <InstagramHeader accountData={UserInfo} />
         <TabsInstagram />
       </div>
       <GeneralAnalysis
         posts={posts}
         totalLikes={statsData.total_likes}
         totalComments={statsData.total_comments}
-        totalShares={totalShares}
         avgEngagement={statsData.avg_engagement_rate}
         topHashtags={topHashtags}
-        bestPost={bestPost}
       />
-      <div className="grid grid-cols-2 grid-rows-1 gap-4">
+      <div className="grid grid-cols-2 grid-rows-2 gap-4">
         <div><EngagementTrends trends={engagement_trends} /></div>
         <div><EngagementByDay data={engagementByDayArray} /></div>
+        <div><PostTypePieChart data={PostTypeCounts} /></div>
       </div>
-      <div className="space-y-8">
+      
+      {/*<div className="space-y-8">
         {posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
-      </div>
+      </div>*/}
     </div>
   );
 }
