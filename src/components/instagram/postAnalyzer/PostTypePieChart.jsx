@@ -32,10 +32,10 @@ const PostTypePieChart = ({ data }) => {
   const COLORS = ["#e8c018", "#E81840", "#18e858"];
 
   return (
-    <section className="bg-theme-light dark:bg-theme-dark shadow rounded p-4">
+    <section className="bg-theme-light dark:bg-theme-dark shadow-xl rounded-xl border-b border-t border-theme-light dark:border-theme-primary p-4">
       {/* Título de la gráfica */}
       <h2 className="text-xl font-semibold mb-4">Distribución de Tipos de Publicación</h2>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={270}>
         <PieChart>
           <Pie
             data={postTypeData}

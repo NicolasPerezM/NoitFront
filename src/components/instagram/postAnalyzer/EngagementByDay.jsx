@@ -16,7 +16,7 @@ import {
  */
 const EngagementByDay = ({ data }) => {
   return (
-    <div className="bg-theme-light dark:bg-theme-dark shadow rounded-xl p-4">
+    <div className="bg-theme-light dark:bg-theme-dark shadow-xl border-b border-t border-theme-light dark:border-theme-primary rounded-xl p-4">
       <h2 className="text-xl font-bold mb-4">Engagement por Día de la Semana</h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart

@@ -15,7 +15,7 @@ import {
  */
 const EngagementTrends = ({ trends }) => {
   return (
-    <div className="bg-theme-light dark:bg-theme-dark shadow rounded-xl p-4">
+    <div className="bg-theme-light dark:bg-theme-dark shadow-xl rounded-xl border-b border-t border-theme-light dark:border-theme-primary p-4">
       <h2 className="text-xl font-bold mb-4">Tendencias de Engagement</h2>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart

@@ -9,6 +9,8 @@ import Loader from "../../Loader";
 import EngagementTrends from "./EngagementTrends";
 import EngagementByDay from "./EngagementByDay";
 import PostTypePieChart from "./PostTypePieChart";
+import TopPostsScatterChart from "./TopPostsScatterChart";
+import HashtagsChart from "./HashtagsChart";
 
 // Página principal que orquesta el análisis de posts.
 // Los datos se simulan aquí; en un entorno real se obtendrían de una API.
@@ -28,7 +30,13 @@ export default function PostAnalyzer() {
     error: statsError,
   } = useFetchData("/data/instagram_statistics_infinitekparis_col.json");
 
-  if (headerLoading || statsLoading)
+  const {
+    data: postsData,
+    loading: postsLoading,
+    error: postsError,
+  } = useFetchData("/data/infinitekparis_col_posts_filtered.json");
+
+  if (headerLoading || statsLoading || postsLoading)
     return (
       <div className="w-full h-full flex items-center justify-center">
         <Loader
@@ -51,11 +59,12 @@ export default function PostAnalyzer() {
   if (!statsData) return <div>No hay datos en stats</div>;
   if (headerError) return <div>Error en header: {headerError.message}</div>;
   if (!headerData) return <div>No hay datos de header disponibles</div>;
+  if (postsError) return <div>Error en posts: {postsError.message}</div>;
+  if (!postsData) return <div>No hay datos de posts disponibles</div>;
 
-  const {UserInfo, PostTypeCounts} = headerData;
-  
-  const { engagement_trends, engagement_by_day_of_week} = statsData;
-  
+  const { UserInfo, PostTypeCounts } = headerData;
+
+  const { engagement_trends, engagement_by_day_of_week, top_posts } = statsData;
 
   const engagementByDayArray = Object.entries(engagement_by_day_of_week).map(
     ([day, rate]) => ({
@@ -64,211 +73,42 @@ export default function PostAnalyzer() {
     })
   );
 
-  const accounts = [
-    { id: "mi_cuenta", name: "Mi Cuenta" },
-    { id: "cuenta2", name: "Cuenta 2" },
-    { id: "cuenta3", name: "Cuenta 3" },
-  ];
-
-  const sortOptions = [
-    { id: "date", name: "Fecha (más reciente)" },
-    { id: "engagement", name: "Engagement (mayor)" },
-    { id: "likes", name: "Likes (mayor)" },
-  ];
-
-  // Datos simulados para los posts.
-  const posts = [
-    {
-      id: 1,
-      image: "/placeholder.svg?height=500&width=500",
-      text: "Descubre nuestra nueva colección de verano. Diseños frescos y colores vibrantes para esta temporada. #ModaVerano #NuevaColección",
-      hashtags: ["ModaVerano", "NuevaColección"],
-      date: "2023-06-15",
-      time: "14:30",
-      likes: 245,
-      comments: 32,
-      shares: 18,
-      engagement: 8.2,
-      strengths: [
-        "Excelente composición visual",
-        "Buena combinación de colores",
-        "Llamada a la acción clara",
-      ],
-      improvements: [
-        "Usar más hashtags relevantes",
-        "Incluir personas usando el producto",
-      ],
-      recommendations: [
-        "Publicar contenido similar entre 14:00-16:00",
-        "Experimentar con carruseles para mostrar más productos",
-        "Incluir preguntas para aumentar comentarios",
-      ],
-      commentAnalysis: {
-        sentiment: { positive: 65, neutral: 30, negative: 5 },
-        trends: [
-          "Preguntas sobre disponibilidad",
-          "Comentarios sobre los colores",
-          "Solicitudes de más información",
-        ],
-        highlighted: [
-          {
-            text: "Me encanta la combinación de colores, ¿cuándo estará disponible?",
-            sentiment: "positive",
-            interactions: 12,
-          },
-          {
-            text: "Necesito esta colección en mi vida 😍",
-            sentiment: "positive",
-            interactions: 8,
-          },
-          {
-            text: "Los precios son muy altos para la calidad",
-            sentiment: "negative",
-            interactions: 5,
-          },
-        ],
-      },
-    },
-    {
-      id: 2,
-      image: "/placeholder.svg?height=500&width=500",
-      text: "Nuestro equipo trabajando en el nuevo proyecto. La creatividad fluye cuando trabajamos juntos. #BehindTheScenes #TeamWork",
-      hashtags: ["BehindTheScenes", "TeamWork"],
-      date: "2023-06-10",
-      time: "10:15",
-      likes: 187,
-      comments: 24,
-      shares: 9,
-      engagement: 6.1,
-      strengths: [
-        "Contenido auténtico de backstage",
-        "Muestra el lado humano de la marca",
-        "Buena narrativa",
-      ],
-      improvements: [
-        "Mejorar la iluminación",
-        "Incluir más detalles sobre el proyecto",
-      ],
-      recommendations: [
-        "Crear una serie de posts sobre el proceso creativo",
-        "Etiquetar a los miembros del equipo para ampliar alcance",
-        "Compartir más contenido de este tipo los lunes",
-      ],
-      commentAnalysis: {
-        sentiment: { positive: 75, neutral: 20, negative: 5 },
-        trends: [
-          "Preguntas sobre el equipo",
-          "Interés en el proceso creativo",
-          "Solicitudes de más contenido similar",
-        ],
-        highlighted: [
-          {
-            text: "Me encanta ver el detrás de escenas, ¡sigan compartiendo!",
-            sentiment: "positive",
-            interactions: 9,
-          },
-          {
-            text: "¿Cuántas personas trabajan en el equipo creativo?",
-            sentiment: "neutral",
-            interactions: 6,
-          },
-          {
-            text: "La iluminación podría ser mejor, se ve un poco oscuro",
-            sentiment: "negative",
-            interactions: 3,
-          },
-        ],
-      },
-    },
-    {
-      id: 3,
-      image: "/placeholder.svg?height=500&width=500",
-      text: "¿Cuál es tu favorito? A. Modelo clásico B. Modelo sport C. Modelo casual. Déjanos saber en los comentarios. #Encuesta #TuOpinionCuenta",
-      hashtags: ["Encuesta", "TuOpinionCuenta"],
-      date: "2023-06-05",
-      time: "18:45",
-      likes: 312,
-      comments: 78,
-      shares: 14,
-      engagement: 11.3,
-      strengths: [
-        "Excelente estrategia para generar comentarios",
-        "Formato de encuesta efectivo",
-        "Buena presentación de productos",
-      ],
-      improvements: ["Incluir más opciones", "Mostrar precios de cada modelo"],
-      recommendations: [
-        "Hacer encuestas semanales para mantener engagement",
-        "Crear historias destacadas con los resultados",
-        "Usar los comentarios para planificar futuro contenido",
-      ],
-      commentAnalysis: {
-        sentiment: { positive: 80, neutral: 15, negative: 5 },
-        trends: [
-          "Preferencia por el modelo casual",
-          "Preguntas sobre precios",
-          "Solicitudes de más colores",
-        ],
-        highlighted: [
-          {
-            text: "Me encanta el modelo casual, ¿viene en azul?",
-            sentiment: "positive",
-            interactions: 15,
-          },
-          {
-            text: "Todos son geniales, pero el sport es mi favorito",
-            sentiment: "positive",
-            interactions: 12,
-          },
-          {
-            text: "¿Podrían mostrar los precios? Es importante para decidir",
-            sentiment: "neutral",
-            interactions: 8,
-          },
-        ],
-      },
-    },
-  ];
-
-  // Cálculo de métricas generales
-  
-
-  // Cálculo de hashtags más usados en todos los posts
-  const hashtagCounts = {};
-  posts.forEach((post) => {
-    post.hashtags.forEach((tag) => {
-      hashtagCounts[tag] = (hashtagCounts[tag] || 0) + 1;
-    });
-  });
-  const topHashtags = Object.entries(hashtagCounts)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5)
-    .map(([tag, count]) => ({ tag, count }));
-
   return (
-    <div className="flex flex-col space-y-4 p-4">
+    <div className="flex flex-col p-4 gap-4">
       <div className="mt-4">
         <InstagramHeader accountData={UserInfo} />
         <TabsInstagram />
       </div>
+      <div className="text-3xl font-bold p-4 dark:text-theme-white">
+        <h1>Análisis General de los Posts</h1>
+      </div>
       <GeneralAnalysis
-        posts={posts}
         totalLikes={statsData.total_likes}
         totalComments={statsData.total_comments}
         avgEngagement={statsData.avg_engagement_rate}
-        topHashtags={topHashtags}
       />
-      <div className="grid grid-cols-2 grid-rows-2 gap-4">
-        <div><EngagementTrends trends={engagement_trends} /></div>
-        <div><EngagementByDay data={engagementByDayArray} /></div>
-        <div><PostTypePieChart data={PostTypeCounts} /></div>
+      <div className="grid grid-cols-6 grid-rows-2 gap-4">
+        <div className="col-span-3">
+          <EngagementTrends trends={engagement_trends} />
+        </div>
+        <div className="col-span-3 col-start-4">
+          <EngagementByDay data={engagementByDayArray} />
+        </div>
+        <div className="col-span-4 row-span-2 row-start-2 ">
+          <HashtagsChart posts={postsData} />
+        </div>
+        <div className="col-span-2 row-span-2 col-start-5 row-start-2">
+          <PostTypePieChart data={PostTypeCounts} />
+        </div>
       </div>
-      
-      {/*<div className="space-y-8">
-        {posts.map((post) => (
+      <div className="text-3xl font-bold p-4 dark:text-theme-white">
+        <h1>Posts Analizados</h1>
+      </div>
+      <div className="space-y-8">
+        {top_posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
-      </div>*/}
+      </div>
     </div>
   );
 }
