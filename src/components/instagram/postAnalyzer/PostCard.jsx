@@ -134,7 +134,7 @@ export default function PostCard({ post }) {
                   <div className="text-sm mb-1 font-medium">
                     Tiempo de Respuesta
                   </div>
-                  <div className="text-2xl font-bold ">{totalShares}</div>
+                  <div className="text-2xl font-bold ">{post.commentsCount}</div>
                 </div>
                 <div className="col-span-3 row-start-2">5</div>
               </div>
