@@ -6,7 +6,7 @@ import {
   PenTool,
   BotMessageSquare,
 } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../common/ThemeToggle";
 
 export default function Topbar() {
   const navItems = [

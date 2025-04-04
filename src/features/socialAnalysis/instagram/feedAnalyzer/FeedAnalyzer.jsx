@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { ThumbsUp, MessageSquare, Verified } from "lucide-react";
-import useFetchData from "../../../hooks/useFetch";
-import Loader from "../../Loader";
+import useFetchData from "../../../../hooks/useFetch";
+import Loader from "../../../../components/common/Loader";
 import TabsInstagram from "../TabsInstagram"
 import InstagramHeader from "../InstagramHeader"
 

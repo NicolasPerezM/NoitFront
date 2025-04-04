@@ -9,8 +9,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import CommentsStats from "./CommentsStats";
-import useFetchData from "../../../hooks/useFetch";
-import Loader from "../../Loader";
+import useFetchData from "../../../../hooks/useFetch";
+import Loader from "../../../../components/common/Loader";
 
 /**
  * PostCard – Renderiza la información de un post (usando datos de top_posts del JSON).

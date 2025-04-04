@@ -1,7 +1,7 @@
 import TabsInstagram from "../TabsInstagram";
 import InstagramHeader from "../InstagramHeader";
-import Loader from "../../Loader";
-import useFetchData from "../../../hooks/useFetch";
+import Loader from "../../../../components/common/Loader";
+import useFetchData from "../../../../hooks/useFetch";
 export default function CommentsAnalyzer() {
 
     const {
