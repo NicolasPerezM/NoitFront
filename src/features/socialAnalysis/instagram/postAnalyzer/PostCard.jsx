@@ -170,25 +170,6 @@ export default function PostCard({ post }) {
             <div className="animate-fadeIn">
               {/* Renderizamos las estadísticas de comentarios usando CommentsStats */}
               <CommentsStats comments={postComments} />
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center">
-                  <Heart className="h-5 w-5 mr-1 text-rose-500" />
-                  <span className="text-sm">{post.likesCount} Likes</span>
-                </div>
-                <div className="flex items-center">
-                  <MessageCircle className="h-5 w-5 mr-1 text-blue-500" />
-                  <span className="text-sm">{post.commentsCount} Comentarios</span>
-                </div>
-                <div className="flex items-center">
-                  <Share2 className="h-5 w-5 mr-1 text-green-500" />
-                  <span className="text-sm">{computedShares} Shares</span>
-                </div>
-              </div>
-              <div className="mt-4">
-                <p className="text-sm text-gray-700">
-                  Engagement: <strong>{(post.engagement_rate * 100).toFixed(2)}%</strong>
-                </p>
-              </div>
             </div>
           )}
         </div>

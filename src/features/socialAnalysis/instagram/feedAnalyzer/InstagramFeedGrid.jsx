@@ -6,7 +6,7 @@ import React from "react";
  */
 export default function InstagramGrid({ posts }) {
   return (
-    <div className="w-full lg:w-2/3 overflow-hidden h-full">
+    <div className="w-full lg:w-2/3 h-auto">
       <div className="bg-theme-light dark:bg-theme-dark p-4 rounded-xl shadow-xl h-full">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-3xl font-semibold text-theme-darkest dark:text-theme-light">Feed de Instagram</h2>
@@ -14,7 +14,7 @@ export default function InstagramGrid({ posts }) {
         </div>
 
         {/* Instagram Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full h-[90%]">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 w-full h-[90%]">
           {posts.map((post) => (
             <div
               key={post.id}

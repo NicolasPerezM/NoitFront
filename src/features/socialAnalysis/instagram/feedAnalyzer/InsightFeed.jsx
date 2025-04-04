@@ -7,7 +7,7 @@ import React from "react";
 export default function AnalysisSummary({ insightData }) {
   return (
     
-    <div className="w-full lg:w-1/3 overflow-auto pr-0 lg:pr-4">
+    <div className="w-full lg:w-1/3 lg:overflow-auto pr-0 lg:pr-4">
       {/* Analysis Summary */}
       <div className="bg-theme-light  dark:bg-theme-dark p-4 rounded-xl shadow-xl mb-4">
         <h3 className="text-2xl font-semibold mb-3 text-theme-darkest dark:text-theme-light">Análisis del Feed</h3>

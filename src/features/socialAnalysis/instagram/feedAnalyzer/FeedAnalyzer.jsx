@@ -94,11 +94,11 @@ export default function FeedAnalyzer() {
 
   return (
     <div className="flex flex-col h-full gap-4 p-4 my-4">
-      <div>
+      <header>
         <InstagramHeader accountData={accountData}/>
         <TabsInstagram />
-      </div>
-      <div className="flex flex-row h-full gap-4">
+      </header>
+      <div className="flex flex-col lg:flex-row h-full gap-4">
         <InstagramFeedGrid posts={posts} />
         <InsightFeed insightData={insightData} />
       </div>

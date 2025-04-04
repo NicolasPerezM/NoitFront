@@ -9,7 +9,7 @@ export default function Topbar() {
   ]
 
   return (
-    <div className="h-12 px-6 flex w-auto items-center justify-between rounded-xl shadow-md dark:border-theme-primary border-theme-light border-b-1 bg-theme-light dark:bg-theme-dark">
+    <div className="h-12 px-6 flex w-auto items-center justify-between rounded-b-xl shadow-md dark:border-theme-primary border-theme-light border-b-1 bg-theme-light dark:bg-theme-dark">
       
       {/* Left section - Navigation */}
       <div className="flex space-x-1">
