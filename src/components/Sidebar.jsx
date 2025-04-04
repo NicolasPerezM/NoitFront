@@ -1,67 +1,143 @@
+"use client";
+
+import { useState } from "react";
 import {
-    BarChart2,
-    Search,
-    TrendingUp,
-    Settings,
-    User,
-    LogOut,
-    Calendar,
-    FileText,
-    MessageCircle,
-    Globe,
-  } from "lucide-react"
-  
-  export default function Sidebar() {
-    const navItems = [
-      { id: "dashboard", name: "Dashboard General", icon: BarChart2 },
-      { id: "market", name: "Market Analysis", icon: Globe},
-      { id: "configuracion", name: "Configuración", icon: Settings },
-    ]
-  
-    return (
-      <div className="flex flex-col h-full border-r-2 dark:border-theme-dark border-theme-light bg-theme-light dark:bg-theme-dark">
-        {/* Logo */}
-        
-        <div className="flex items-center justify-center gap-2 h-14">
-          <img src="/data/661173d22e87885e52d592e7_Group 73.svg" alt="" className="w-8 h-8" />
-          <span className="text-xl font-semibold text-theme-darkest dark:text-theme-light">MOBIUS</span>
+  BarChart2,
+  Search,
+  TrendingUp,
+  Calendar,
+  ChevronDown,
+  Settings,
+  Instagram,
+  Facebook,
+  Menu,
+  X
+} from "lucide-react";
+
+// Componente principal del sidebar
+export default function Sidebar() {
+  // Estado para controlar la visibilidad del sidebar en dispositivos móviles
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Función para alternar la visibilidad del sidebar
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  // Función para cerrar el sidebar
+  const closeSidebar = () => setIsSidebarOpen(false);
+
+  return (
+    <>
+      {/* Botón de menú para abrir el sidebar en dispositivos móviles (oculto en pantallas md en adelante) */}
+      <button
+        className="fixed top-4 left-4 z-50 md:hidden"
+        onClick={toggleSidebar}
+      >
+        <Menu size={24} />
+      </button>
+
+      {/* Overlay que cierra el sidebar al hacer clic fuera (solo en móviles) */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-40 md:hidden"
+          onClick={closeSidebar}
+        ></div>
+      )}
+
+      {/* Sidebar principal */}
+      <aside
+        className={`h-screen fixed top-0 left-0 transform transition-transform duration-300 z-50 bg-theme-light dark:bg-theme-dark ${
+          // En dispositivos móviles, se oculta con -translate-x-full y se muestra cuando isSidebarOpen es true
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:static md:z-auto`}
+      >
+        {/* Botón de cierre visible solo en dispositivos móviles */}
+        <div className="md:hidden flex justify-end p-2">
+          <button onClick={closeSidebar}>
+            <X size={24} />
+          </button>
         </div>
-  
-        {/* Navigation */}
-        <nav className="flex-1 px-2 py-4 overflow-y-auto">
-          <ul className="space-y-2">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href="#"
-                  className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg ${
-                    item.active ? "bg-primary text-white" : "text-theme-darkest dark:text-theme-light hover:bg-theme-primary hover:text-theme-white"
-                  }`}
-                >
-                  <item.icon className="h-5 w-5 mr-3" />
-                  <span>{item.name}</span>
-                </a>
-              </li>
-            ))}
+        <nav className="h-full flex flex-col">
+          {/* Sección de logo y título */}
+          <div className="p-4 pb-2 flex gap-4 items-center">
+            <img
+              src="/data/661173d22e87885e52d592e7_Group 73.svg"
+              className="w-12"
+              alt="Logo"
+            />
+            <h2 className="text-2xl font-bold">Mobius</h2>
+          </div>
+          {/* Lista de elementos del menú */}
+          <ul className="flex-1 p-2 mt-4">
+            <SidebarItem
+              href="/"
+              icon={<BarChart2 />}
+              text="Estadísticas Generales"
+            />
+
+            <SidebarDropdownItem icon={<Search />} text="Redes Analizadas">
+              <SidebarItem icon={<Instagram />} text="Instagram" />
+              <SidebarItem
+                href="/subitem2"
+                icon={<Calendar />}
+                text="TikTok"
+              />
+              <SidebarItem
+                href="/subitem2"
+                icon={<Facebook />}
+                text="Facebook"
+              />
+            </SidebarDropdownItem>
+            <SidebarItem href="/" icon={<TrendingUp />} text="Comparativas" />
+            <SidebarItem href="/" icon={<Settings />} text="Calendario" />
           </ul>
         </nav>
-  
-        {/* User section 
-        <div className="p-4 border-t border-gray-200">
-          <div className="flex items-center">
-            <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-              <User className="h-5 w-5 text-gray-500" />
-            </div>
-            <div className="ml-3">
-              <p className="text-sm font-medium">Usuario</p>
-              <button className="flex items-center text-xs text-gray-500 hover:text-primary">
-                <LogOut className="h-3 w-3 mr-1" />
-                Cerrar sesión
-              </button>
-            </div>
-          </div>
-        </div>*/}
+      </aside>
+    </>
+  );
+}
+
+// Componente para un elemento individual del sidebar
+export function SidebarItem({ icon, text, active, href }) {
+  return (
+    <li>
+      <a
+        href={href}
+        className={`flex items-center gap-2 p-2 cursor-pointer truncate rounded-md font-medium 
+          hover:bg-theme-primary hover:text-white dark:hover:bg-theme-primary dark:hover:text-white 
+          ${active ? "bg-theme-primary text-white" : ""}`}
+      >
+        {icon}
+        <span>{text}</span>
+      </a>
+    </li>
+  );
+}
+
+// Componente para un elemento del sidebar que incluye un submenú desplegable
+export function SidebarDropdownItem({ icon, text, children, active }) {
+  // Estado para controlar la visibilidad del submenú
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <li>
+      {/* Elemento principal del dropdown; al hacer clic se alterna la visibilidad del submenú */}
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center gap-2 p-2 cursor-pointer truncate rounded-md font-medium 
+          hover:bg-theme-primary hover:text-white dark:hover:bg-theme-primary dark:hover:text-white 
+          ${active ? "bg-theme-primary text-white" : ""}`}
+      >
+        {icon}
+        <span>{text}</span>
+        {/* Icono de flecha que rota 180° cuando el dropdown está abierto */}
+        <ChevronDown
+          className={`ml-auto transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          size={16}
+        />
       </div>
-    )
-  }
-  
+      {/* Contenido del submenú, visible solo cuando isOpen es true */}
+      {isOpen && <ul className="ml-4 mt-2">{children}</ul>}
+    </li>
+  );
+}
