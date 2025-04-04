@@ -31,5 +31,27 @@ import Topbar from "../components/Topbar.jsx";
 	grid-template-columns: 260px 1fr;
 	grid-template-rows: 40px 1fr;;
 }
+/* Media query para pantallas pequeñas (por ejemplo, menos de 768px de ancho) */
+@media screen and (max-width: 768px) {
+	#app {
+		/* Reorganización del layout:
+		   - El header se mantiene en la parte superior.
+		   - El sidebar se muestra debajo del header.
+		   - El contenido se ubica en la parte inferior.
+		*/
+		grid-template-areas:
+			"header"
+			"sidebar"
+			"content";
+		/* Se utiliza una única columna que ocupa todo el ancho disponible */
+		grid-template-columns: 1fr;
+		/* Definición de filas:
+		   - Header: 40px
+		   - Sidebar: tamaño automático según su contenido
+		   - Content: ocupa el espacio restante
+		*/
+		grid-template-rows: 40px auto 1fr;
+	}
+}
 </style>
 

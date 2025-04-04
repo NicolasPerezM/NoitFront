@@ -47,7 +47,7 @@ export default function Sidebar() {
         className={`h-screen fixed top-0 left-0 transform transition-transform duration-300 z-50 bg-theme-light dark:bg-theme-dark ${
           // En dispositivos móviles, se oculta con -translate-x-full y se muestra cuando isSidebarOpen es true
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:static md:z-auto`}
+        } md:translate-x-0 md:static md:z-auto w-[260px]`}
       >
         {/* Botón de cierre visible solo en dispositivos móviles */}
         <div className="md:hidden flex justify-end p-2">
