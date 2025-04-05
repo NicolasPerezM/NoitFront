@@ -9,8 +9,8 @@ import Loader from "../../../../components/common/Loader";
 import EngagementTrends from "./EngagementTrends";
 import EngagementByDay from "./EngagementByDay";
 import PostTypePieChart from "./PostTypePieChart";
-import TopPostsScatterChart from "./TopPostsScatterChart";
 import HashtagsChart from "./HashtagsChart";
+
 
 // Página principal que orquesta el análisis de posts.
 // Los datos se simulan aquí; en un entorno real se obtendrían de una API.
@@ -35,6 +35,9 @@ export default function PostAnalyzer() {
     loading: postsLoading,
     error: postsError,
   } = useFetchData("/data/infinitekparis_col_posts_filtered.json");
+
+
+
 
   if (headerLoading || statsLoading || postsLoading)
     return (

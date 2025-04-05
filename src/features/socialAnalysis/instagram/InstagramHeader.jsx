@@ -5,7 +5,7 @@ import { RefreshCw } from "lucide-react"
 export default function InstagramHeader({ accountData }) {
   
   return (
-    <div className="bg-theme-white dark:bg-theme-darkest shadow-xl border-t rounded-t-lg dark:border-theme-dark border-theme-light">
+    <div className="bg-theme-white dark:bg-theme-darkest shadow-xl border-t rounded-t-lg dark:border-theme-primary border-theme-light">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-4">

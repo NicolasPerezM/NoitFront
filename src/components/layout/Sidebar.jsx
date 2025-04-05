@@ -87,7 +87,7 @@ export default function Sidebar() {
               />
             </SidebarDropdownItem>
             <SidebarItem href="/" icon={<TrendingUp />} text="Comparativas" />
-            <SidebarItem href="/" icon={<Settings />} text="Calendario" />
+            <SidebarItem href="/" icon={<Settings />} text="Ajustes" />
           </ul>
         </nav>
       </aside>
@@ -101,7 +101,7 @@ export function SidebarItem({ icon, text, active, href }) {
     <li>
       <a
         href={href}
-        className={`flex items-center gap-2 p-2 cursor-pointer truncate rounded-md font-medium 
+        className={`flex items-center gap-2 p-2 cursor-pointer truncate rounded-md text-md font-medium 
           hover:bg-theme-primary hover:text-white dark:hover:bg-theme-primary dark:hover:text-white 
           ${active ? "bg-theme-primary text-white" : ""}`}
       >
@@ -122,7 +122,7 @@ export function SidebarDropdownItem({ icon, text, children, active }) {
       {/* Elemento principal del dropdown; al hacer clic se alterna la visibilidad del submenú */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 p-2 cursor-pointer truncate rounded-md font-medium 
+        className={`flex items-center text-md gap-2 p-2 cursor-pointer truncate rounded-md font-medium 
           hover:bg-theme-primary hover:text-white dark:hover:bg-theme-primary dark:hover:text-white 
           ${active ? "bg-theme-primary text-white" : ""}`}
       >

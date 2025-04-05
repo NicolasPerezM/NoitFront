@@ -11,6 +11,7 @@ import {
 import CommentsStats from "./CommentsStats";
 import useFetchData from "../../../../hooks/useFetch";
 import Loader from "../../../../components/common/Loader";
+import { SentimentsByPostChart } from "../commentsAnalyzer/SentimentsByPostChart";
 
 /**
  * PostCard – Renderiza la información de un post (usando datos de top_posts del JSON).
@@ -19,11 +20,27 @@ import Loader from "../../../../components/common/Loader";
  */
 export default function PostCard({ post }) {
   // Se llaman todos los hooks incondicionalmente
-  const { data: commentsData, loading: commentsLoading, error: commentsError } = useFetchData("/data/Processed_Comments_data_infinitekparis_col.json");
+  const {
+    data: commentsData,
+    loading: commentsLoading,
+    error: commentsError,
+  } = useFetchData("/data/Processed_Comments_data_infinitekparis_col.json");
+
+  const {
+    data: sentimentsData,
+    loading: sentimentsLoading,
+    error: sentimentsError,
+  } = useFetchData("/data/Sentiment_data_infinitekparis_col.json");
+  const {
+    data: postData,
+    loading: postLoading,
+    error: postError,
+  } = useFetchData("/data/infinitekparis_col_posts.json");
+
   const [activeTab, setActiveTab] = useState("analysis");
 
   // Manejo de estados de carga y error, pero dentro del render (no retornando antes de llamar a hooks)
-  if (commentsLoading) {
+  if (commentsLoading || sentimentsLoading || postLoading) {
     return (
       <div className="w-full h-full flex items-center justify-center">
         <Loader size="lg" color="primary" />
@@ -47,10 +64,73 @@ export default function PostCard({ post }) {
     );
   }
 
+  if (sentimentsError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <p>Error al cargar los sentimientos</p>
+      </div>
+    );
+  }
+
+  if (!sentimentsData) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <p>No se encontraron comentarios</p>
+      </div>
+    );
+  }
+
+  if (postError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <p>Error al cargar los sentimientos</p>
+      </div>
+    );
+  }
+
+  if (!postData) {
+    return (
+      <div className="w-full h-full flex items-center justify-center">
+        <p>No se encontraron comentarios</p>
+      </div>
+    );
+  }
+
+  const postsImg = postData.map((post, index) => ({
+    id: index + 1,
+    image: `/data/${
+      index === 0
+        ? "ad91b300ace666c49adef8b341594b9e.jpeg"
+        : index === 1
+        ? "3dc49cee2e13559e70a1edab1858771e.jpeg"
+        : index === 2
+        ? "5d8fb97a8ceb691cdbd926217c029701.jpeg"
+        : index === 3
+        ? "774a725701ce6eb078b4b3d1fe4c5348.jpeg"
+        : index === 4
+        ? "74829a8a5f44228a1c976b49dcde22ff.jpeg"
+        : index === 5
+        ? "c5213c928a54051921ce726817234f5d.jpeg"
+        : index === 6
+        ? "d03bdf0ae811eae983f8a39cecd86b8b.jpeg"
+        : index === 7
+        ? "dfc5895f5f6953cf95cf4fbc03333f36.jpeg"
+        : index === 8
+        ? "f178ff804ad9fcfe765c7d77e82151fc.jpeg"
+        : "placeholder.svg"
+    }`,
+    likes: post.likesCount,
+    comments: post.commentsCount,
+  }));
+  
+
   // Filtramos el objeto de comentarios que corresponde a este post (usando post.id y la propiedad postId)
-  const postCommentsData = commentsData.filter(item => item.postId === post.id);
+  const postCommentsData = commentsData.filter(
+    (item) => item.postId === post.id
+  );
   // Asumimos que cada post tiene un único objeto de comentarios; de ser así, usamos el primero
-  const postComments = postCommentsData.length > 0 ? postCommentsData[0].comments : [];
+  const postComments =
+    postCommentsData.length > 0 ? postCommentsData[0].comments : [];
 
   // Convertimos el timestamp a un objeto Date para obtener fecha y hora
   const postDateObj = new Date(post.timestamp);
@@ -61,7 +141,10 @@ export default function PostCard({ post }) {
   const hashtags = post.caption.match(/#[\w]+/g) || [];
 
   // Calculamos el número de shares (asegurando que no sea negativo)
-  const computedShares = Math.max(0, post.total_interactions - (post.likesCount + post.commentsCount));
+  const computedShares = Math.max(
+    0,
+    post.total_interactions - (post.likesCount + post.commentsCount)
+  );
 
   return (
     <div className="bg-theme-light dark:bg-theme-dark rounded-xl shadow-xl border-t-1 border-b-1 border-theme-light dark:border-theme-primary overflow-hidden">
@@ -70,11 +153,19 @@ export default function PostCard({ post }) {
         <div className="md:w-1/3 p-4 border-b md:border-b-0 md:border-r border-theme-light dark:border-theme-primary">
           <div className="aspect-square rounded-lg overflow-hidden mb-4">
             {/* Al no contar con imagen en el JSON, se usa siempre un placeholder */}
-            <img
-              src="/placeholder.svg"
-              alt={`Post ${post.id}`}
-              className="w-full h-full object-cover"
-            />
+            {postsImg.map((postImg, index) => (
+              <div
+                key={index}
+                className="aspect-square rounded-lg overflow-hidden"
+              >
+                <img
+                  src={postImg.image}
+                  alt={`Post ${postImg.id}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+            
           </div>
           <div className="space-y-3">
             {/* Se muestra una versión breve del caption */}
@@ -153,11 +244,15 @@ export default function PostCard({ post }) {
                   <div className="text-xl font-bold">{post.likesCount}</div>
                 </div>
                 <div className="bg-theme-white dark:bg-theme-darkest hover:bg-theme-complementary shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light dark:hover:text-theme-darkest">
-                  <div className="text-sm mb-1 font-medium">Total Comentarios</div>
+                  <div className="text-sm mb-1 font-medium">
+                    Total Comentarios
+                  </div>
                   <div className="text-2xl font-bold">{post.commentsCount}</div>
                 </div>
                 <div className="bg-theme-white dark:bg-theme-darkest hover:bg-theme-split shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light dark:hover:text-theme-darkest">
-                  <div className="text-sm mb-1 font-medium">Tiempo de Respuesta</div>
+                  <div className="text-sm mb-1 font-medium">
+                    Tiempo de Respuesta
+                  </div>
                   <div className="text-2xl font-bold">{post.commentsCount}</div>
                 </div>
               </div>
