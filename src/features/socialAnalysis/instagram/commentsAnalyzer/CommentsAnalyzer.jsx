@@ -61,13 +61,18 @@ export default function CommentsAnalyzer() {
     <div className="p-4 mt-4">
       <InstagramHeader accountData={accountData} />
       <TabsInstagram />
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-center mt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-7 lg:grid-rows-3 gap-4 mt-4">
         <div className="lg:col-span-3">
           <SentimentsByPostChart sentimentsData={sentimentsData} />
         </div>
         <div className="lg:col-span-2 lg:col-start-4">
-          <OverallEmotionChart emotionData={emotionData} /> 
+          <OverallEmotionChart emotionData={emotionData} />
         </div>
+        <div className="lg:col-span-2 lg:row-span-2 lg:col-start-6 p-4 bg-theme-light dark:bg-theme-dark shadow-xl rounded-lg border-b border-t border-theme-light dark:border-theme-primary">
+          <img  src="/data/output.png" alt="placeholder" />
+        </div>
+        <div className="lg:col-span-5 lg:row-start-2 p-4 bg-theme-light dark:bg-theme-dark shadow-xl rounded-lg border-b border-t border-theme-light dark:border-theme-primary">4</div>
+        <div className="lg:col-span-7 lg:row-start-3 p-4 bg-theme-light dark:bg-theme-dark shadow-xl rounded-lg border-b border-t border-theme-light dark:border-theme-primary">6</div>
       </div>
     </div>
   );

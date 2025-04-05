@@ -3,7 +3,7 @@ import { Bell, Home, Calendar, Zap, PenTool, ChartArea, ImageUp, GalleryThumbnai
 
 export default function Topbar() {
   const navItems = [
-    { id: "settings", name: "Análisis General", icon: ChartArea, href: "/settings" },
+    { id: "settings", name: "Análisis General", icon: ChartArea, href: "/generalStats" },
     { id: "feed", name: "Análisis del Feed", icon: ImageUp, href: "/feedAnalyzer" },
     { id: "post", name: "Análisis de Posts", icon: GalleryThumbnails, href: "/postAnalyzer" },
     { id: "comments", name: "Análisis de Comentarios", icon: MessageCircle, href: "/commentsAnalyzer" }, 
