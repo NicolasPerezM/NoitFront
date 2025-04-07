@@ -10,7 +10,7 @@ export default function AnalysisSummary({ insightData }) {
     <div className="w-full lg:w-1/3 lg:overflow-auto pr-0 lg:pr-4">
       {/* Analysis Summary */}
       <div className="bg-theme-light  dark:bg-theme-dark p-4 rounded-xl shadow-xl mb-4">
-        <h3 className="text-2xl font-semibold mb-3 text-theme-darkest dark:text-theme-light">Análisis del Feed</h3>
+        <h3 className="text-2xl font-semibold mb-3 text-theme-darkest dark:text-theme-light font-orbitron">Análisis del Feed</h3>
         <p className="text-sm  mb-4">{insightData.final_insight}</p>
 
         <div className="space-y-4">
