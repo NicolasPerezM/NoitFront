@@ -6,6 +6,7 @@ import useFetchData from "../../../../hooks/useFetch";
 import Loader from "../../../../components/common/Loader";
 import TabsInstagram from "../TabsInstagram"
 import InstagramHeader from "../InstagramHeader"
+import { Button } from "@/components/ui/button"
 
 
 import InsightFeed from "./InsightFeed";

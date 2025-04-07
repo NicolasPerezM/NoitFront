@@ -16,15 +16,20 @@
     "@fontsource-variable/sora": "^5.2.5",
     "@fontsource-variable/syne": "^5.2.5",
     "@fontsource/barlow": "^5.2.5",
+    "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/vite": "^4.0.14",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "astro": "^5.5.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "flowbite-react": "^0.11.7",
     "lucide-react": "^0.482.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^2.15.1",
-    "tailwindcss": "^4.0.14"
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.0.14",
+    "tw-animate-css": "^1.2.5"
   }
 }
