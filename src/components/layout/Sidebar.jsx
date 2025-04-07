@@ -63,7 +63,7 @@ export default function Sidebar() {
               className="w-12"
               alt="Logo"
             />
-            <h2 className="text-2xl font-bold">Mobius</h2>
+            <h2 className="text-2xl font-bold font-display">Mobius</h2>
           </div>
           {/* Lista de elementos del menú */}
           <ul className="flex-1 p-2 mt-4">
@@ -102,7 +102,7 @@ export function SidebarItem({ icon, text, active, href }) {
       <a
         href={href}
         className={`flex items-center gap-2 p-2 cursor-pointer truncate rounded-md text-md font-medium 
-          hover:bg-theme-primary hover:text-white dark:hover:bg-theme-primary dark:hover:text-white 
+          hover:bg-theme-primary hover:text-theme-darkest dark:hover:bg-theme-primary dark:hover:text-white 
           ${active ? "bg-theme-primary text-white" : ""}`}
       >
         {icon}
@@ -123,7 +123,7 @@ export function SidebarDropdownItem({ icon, text, children, active }) {
       <div
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center text-md gap-2 p-2 cursor-pointer truncate rounded-md font-medium 
-          hover:bg-theme-primary hover:text-white dark:hover:bg-theme-primary dark:hover:text-white 
+          hover:bg-theme-primary hover:text-theme-darkest dark:hover:bg-theme-primary dark:hover:text-white 
           ${active ? "bg-theme-primary text-white" : ""}`}
       >
         {icon}

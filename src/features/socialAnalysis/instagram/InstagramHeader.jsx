@@ -18,7 +18,7 @@ export default function InstagramHeader({ accountData }) {
             </div>
             <div>
               <div className="flex items-center gap-4">
-                <h1 className="text-3xl font-bold text-theme-darkest dark:text-theme-white">{accountData.fullName}</h1>
+                <h1 className="text-3xl font-bold text-theme-darkest dark:text-theme-white font-display">{accountData.fullName}</h1>
                 {accountData.verified && (
                   <span className="text-blue-500">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -31,7 +31,7 @@ export default function InstagramHeader({ accountData }) {
                   </span>
                 )}
               </div>
-              <p className="text-theme-dark dark:text-theme-light italic">@{accountData.username}</p>
+              <p className="text-theme-dark dark:text-theme-light">@{accountData.username}</p>
               <p className="text-theme-gray text-sm mt-1">{accountData.businessCategory}</p>
             </div>
           </div>

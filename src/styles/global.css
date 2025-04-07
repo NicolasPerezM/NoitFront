@@ -4,16 +4,27 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face {
+    font-family: 'Britanica';
+    src: url('/src/assets/fonts/Britanica-Heavy-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+  }
+
 @theme {
     --color-theme-darkest: #111111;   /* Negro mate, el más oscuro */
     --color-theme-dark: #232323;
     --color-theme-gray: #888888;       /* Gris */
-    --color-theme-light: #dddddd;   /* Color más claro */
-    --color-theme-primary: #E81840;    /* Color primario y más llamativo */
-    --color-theme-white: #fcdee4;
-    --color-theme-complementary: #18e8c0;
-    --color-theme-analogous: #e8c018;
+    --color-theme-light: #ffffff;   /* Color más claro */
+    --color-theme-primary: /*#E81840*/  #C9FE6E;    /* Color primario y más llamativo */
+    --color-theme-white: #ffffff;
+    --color-theme-complementary: /*#18e8c0*/ #B2ABF2;
+    --color-theme-analogous: /*#e8c018*/ #FCBA04;
     --color-theme-analogous-two:#e85818;
-    --color-theme-split: #18e858;
-    --color-theme-split-two: #18a8e8;
+    --color-theme-split: /*#18e858*/ #9EE493;
+    --color-theme-split-two: /*#18a8e8*/ #016FB9;
+    --font-display: "Britanica"; 
 }
+
+
+
