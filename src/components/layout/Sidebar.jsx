@@ -63,7 +63,7 @@ export default function Sidebar() {
               className="w-12"
               alt="Logo"
             />
-            <h2 className="text-2xl font-bold font-display">Mobius</h2>
+            <h2 className="text-2xl font-bold font-barlow">Mobius</h2>
           </div>
           {/* Lista de elementos del menú */}
           <ul className="flex-1 p-2 mt-4">

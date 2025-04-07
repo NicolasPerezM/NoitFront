@@ -4,12 +4,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
-    font-family: 'Britanica';
-    src: url('/src/assets/fonts/Britanica-Heavy-Regular.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-  }
 
 @theme {
     --color-theme-darkest: #111111;   /* Negro mate, el más oscuro */
@@ -23,8 +17,8 @@
     --color-theme-analogous-two:#e85818;
     --color-theme-split: /*#18e858*/ #9EE493;
     --color-theme-split-two: /*#18a8e8*/ #016FB9;
-    --font-display: "Britanica"; 
+    --font-sora: 'Sora Variable', sans-serif;
+    --font-syne: 'Syne Variable', sans-serif;
+    --font-orbitron: 'Orbitron Variable', sans-serif;
+    --font-inter: 'Inter Variable', sans-serif;
 }
-
-
-

@@ -2,6 +2,21 @@
 import "../styles/global.css";
 import Sidebar from "../components/layout/Sidebar.jsx";
 import Topbar from "../components/layout/Topbar.jsx";
+import '@fontsource/barlow/400.css';
+import '@fontsource/barlow/500.css';
+import '@fontsource/barlow/700.css';
+import '@fontsource/barlow/900.css';
+// Supports weights 400-800
+import '@fontsource-variable/syne';
+
+// Supports weights 100-900
+import '@fontsource-variable/inter';
+
+// Supports weights 100-800
+import '@fontsource-variable/sora';
+
+// Supports weights 400-900
+import '@fontsource-variable/orbitron';
 ---
 
 <!doctype html>
@@ -10,14 +25,11 @@ import Topbar from "../components/layout/Topbar.jsx";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DashboardLayout</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sarala:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div
       id="app"
-      class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-[Inter]"
+      class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-inter"
     >
       <header class="[grid-area:header]"><Topbar client:load /></header>
       <aside class="[grid-area:sidebar]">
