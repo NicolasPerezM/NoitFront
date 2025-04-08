@@ -77,12 +77,14 @@ export default function PostAnalyzer() {
   );
 
   return (
-    <div className="flex flex-col p-4 gap-4">
+    <div className="flex flex-col px-4 gap-4">
       <div className="mt-4">
+      
         <InstagramHeader accountData={UserInfo} />
         <TabsInstagram />
+        
       </div>
-      <div className="text-3xl lg:text-4xl font-sora font-medium p-4 dark:text-theme-white">
+      <div className="text-3xl font-sora font-medium p-4 dark:text-theme-white">
         <h1>Análisis General de los Posts</h1>
       </div>
       <GeneralAnalysis

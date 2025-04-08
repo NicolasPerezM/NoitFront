@@ -3,28 +3,28 @@ import { Bell, Home, Calendar, Zap, PenTool, ChartArea, ImageUp, GalleryThumbnai
 
 export default function Topbar() {
   const navItems = [
-    { id: "settings", name: "Análisis General", icon: ChartArea, href: "/generalStats" },
+    { id: "settings", name: "Análisis General", icon: ChartArea, href: "/generalStats", active: true },
     { id: "feed", name: "Análisis del Feed", icon: ImageUp, href: "/feedAnalyzer" },
     { id: "post", name: "Análisis de Posts", icon: GalleryThumbnails, href: "/postAnalyzer" },
     { id: "comments", name: "Análisis de Comentarios", icon: MessageCircle, href: "/commentsAnalyzer" }, 
   ]
 
   return (
-    <div className="h-12 flex px-4 py-8 items-center justify-between rounded-b-xl shadow-md dark:border-theme-primary border-theme-light border-b-1 bg-theme-light dark:bg-theme-dark">
+    <div className="h-12 w-[300px] md:w-[700px] flex py-2 items-center rounded-md justify-between">
       
       {/* Left section - Navigation */}
-      <div className="flex space-x-1 truncate">
+      <div className="flex space-x-1 truncate font-inter">
         {navItems.map((item) => (
           <a
             key={item.id}
             href={item.href}
-            className={`flex items-center px-3 py-2 text-md font-medium rounded-md ${
+            className={`flex items-center h-full px-3 py-3 text-sm font-medium rounded-md ${
               item.active
-                ? "text-primary border-b-2 border-primary"
-                : "text-theme-darkest hover:text-theme-white hover:bg-theme-primary dark:text-theme-light"
+                ? "bg-theme-light dark:bg-card"
+                : "text-theme-darkest hover:bg-theme-light dark:hover:bg-card dark:text-theme-light"
             }`}
           >
-            <item.icon className="h-6 w-6 mr-2" />
+            <item.icon className="h-4 w-4 mr-2" />
             {item.name}
           </a>
         ))}
