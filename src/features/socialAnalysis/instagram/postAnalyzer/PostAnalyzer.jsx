@@ -82,7 +82,7 @@ export default function PostAnalyzer() {
         <InstagramHeader accountData={UserInfo} />
         <TabsInstagram />
       </div>
-      <div className="text-3xl font-bold p-4 dark:text-theme-white">
+      <div className="text-3xl lg:text-4xl font-sora font-medium p-4 dark:text-theme-white">
         <h1>Análisis General de los Posts</h1>
       </div>
       <GeneralAnalysis
