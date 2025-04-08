@@ -1,24 +1,16 @@
 ---
 import "../styles/global.css";
 import Sidebar from "../components/layout/Sidebar.jsx";
-import Topbar from "../components/layout/Topbar.jsx";
 import '@fontsource/barlow/400.css';
 import '@fontsource/barlow/500.css';
 import '@fontsource/barlow/700.css';
 import '@fontsource/barlow/900.css';
 // Supports weights 400-800
 import '@fontsource-variable/syne';
-
-// Supports weights 100-900
 import '@fontsource-variable/inter';
-
-// Supports weights 100-800
 import '@fontsource-variable/sora';
-
-// Supports weights 400-900
 import '@fontsource-variable/orbitron';
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -31,44 +23,31 @@ import '@fontsource-variable/orbitron';
       id="app"
       class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-inter"
     >
-      <header class="[grid-area:header]"><Topbar client:load /></header>
-      <aside class="[grid-area:sidebar]">
-        <Sidebar client:load />
+      <aside class="[grid-area:sidebar] overflow-y-auto">
+        <Sidebar client:load>
+          <slot />
+        </Sidebar>
       </aside>
-      <main class="[grid-area:content] overflow-y-auto"><slot /></main>
     </div>
   </body>
 </html>
+
 <style>
   #app {
     display: grid;
     overflow: hidden;
     grid-template-areas:
-      "sidebar header header"
-      "sidebar content content";
-    grid-template-columns: 260px 1fr;
-    grid-template-rows: 40px 1fr;
+      "sidebar";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
-  /* Media query para pantallas pequeñas (por ejemplo, menos de 768px de ancho) */
+
   @media screen and (max-width: 768px) {
     #app {
-      /* Reorganización del layout:
-		   - El header se mantiene en la parte superior.
-		   - El sidebar se muestra debajo del header.
-		   - El contenido se ubica en la parte inferior.
-		*/
       grid-template-areas:
-        "header"
-        "sidebar"
-        "content";
-      /* Se utiliza una única columna que ocupa todo el ancho disponible */
+        "sidebar";
       grid-template-columns: 1fr;
-      /* Definición de filas:
-		   - Header: 40px
-		   - Sidebar: tamaño automático según su contenido
-		   - Content: ocupa el espacio restante
-		*/
-      grid-template-rows: 40px auto 1fr;
+      grid-template-rows: 1fr;
     }
   }
 </style>
