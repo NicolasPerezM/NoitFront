@@ -5,12 +5,13 @@ import {
   Command,
   Frame,
   LifeBuoy,
-  Map,
+  FileChartColumn,
   PieChart,
   Send,
   Settings2,
   SquareTerminal,
-  Share2
+  Share2,
+  GitCompareArrows
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -35,6 +36,11 @@ const data = {
   },
   navMain: [
     {
+      title: "Análisis General",
+      url: "#",
+      icon: FileChartColumn,
+    },
+    {
       title: "Redes Analizadas",
       url: "#",
       icon: Share2,
@@ -55,74 +61,19 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Comparativas",
       url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
+      icon: GitCompareArrows,
     },
     {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
+      title: "Ajustes",
       url: "#",
       icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
     },
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "Soporte",
       url: "#",
       icon: LifeBuoy,
     },
@@ -154,6 +105,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
+      collapsible="icon"
       className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
       {...props}
     >
@@ -166,7 +118,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Command className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
+                  <span className="truncate font-medium text-xl">Mobius</span>
                   <span className="truncate text-xs">Enterprise</span>
                 </div>
               </a>
@@ -176,12 +128,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/*<NavProjects projects={data.projects} />*/}
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
+      {<SidebarFooter>
         <NavUser user={data.user} />
-      </SidebarFooter>
+      </SidebarFooter>}
     </Sidebar>
   )
 }

@@ -5,6 +5,14 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face{
+  font-family: 'Britanica';
+  src: url('/fonts/Britanica-Heavy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
     --color-theme-darkest: #111111;   /* Negro mate, el más oscuro */
     --color-theme-dark: #232323;
@@ -21,6 +29,7 @@
     --font-syne: 'Syne Variable', sans-serif;
     --font-orbitron: 'Orbitron Variable', sans-serif;
     --font-inter: 'Inter Variable', sans-serif;
+    --font-britanica: 'Britanica', sans-serif;
 }
 
 @theme inline {
