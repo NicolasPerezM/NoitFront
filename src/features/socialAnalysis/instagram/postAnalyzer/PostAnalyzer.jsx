@@ -8,8 +8,8 @@ import useFetchData from "../../../../hooks/useFetch";
 import Loader from "../../../../components/common/Loader";
 import EngagementTrends from "./EngagementTrends";
 import EngagementByDay from "./EngagementByDay.tsx";
-import PostTypePieChart from "./PostTypePieChart";
-import HashtagsChart from "./HashtagsChart";
+import PostTypePieChart from "./PostTypePieChart.tsx";
+import HashtagsChart from "./HashtagsChart.tsx";
 import { AnalysisTabs } from "../analysis-tabs";
 
 
@@ -89,42 +89,42 @@ export default function PostAnalyzer() {
         totalComments={statsData.total_comments}
         avgEngagement={statsData.avg_engagement_rate}
       />
-      <div className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-4">
   {/* 
     Sección: Engagement Trends
     Descripción: Visualiza las tendencias de engagement en la aplicación.
     En pantallas grandes, ocupa 3 de 6 columnas.
   */}
-  <div className="lg:col-span-3">
+  
     <EngagementTrends trends={engagement_trends} />
-  </div>
+  
 
   {/* 
     Sección: Engagement by Day
     Descripción: Muestra el engagement distribuido por día.
     En pantallas grandes, se posiciona a partir de la columna 4 y ocupa 3 columnas.
   */}
-  <div className="lg:col-span-3 lg:col-start-4">
+  
     <EngagementByDay data={engagementByDayArray} />
-  </div>
+  
 
   {/* 
     Sección: Hashtags Chart
     Descripción: Representa visualmente el uso de hashtags. 
     En pantallas grandes, ocupa 4 columnas y se extiende a dos filas a partir de la segunda fila.
   */}
-  <div className="lg:col-span-4 lg:row-span-2 lg:row-start-2">
+  
     <HashtagsChart posts={postsData} />
-  </div>
+  
 
   {/* 
     Sección: Post Type Pie Chart
     Descripción: Presenta la distribución de tipos de publicaciones en formato de gráfico circular.
     En pantallas grandes, ocupa 2 columnas y se extiende a dos filas, iniciando en la quinta columna de la segunda fila.
   */}
-  <div className="lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:row-start-2">
+  
     <PostTypePieChart data={PostTypeCounts} />
-  </div>
+  
 </div>
 
       <div className="text-3xl font-bold p-4 dark:text-theme-white">
