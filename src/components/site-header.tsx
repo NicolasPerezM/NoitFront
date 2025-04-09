@@ -18,7 +18,7 @@ export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
 
   return (
-    <header className="bg-background sticky top-0 z-50 flex w-full items-center border-b">
+    <header className="bg-background sticky top-0 z-50 flex w-full items-center">
       <div className="flex h-(--header-height) w-full items-center justify-between gap-2 px-8">
         <div className="flex items-center gap-4 h-full">
           <Button

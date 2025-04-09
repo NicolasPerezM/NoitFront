@@ -31,7 +31,7 @@ export default function generalAnalysis({
   return (
     <div className="">
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="bg-theme-white transition delay-30 dark:bg-theme-darkest shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light">
+        <Card className="bg-theme-white transition delay-30 dark:bg-card shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light">
           <CardHeader className="flex flex-row items-center">
             <CardTitle className="text-md">Likes Totales</CardTitle>
           </CardHeader>
