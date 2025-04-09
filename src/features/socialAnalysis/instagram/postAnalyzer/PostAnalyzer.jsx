@@ -2,7 +2,7 @@
 import { useState } from "react";
 import GeneralAnalysis from "./GeneralAnalysis";
 import PostCard from "./PostCard";
-import TabsInstagram from "../TabsInstagram";
+
 import InstagramHeader from "../InstagramHeader";
 import useFetchData from "../../../../hooks/useFetch";
 import Loader from "../../../../components/common/Loader";
@@ -10,6 +10,7 @@ import EngagementTrends from "./EngagementTrends";
 import EngagementByDay from "./EngagementByDay";
 import PostTypePieChart from "./PostTypePieChart";
 import HashtagsChart from "./HashtagsChart";
+import { AnalysisTabs } from "../analysis-tabs";
 
 
 // Página principal que orquesta el análisis de posts.
@@ -79,10 +80,6 @@ export default function PostAnalyzer() {
   return (
     <div className="flex flex-col px-4 gap-4">
       <div className="mt-4">
-      
-        <InstagramHeader accountData={UserInfo} />
-        <TabsInstagram />
-        
       </div>
       <div className="text-3xl font-sora font-medium p-4 dark:text-theme-white">
         <h1>Análisis General de los Posts</h1>

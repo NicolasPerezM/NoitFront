@@ -1,0 +1,10 @@
+---
+import DashboardLayout from "../layouts/DashboardLayout.astro";
+import InstagramAccountAnalysis from "../features/socialAnalysis/instagram/account-analysis.tsx"
+import InstagramHeader  from "../features/socialAnalysis/instagram/InstagramHeader";
+---
+
+<DashboardLayout>
+    <InstagramHeader client:load/>
+    <InstagramAccountAnalysis client:load/>
+</DashboardLayout>

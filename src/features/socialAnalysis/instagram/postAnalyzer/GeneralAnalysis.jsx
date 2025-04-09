@@ -8,12 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import {
-  ThumbsUp,
-  MessageSquareMore,
-  FolderSync,
-  ChartNetwork,
-} from "lucide-react";
+import { MetricCard } from "@/components/metric-card";
+import { ThumbsUp, MessageSquare, Timer, BarChart3 } from "lucide-react"
 
 /**
  * Componente que muestra el análisis general del feed, incluyendo métricas,
@@ -29,44 +25,28 @@ export default function generalAnalysis({
   bestPost,
 }) {
   return (
-    <div className="">
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="bg-theme-white transition delay-30 dark:bg-card shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light">
-          <CardHeader className="flex flex-row items-center">
-            <CardTitle className="text-md">Likes Totales</CardTitle>
-          </CardHeader>
-          <CardContent className="flex items-center gap-4">
-            <div className="text-4xl font-sora font-bold">{totalLikes}</div>
-            <ThumbsUp className="w-7 h-7 lg:w-9 lg:h-9 ml-2 text-theme-gray" />
-          </CardContent>
-        </Card>
-        <Card className="bg-theme-white transition delay-30 dark:bg-theme-darkest shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light">
-          <CardHeader className="flex flex-row items-center">
-            <CardTitle className="text-md">Comentarios Totales</CardTitle>
-          </CardHeader>
-          <CardContent className="flex items-center gap-4">
-            <div className="text-4xl font-sora font-bold">{totalComments}</div>
-            <MessageSquareMore className="w-9 h-9 ml-2 text-theme-gray" />
-          </CardContent>
-        </Card>
-        <Card className="bg-theme-white transition delay-30 dark:bg-theme-darkest shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light">
-          <CardHeader className="flex flex-row items-center">
-            <CardTitle className="text-md">Tiempo de Respuesta</CardTitle>
-          </CardHeader>
-          <CardContent className="flex items-center gap-4">
-            <div className="text-4xl font-sora font-bold">30s</div>
-            <FolderSync className="w-9 h-9 ml-2 text-theme-gray" />
-          </CardContent>
-        </Card>
-        <Card className="bg-theme-white transition delay-30 dark:bg-theme-darkest shadow-xl p-4 rounded-lg text-theme-darkest dark:text-theme-light">
-          <CardHeader className="flex flex-row items-center">
-            <CardTitle className="text-md">Engagement Promedio</CardTitle>
-          </CardHeader>
-          <CardContent className="flex items-center gap-4">
-            <div className="text-4xl font-sora font-bold">0.08</div>
-            <ChartNetwork className="w-9 h-9 ml-2 text-theme-gray" />
-          </CardContent>
-        </Card>
+    <div className="p-6 space-y-6">
+      <h1 className="text-2xl font-bold tracking-tight">Dashboard de Análisis</h1>
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <MetricCard title="Likes Totales" value="564" icon={ThumbsUp} trend={{ value: 12, isPositive: true }} />
+
+        <MetricCard
+          title="Comentarios Totales"
+          value="81"
+          icon={MessageSquare}
+          trend={{ value: 8, isPositive: true }}
+        />
+
+        <MetricCard
+          title="Tiempo de Respuesta"
+          value="30s"
+          icon={Timer}
+          trend={{ value: 5, isPositive: false }}
+          description="Promedio de tiempo de respuesta"
+        />
+
+        <MetricCard title="Engagement Promedio" value="0.08" icon={BarChart3} trend={{ value: 3, isPositive: true }} />
       </div>
     </div>
   );

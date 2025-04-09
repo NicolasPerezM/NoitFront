@@ -21,7 +21,6 @@ import {
   Award,
 } from "lucide-react";
 import InstagramHeader from "../InstagramHeader";
-import TabsInstagram from "../TabsInstagram";
 import useFetchData from "../../../../hooks/useFetch"
 
 // Componentes personalizados de tarjeta
@@ -116,8 +115,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen p-4 mt-4">
       {/* Header */}
-      <InstagramHeader accountData={accountData} />
-      <TabsInstagram />
 
       {/* Main Content */}
       <main className="mt-4">

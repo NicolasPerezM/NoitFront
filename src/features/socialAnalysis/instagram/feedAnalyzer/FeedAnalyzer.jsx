@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ThumbsUp, MessageSquare, Verified } from "lucide-react";
 import useFetchData from "../../../../hooks/useFetch";
 import Loader from "../../../../components/common/Loader";
-import TabsInstagram from "../TabsInstagram"
+
 import InstagramHeader from "../InstagramHeader"
 import { AppSidebar } from "@/components/app-sidebar"
 import {
@@ -110,10 +110,6 @@ export default function FeedAnalyzer() {
 
   return (
     <div className="flex flex-col h-full gap-4 p-4 my-4">
-      <header>
-        <InstagramHeader accountData={accountData}/>
-        <TabsInstagram />
-      </header>
       <div className="flex flex-col lg:flex-row h-full gap-4">
         <InstagramFeedGrid posts={posts} />
         <InsightFeed insightData={insightData} />

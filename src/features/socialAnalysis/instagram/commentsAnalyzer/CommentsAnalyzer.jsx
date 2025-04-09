@@ -1,4 +1,4 @@
-import TabsInstagram from "../TabsInstagram";
+
 import InstagramHeader from "../InstagramHeader";
 import Loader from "../../../../components/common/Loader";
 import useFetchData from "../../../../hooks/useFetch";
@@ -59,8 +59,6 @@ export default function CommentsAnalyzer() {
 
   return (
     <div className="p-4 mt-4">
-      <InstagramHeader accountData={accountData} />
-      <TabsInstagram />
       <div className="grid grid-cols-1 lg:grid-cols-7 lg:grid-rows-3 gap-4 mt-4">
         <div className="lg:col-span-3">
           <SentimentsByPostChart sentimentsData={sentimentsData} />
