@@ -1,43 +1,117 @@
-import React from 'react';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from 'recharts';
-
+"use client"
+import { Line, LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend } from "recharts"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { format } from "date-fns"
+import { es } from "date-fns/locale"
+import { HelpCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
 /**
  * Componente que renderiza la gráfica de tendencias de engagement
  * Recibe por props el array 'trends' con los datos de engagement_trends.
  */
-const EngagementTrends = ({ trends }) => {
-  return (
-    <div className="bg-theme-light dark:bg-theme-dark shadow-xl rounded-xl border-b border-t border-theme-light dark:border-theme-primary p-4">
-      <h2 className="text-xl font-bold mb-4">Tendencias de Engagement</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart
-          data={trends}
-          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" stroke="#888888" />
-          {/* Eje X muestra la fecha del post */}
-          <XAxis dataKey="post_date" stroke="#888888"/>
-          {/* Eje Y muestra la tasa de engagement */}
-          <YAxis stroke="#888888"/>
-          <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="engagement_rate"
-            stroke="#E81840"
-            activeDot={{ r: 8 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
-  );
-};
+const EngagementTrends = ({ trends = [] }) => {
+  // Verificamos si trends existe y es un array
+  const hasTrends = Array.isArray(trends) && trends.length > 0
 
-export default EngagementTrends;
+  // Formatea los datos solo si hay datos disponibles
+  const formattedData = hasTrends
+    ? trends.map((item) => ({
+        ...item,
+        // Asumiendo que post_date es una string en formato ISO o similar
+        formattedDate:
+          typeof item.post_date === "string"
+            ? format(new Date(item.post_date), "dd MMM", { locale: es })
+            : item.post_date,
+        // Formatea el valor para mostrarlo como porcentaje
+        engagement_rate: item.engagement_rate,
+        engagement_percent: (item.engagement_rate * 100).toFixed(2),
+      }))
+    : []
+
+  return (
+    <Card className="w-full">
+      <CardHeader className="relative">
+      <div className="flex justify-between items-center">
+          <CardTitle>Tendencias de Engagement</CardTitle>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 rounded-full absolute top-4 right-4"
+                aria-label="Información sobre tendencias de engagement"
+              >
+                <HelpCircle className="h-5 w-5" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80" align="end">
+              <div className="space-y-2">
+                <h4 className="font-medium text-sm">Acerca de esta gráfica</h4>
+                <p className="text-xs text-muted-foreground">
+                  Esta gráfica muestra la evolución de la tasa de engagement a lo largo del tiempo. La tasa de
+                  engagement representa el porcentaje de interacciones (me gusta, comentarios, compartidos) en relación
+                  al alcance total del contenido.
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Un aumento en la línea indica mayor interacción de los usuarios con tu contenido, mientras que una
+                  disminución puede indicar menor interés o alcance.
+                </p>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
+        <CardDescription>Evolución de la tasa de engagement a lo largo del tiempo</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {!hasTrends ? (
+          <div className="flex h-full w-full items-center justify-center text-muted-foreground">
+            No hay datos disponibles para mostrar
+          </div>
+        ) : (
+          <ResponsiveContainer width="100%" height={300}>
+          <ChartContainer
+            config={{
+              engagement_rate: {
+                label: "Tasa de Engagement",
+                color: "hsl(346, 84%, 51%)", // Mantiene el color rojo original
+              },
+            }}
+            className=""
+          >
+              <LineChart data={formattedData} margin={{ top: 10, right: 10, left: 0, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.0} />
+                <XAxis dataKey="formattedDate" tick={{ fontSize: 12 }} tickMargin={10} />
+                <YAxis tickFormatter={(value) => `${(value * 100).toFixed(1)}%`} tick={{ fontSize: 12 }} width={50} />
+                <ChartTooltip
+                  content={
+                    <ChartTooltipContent
+                      formatValue={(value, dataKey) =>
+                        dataKey === "engagement_rate" ? `${(value * 100).toFixed(2)}%` : value
+                      }
+                    />
+                  }
+                />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="engagement_rate"
+                  name="Engagement"
+                  stroke="var(--color-engagement_rate)"
+                  strokeWidth={2}
+                  dot={{ r: 4, strokeWidth: 2 }}
+                  activeDot={{ r: 6, strokeWidth: 2 }}
+                  isAnimationActive={true}
+                  animationDuration={1000}
+                />
+              </LineChart>
+          </ChartContainer>
+          </ResponsiveContainer>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
+
+export default EngagementTrends

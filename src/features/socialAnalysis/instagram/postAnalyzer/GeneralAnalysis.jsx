@@ -25,9 +25,7 @@ export default function generalAnalysis({
   bestPost,
 }) {
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-2xl font-bold tracking-tight">Dashboard de Análisis</h1>
-
+    
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <MetricCard title="Likes Totales" value="564" icon={ThumbsUp} trend={{ value: 12, isPositive: true }} />
 
@@ -48,6 +46,5 @@ export default function generalAnalysis({
 
         <MetricCard title="Engagement Promedio" value="0.08" icon={BarChart3} trend={{ value: 3, isPositive: true }} />
       </div>
-    </div>
   );
 }

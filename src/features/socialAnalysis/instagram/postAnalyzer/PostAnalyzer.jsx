@@ -7,7 +7,7 @@ import InstagramHeader from "../InstagramHeader";
 import useFetchData from "../../../../hooks/useFetch";
 import Loader from "../../../../components/common/Loader";
 import EngagementTrends from "./EngagementTrends";
-import EngagementByDay from "./EngagementByDay";
+import EngagementByDay from "./EngagementByDay.tsx";
 import PostTypePieChart from "./PostTypePieChart";
 import HashtagsChart from "./HashtagsChart";
 import { AnalysisTabs } from "../analysis-tabs";
