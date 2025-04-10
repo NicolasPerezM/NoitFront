@@ -36,7 +36,7 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
       <Card>
         <CardHeader className="relative">
           <div className="flex justify-between items-center">
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-2xl font-sora">
               <Hashtag className="h-5 w-5" />
               Hashtags Más Utilizados
             </CardTitle>
@@ -112,7 +112,7 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
     <Card>
       <CardHeader className="relative">
       <div className="flex justify-between items-center">
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-xl font-sora">
               <Hashtag className="h-5 w-5" />
               Hashtags Más Utilizados
             </CardTitle>
@@ -156,7 +156,7 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
               color: "hsl(var(--chart-1))",
             },
           }}
-          className="h-[300px]"
+          className="h-[400px]"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart

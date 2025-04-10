@@ -1,4 +1,4 @@
-import { SidebarIcon } from "lucide-react";
+import { SidebarIcon, BotMessageSquare } from "lucide-react";
 
 import { SearchForm } from "@/components/search-form";
 import {
@@ -42,8 +42,13 @@ export function SiteHeader() {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-
-        <ThemeToggle variant="switch" size="sm" />
+        <div className="flex items-center gap-4">
+          <Button variant="outline" size="lg">
+            Chat
+            <BotMessageSquare className="mr-2 h-4 w-4" />
+          </Button>
+          <ThemeToggle variant="switch" size="sm" />
+        </div>
       </div>
     </header>
   );

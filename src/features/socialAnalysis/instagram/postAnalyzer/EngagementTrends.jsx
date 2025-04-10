@@ -1,19 +1,41 @@
-"use client"
-import { Line, LineChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend } from "recharts"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { format } from "date-fns"
-import { es } from "date-fns/locale"
-import { HelpCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
+"use client";
+import {
+  Line,
+  LineChart,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import { HelpCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 /**
  * Componente que renderiza la gráfica de tendencias de engagement
  * Recibe por props el array 'trends' con los datos de engagement_trends.
  */
 const EngagementTrends = ({ trends = [] }) => {
   // Verificamos si trends existe y es un array
-  const hasTrends = Array.isArray(trends) && trends.length > 0
+  const hasTrends = Array.isArray(trends) && trends.length > 0;
 
   // Formatea los datos solo si hay datos disponibles
   const formattedData = hasTrends
@@ -28,13 +50,15 @@ const EngagementTrends = ({ trends = [] }) => {
         engagement_rate: item.engagement_rate,
         engagement_percent: (item.engagement_rate * 100).toFixed(2),
       }))
-    : []
+    : [];
 
   return (
-    <Card className="w-full">
+    <Card className="p-4">
       <CardHeader className="relative">
-      <div className="flex justify-between items-center">
-          <CardTitle>Tendencias de Engagement</CardTitle>
+        <div className="flex justify-between items-center">
+          <CardTitle className="text-xl font-sora">
+            Tendencias de Engagement
+          </CardTitle>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -50,45 +74,62 @@ const EngagementTrends = ({ trends = [] }) => {
               <div className="space-y-2">
                 <h4 className="font-medium text-sm">Acerca de esta gráfica</h4>
                 <p className="text-xs text-muted-foreground">
-                  Esta gráfica muestra la evolución de la tasa de engagement a lo largo del tiempo. La tasa de
-                  engagement representa el porcentaje de interacciones (me gusta, comentarios, compartidos) en relación
-                  al alcance total del contenido.
+                  Esta gráfica muestra la evolución de la tasa de engagement a
+                  lo largo del tiempo. La tasa de engagement representa el
+                  porcentaje de interacciones (me gusta, comentarios,
+                  compartidos) en relación al alcance total del contenido.
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Un aumento en la línea indica mayor interacción de los usuarios con tu contenido, mientras que una
-                  disminución puede indicar menor interés o alcance.
+                  Un aumento en la línea indica mayor interacción de los
+                  usuarios con tu contenido, mientras que una disminución puede
+                  indicar menor interés o alcance.
                 </p>
               </div>
             </PopoverContent>
           </Popover>
         </div>
-        <CardDescription>Evolución de la tasa de engagement a lo largo del tiempo</CardDescription>
+        <CardDescription className="text-sm">
+          Evolución de la tasa de engagement a lo largo del tiempo
+        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="w-full h-[350px]">
         {!hasTrends ? (
           <div className="flex h-full w-full items-center justify-center text-muted-foreground">
             No hay datos disponibles para mostrar
           </div>
         ) : (
-          <ResponsiveContainer width="100%" height={300}>
           <ChartContainer
             config={{
               engagement_rate: {
                 label: "Tasa de Engagement",
-                color: "hsl(346, 84%, 51%)", // Mantiene el color rojo original
+                color: "hsl(346, 84%, 51%)",
               },
             }}
-            className=""
+            className="h-full w-full"
           >
-              <LineChart data={formattedData} margin={{ top: 10, right: 10, left: 0, bottom: 20 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart
+                data={formattedData}
+                margin={{ top: 10, right: 10, left: 0, bottom: 20 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.0} />
-                <XAxis dataKey="formattedDate" tick={{ fontSize: 12 }} tickMargin={10} />
-                <YAxis tickFormatter={(value) => `${(value * 100).toFixed(1)}%`} tick={{ fontSize: 12 }} width={50} />
+                <XAxis
+                  dataKey="formattedDate"
+                  tick={{ fontSize: 12 }}
+                  tickMargin={10}
+                />
+                <YAxis
+                  tickFormatter={(value) => `${(value * 100).toFixed(1)}%`}
+                  tick={{ fontSize: 12 }}
+                  width={50}
+                />
                 <ChartTooltip
                   content={
                     <ChartTooltipContent
                       formatValue={(value, dataKey) =>
-                        dataKey === "engagement_rate" ? `${(value * 100).toFixed(2)}%` : value
+                        dataKey === "engagement_rate"
+                          ? `${(value * 100).toFixed(2)}%`
+                          : value
                       }
                     />
                   }
@@ -106,12 +147,12 @@ const EngagementTrends = ({ trends = [] }) => {
                   animationDuration={1000}
                 />
               </LineChart>
+            </ResponsiveContainer>
           </ChartContainer>
-          </ResponsiveContainer>
         )}
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default EngagementTrends
+export default EngagementTrends;
