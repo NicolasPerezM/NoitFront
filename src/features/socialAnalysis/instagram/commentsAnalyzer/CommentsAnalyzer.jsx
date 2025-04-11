@@ -60,11 +60,11 @@ export default function CommentsAnalyzer() {
 
   return (
     <div className="">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between ">
         <h2 className="text-3xl font-britanica px-6 font-bold mb-4">
           Análisis de comentarios
         </h2>
-        <div className="flex justify-end mb-4">
+        <div className="flex md:justify-end mb-4">
           <AnalysisDialog />
         </div>
       </div>
