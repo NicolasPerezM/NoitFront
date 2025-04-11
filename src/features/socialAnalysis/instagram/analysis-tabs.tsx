@@ -67,7 +67,7 @@ export function AnalysisTabs({
               key={tab.id}
               value={tab.id}
               className={cn(
-                "flex items-center justify-center gap-2 rounded-md transition-all data-[state=active]:bg-primary/10 data-[state=active]:text-theme-dark data-[state=active]:shadow-sm",
+                "flex items-center justify-center gap-2 rounded-md transition-all data-[state=active]:bg-chart-2 data-[state=active]:text-theme-dark data-[state=active]:shadow-sm",
                 "text-sm font-medium"
               )}
             >

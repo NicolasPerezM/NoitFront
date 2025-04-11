@@ -33,7 +33,7 @@ interface HashtagsChartProps {
 const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
   if (!Array.isArray(posts) || posts.length === 0) {
     return (
-      <Card>
+      <Card className="h-full">
         <CardHeader className="relative">
           <div className="flex justify-between items-center">
             <CardTitle className="flex items-center gap-2 text-2xl font-sora">
@@ -94,7 +94,7 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
 
   if (data.length === 0) {
     return (
-      <Card>
+      <Card className="h-full">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Hashtag className="h-5 w-5" />
@@ -109,8 +109,8 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
   }
 
   return (
-    <Card>
-      <CardHeader className="relative">
+    <Card className="h-full flex flex-col">
+      <CardHeader className="relative flex-none">
       <div className="flex justify-between items-center">
             <CardTitle className="flex items-center gap-2 text-xl font-sora">
               <Hashtag className="h-5 w-5" />
@@ -148,15 +148,15 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
           Los {data.length} hashtags más frecuentes en tus publicaciones
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex-1 min-h-0 overflow-x-auto">
         <ChartContainer
           config={{
             count: {
               label: "Frecuencia",
-              color: "hsl(var(--chart-1))",
+              color: "hsl(var(--chart-2))",
             },
           }}
-          className="h-[400px]"
+          className="h-full min-w-[600px]"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
@@ -166,23 +166,26 @@ const HashtagsChart = ({ posts = [] }: HashtagsChartProps) => {
             >
               <XAxis
                 dataKey="hashtag"
-                tickLine={false}
-                axisLine={false}
+                tickLine={true}
+                axisLine={true}
                 tick={{ fontSize: 12 }}
                 tickFormatter={(value) => `#${value}`}
                 angle={-45}
                 textAnchor="end"
                 height={60}
+                stroke="var(--border)"
               />
               <YAxis
-                tickLine={false}
-                axisLine={false}
+                tickLine={true}
+                axisLine={true}
                 tick={{ fontSize: 12 }}
                 tickCount={5}
+                stroke="var(--border)"
               />
               <Bar
                 dataKey="count"
-                fill="var(--color-count)"
+                fill="hsl(227, 22%, 40%, 0.2)"
+                stroke="hsl(227, 22%, 40%, 0.7)"
                 radius={[4, 4, 0, 0]}
                 maxBarSize={50}
               />

@@ -25,6 +25,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ChartTooltip } from "@/components/ui/chart";
 
 // Tipado para props del componente
 type EngagementData = {
@@ -50,7 +51,7 @@ const CustomTooltip = ({
         <p className="text-sm text-muted-foreground">
           Engagement:{" "}
           <span className="font-medium text-primary">
-            {(rate * 100).toFixed(2)}%
+            {rate ? `${(rate * 100).toFixed(2)}%` : "N/A"}
           </span>
         </p>
       </div>
@@ -132,7 +133,7 @@ const EngagementByDay = ({ data = [] }: EngagementByDayProps) => {
 
       <CardContent className="h-full w-full flex flex-col items-center justify-center">
         {/* Estadísticas resumidas */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-between w-full gap-4 mb-4">
           <div className="bg-muted/20 p-3 rounded-lg">
             <p className="text-sm text-muted-foreground">Mejor día</p>
             <div className="flex items-center mt-1">
@@ -167,7 +168,7 @@ const EngagementByDay = ({ data = [] }: EngagementByDayProps) => {
         </div>
 
         {/* Gráfica */}
-        <div className="w-full h-[320px] border">
+        <div className="w-full h-[320px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={data}
@@ -194,7 +195,10 @@ const EngagementByDay = ({ data = [] }: EngagementByDayProps) => {
                 axisLine={{ stroke: "var(--border)" }}
                 width={50}
               />
-              <Tooltip content={<CustomTooltip />} />
+              <ChartTooltip
+                cursor={{ fill: "var(--muted)", opacity: 0.15 }}
+                content={<CustomTooltip />}
+              />
               <Legend
                 wrapperStyle={{ paddingTop: 10 }}
                 formatter={() => (
@@ -204,7 +208,8 @@ const EngagementByDay = ({ data = [] }: EngagementByDayProps) => {
               <Bar
                 dataKey="rate"
                 name="Engagement"
-                fill="hsl(var(--primary))"
+                fill="hsl(227, 22%, 40%, 0.2)"
+                stroke="hsl(227, 22%, 40%, 0.7)"
                 radius={[4, 4, 0, 0]}
                 barSize={40}
                 animationDuration={800}

@@ -121,11 +121,11 @@ export default function PostTable() {
       <div className="w-full overflow-x-auto rounded-md">
         <Table className="min-w-[760px] border rounded-2xl shadow-md">
           <TableHeader>
-            <TableRow className="bg-muted">
+            <TableRow className="bg-chart-2 font-sora">
               <TableHead className="uppercase tracking-wide text-xs sm:text-sm font-semibold text-muted-foreground py-4 px-8">
                 Tipo
               </TableHead>
-              <TableHead className="uppercase tracking-wide text-xs sm:text-sm font-semibold text-muted-foreground py-4 min-w-[200px]">
+              <TableHead className="uppercase tracking-wide text-xs sm:text-sm font-semibold text-muted-foreground py-4 min-w-[200px] font-sora">
                 Caption
               </TableHead>
               <TableHead className="uppercase tracking-wide text-xs sm:text-sm font-semibold text-muted-foreground py-4">

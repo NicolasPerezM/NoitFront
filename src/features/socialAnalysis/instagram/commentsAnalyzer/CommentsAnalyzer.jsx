@@ -1,9 +1,10 @@
-
-import InstagramHeader from "../InstagramHeader";
 import Loader from "../../../../components/common/Loader";
 import useFetchData from "../../../../hooks/useFetch";
-import { SentimentsByPostChart } from "./SentimentsByPostChart";
-import OverallEmotionChart from "./OverallEmotionChart";
+import { SentimentsByPostChart } from "./SentimentsByPostChart.tsx";
+import OverallEmotionChart from "./OverallEmotionChart.tsx";
+import CategoryByChart from "./CategoryByChart.tsx";
+import AnalysisDialog from "./AnalysisDialog.tsx";
+
 export default function CommentsAnalyzer() {
   const {
     data: sentimentsData,
@@ -58,20 +59,34 @@ export default function CommentsAnalyzer() {
   const accountData = headerData.UserInfo;
 
   return (
-    <div className="p-4 mt-4">
-      <div className="grid grid-cols-1 lg:grid-cols-7 lg:grid-rows-3 gap-4 mt-4">
-        <div className="lg:col-span-3">
+    <div className="">
+      <div className="flex justify-between items-center">
+        <h2 className="text-3xl font-britanica px-6 font-bold mb-4">
+          Análisis de comentarios
+        </h2>
+        <div className="flex justify-end mb-4">
+          <AnalysisDialog />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap-4">
+        <div className="lg:col-span-4 lg:h-[500px]">
           <SentimentsByPostChart sentimentsData={sentimentsData} />
         </div>
-        <div className="lg:col-span-2 lg:col-start-4">
+        <div className="lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:h-[1032px] h-[400px]">
           <OverallEmotionChart emotionData={emotionData} />
         </div>
-        <div className="lg:col-span-2 lg:row-span-2 lg:col-start-6 p-4 bg-theme-light dark:bg-theme-dark shadow-xl rounded-lg border-b border-t border-theme-light dark:border-theme-primary">
-          <img  src="/data/output.png" alt="placeholder" />
+        <div className="lg:col-span-3 lg:row-start-2 lg:h-[500px] h-[400px]">
+          <CategoryByChart />
         </div>
-        <div className="lg:col-span-5 lg:row-start-2 p-4 bg-theme-light dark:bg-theme-dark shadow-xl rounded-lg border-b border-t border-theme-light dark:border-theme-primary">4</div>
-        <div className="lg:col-span-7 lg:row-start-3 p-4 bg-theme-light dark:bg-theme-dark shadow-xl rounded-lg border-b border-t border-theme-light dark:border-theme-primary">6</div>
+        <div className="lg:col-start-4 lg:row-start-2 lg:h-[500px] h-[400px]">
+          <img
+            src="/data/output.png"
+            alt="placeholder"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
+      <div></div>
     </div>
   );
 }

@@ -90,14 +90,22 @@ export default function PostAnalyzer() {
 
       {/* 🔁 Sección de tarjetas en grid responsivo */}
 
-      <div className="grid grid-cols-1 2xl:grid-cols-5 2xl:grid-rows-2 grid-rows-1 gap-4">
-        <div className="2xl:col-span-3"><EngagementTrends trends={engagement_trends} /></div>
-        <div className="2xl:col-span-2 2xl:col-start-4"><PostTypePieChart data={PostTypeCounts} /></div>
-        <div className="2xl:col-span-3 2xl:col-start-3 2xl:row-start-2"><EngagementByDay data={engagementByDayArray} /></div>
-        <div className="2xl:col-span-2 2xl:col-start-1 2xl:row-start-2 overflow-hidden"><HashtagsChart posts={postsData} /></div>
+      <div className="grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-2 grid-rows-1 gap-4">
+        <div className="lg:col-span-3 h-[500px] p-1">
+          <EngagementTrends trends={engagement_trends} />
+        </div>
+          <div className="lg:col-span-2 lg:col-start-4 h-[500px] p-1">
+          <PostTypePieChart data={PostTypeCounts} />
+        </div>
+        <div className="lg:col-span-3 lg:col-start-3 lg:row-start-2 h-[500px] p-1">
+          <EngagementByDay data={engagementByDayArray} />
+        </div>
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 overflow-hidden h-[500px] p-1">
+          <HashtagsChart posts={postsData} />
+        </div>
       </div>
 
-      <div className="text-3xl font-bold p-4 dark:text-theme-white">
+      <div className="text-3xl font-bold font-sora p-4 dark:text-theme-white">
         <h1>Posts Analizados</h1>
       </div>
       <PostTable></PostTable>

@@ -53,8 +53,8 @@ const EngagementTrends = ({ trends = [] }) => {
     : [];
 
   return (
-    <Card className="p-4">
-      <CardHeader className="relative">
+    <Card className="h-full flex flex-col">
+      <CardHeader className="relative flex-none">
         <div className="flex justify-between items-center">
           <CardTitle className="text-xl font-sora">
             Tendencias de Engagement
@@ -92,7 +92,7 @@ const EngagementTrends = ({ trends = [] }) => {
           Evolución de la tasa de engagement a lo largo del tiempo
         </CardDescription>
       </CardHeader>
-      <CardContent className="w-full h-[350px]">
+      <CardContent className="flex-1 min-h-0">
         {!hasTrends ? (
           <div className="flex h-full w-full items-center justify-center text-muted-foreground">
             No hay datos disponibles para mostrar
@@ -105,7 +105,7 @@ const EngagementTrends = ({ trends = [] }) => {
                 color: "hsl(346, 84%, 51%)",
               },
             }}
-            className="h-full w-full"
+            className="h-full w-full [&_.recharts-wrapper]:h-full"
           >
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
@@ -139,7 +139,8 @@ const EngagementTrends = ({ trends = [] }) => {
                   type="monotone"
                   dataKey="engagement_rate"
                   name="Engagement"
-                  stroke="var(--color-engagement_rate)"
+                  fill="hsl(227, 22%, 40%, 0.2)"
+                  stroke="hsl(227, 22%, 40%, 0.7)"
                   strokeWidth={2}
                   dot={{ r: 4, strokeWidth: 2 }}
                   activeDot={{ r: 6, strokeWidth: 2 }}

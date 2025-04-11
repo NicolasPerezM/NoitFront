@@ -33,9 +33,9 @@ const sampleData: Record<string, number> = {
 };
 
 const COLORS: Record<string, string> = {
-  Image: "#f59e0b", // amber
-  Sidecar: "#ef4444", // red
-  Video: "#10b981", // emerald
+  Image: "hsl(227, 22%, 40%, 0.3)", // amber
+  Sidecar: "hsl(227, 22%, 40%, 0.7)", // red
+  Video: "hsl(227, 22%, 40%, 0.5)", // emerald
 };
 
 const PostTypePieChart = ({ data = null }: PostTypePieChartProps) => {
@@ -76,8 +76,8 @@ const PostTypePieChart = ({ data = null }: PostTypePieChartProps) => {
   };
 
   return (
-    <Card className="w-full shadow-md">
-      <CardHeader className="relative">
+    <Card className="h-full flex flex-col">
+      <CardHeader className="relative flex-none">
         <div className="flex justify-between items-center">
           <CardTitle className="flex items-center gap-2 text-xl font-sora">
             Distribución de Tipos de Publicación
@@ -113,9 +113,9 @@ const PostTypePieChart = ({ data = null }: PostTypePieChartProps) => {
           Evolución de la tasa de engagement a lo largo del tiempo
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        {/* Contenedor con altura fija para el gráfico */}
-        <div className="w-full h-[300px]">
+      <CardContent className="flex-1 min-h-0 flex flex-col">
+        {/* Contenedor con altura flexible para el gráfico */}
+        <div className="flex-1 min-h-0">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -140,7 +140,7 @@ const PostTypePieChart = ({ data = null }: PostTypePieChartProps) => {
         </div>
 
         {/* Leyenda */}
-        <div className="flex justify-center gap-4 mt-4 flex-wrap">
+        <div className="flex justify-center gap-4 mt-4 flex-wrap flex-none">
           {chartData.map((entry, index) => (
             <div key={`legend-${index}`} className="flex items-center gap-2">
               <div
