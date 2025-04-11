@@ -11,6 +11,7 @@ import EngagementByDay from "./EngagementByDay.tsx";
 import PostTypePieChart from "./PostTypePieChart.tsx";
 import HashtagsChart from "./HashtagsChart.tsx";
 import { AnalysisTabs } from "../analysis-tabs";
+import PostTable from "../post-table.tsx";
 
 // Página principal que orquesta el análisis de posts.
 // Los datos se simulan aquí; en un entorno real se obtendrían de una API.
@@ -75,9 +76,9 @@ export default function PostAnalyzer() {
 
   return (
     <div className="flex flex-col px-4 gap-4">
-      <div className="mt-4" />
+      <div className="" />
 
-      <div className="text-3xl font-sora font-medium p-4 dark:text-theme-white">
+      <div className="text-3xl font-sora font-medium px-4 dark:text-theme-white">
         <h1>Análisis General de los Posts</h1>
       </div>
 
@@ -99,12 +100,7 @@ export default function PostAnalyzer() {
       <div className="text-3xl font-bold p-4 dark:text-theme-white">
         <h1>Posts Analizados</h1>
       </div>
-
-      <div className="space-y-8">
-        {top_posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
-      </div>
+      <PostTable></PostTable>
     </div>
   );
 }
