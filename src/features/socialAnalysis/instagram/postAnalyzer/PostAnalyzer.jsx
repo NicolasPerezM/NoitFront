@@ -81,6 +81,12 @@ export default function PostAnalyzer() {
       <div className="text-3xl font-sora font-medium px-4 dark:text-theme-white">
         <h1>Análisis General de los Posts</h1>
       </div>
+      <div className="">
+        <p className="text-sm text-muted-foreground px-4">
+          Análisis general de los posts de Instagram de la cuenta
+          {UserInfo.username}
+        </p>
+      </div>
 
       <GeneralAnalysis
         totalLikes={statsData.total_likes}

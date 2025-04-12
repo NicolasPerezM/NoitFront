@@ -48,7 +48,7 @@ const data = {
       items: [
         {
           title: "Instagram",
-          url: "#",
+          url: "/instagramAccountAnalysis",
         },
         {
           title: "TikTok",
