@@ -94,7 +94,7 @@ export default function ThemeToggle({
         aria-label={`Cambiar a modo ${theme === "light" ? "oscuro" : "claro"}`}
         title={`Cambiar a modo ${theme === "light" ? "oscuro" : "claro"}`}
         onClick={toggleTheme}
-        className={`${positionClass} ${sizeMap[size].switch} relative rounded-full bg-gray-300 dark:bg-chart-2 transition-colors duration-300 ${className}`}
+        className={`${positionClass} ${sizeMap[size].switch} relative rounded-full bg-gray-300 dark:bg-primary transition-colors duration-300 ${className}`}
       >
         <span
           className={`absolute top-0.5 h-5/6 aspect-square rounded-full bg-white shadow-sm transform transition-transform duration-300 ${

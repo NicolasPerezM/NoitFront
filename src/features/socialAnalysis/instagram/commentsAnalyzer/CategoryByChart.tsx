@@ -86,14 +86,14 @@ export default function CategoryBarChart() {
 
             <Bar
               dataKey="count"
-              fill="hsl(227, 22%, 40%, 0.2)"
+              fill="hsl(227, 22%, 40%, 0.3)"
               stroke="hsl(227, 22%, 40%, 0.7)"
-              radius={[0, 10, 10, 0]}
+              
             >
               <LabelList
                 dataKey="count"
                 position="right"
-                fill="hsl(227, 22%, 40%, 0.7)"
+                fill="hsl(227, 22%, 40%, 1)"
               />
             </Bar>
             <ChartTooltip

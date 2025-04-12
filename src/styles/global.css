@@ -18,7 +18,7 @@
     --color-theme-dark: #232323;
     --color-theme-gray: #888888;       /* Gris */
     --color-theme-light: #f7f7ff;   /* Color más claro */
-    --color-theme-primary: /*#E81840*/  #C9FE6E;    /* Color primario y más llamativo */
+    --color-theme-primary: /*#E81840*/  hsl(227, 22%, 40%, 0.7);    /* Color primario y más llamativo */
     --color-theme-white: #ffffff;
     --color-theme-complementary: /*#18e8c0*/ #B2ABF2;
     --color-theme-analogous: /*#e8c018*/ #FCBA04;
@@ -78,7 +78,7 @@
   --card-foreground: hsl(285 3% 15%);
   --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(285 3% 15%);
-  --primary: hsl(293 54% 60%);
+  --primary: hsl(227, 22%, 40%, 1);
   --primary-foreground: hsl(294 97% 95%);
   --secondary: hsl(286 0% 97%);
   --secondary-foreground: hsl(286 3% 21%);
