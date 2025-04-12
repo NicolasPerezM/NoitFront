@@ -119,7 +119,7 @@ export default function InstagramPostDashboard() {
     <div className="p-4 space-y-6">
       <header className="flex flex-col md:flex-row justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold font-orbitron tracking-tight text-foreground">
+          <h1 className="text-3xl font-bold font-syne tracking-tight text-foreground">
             Análisis de Posts de Instagram
           </h1>
           <p className="text-muted-foreground text-sm mt-1">
@@ -192,8 +192,8 @@ export default function InstagramPostDashboard() {
             <CardContent className="p-6 space-y-6">
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-semibold flex items-center gap-2">
-                    <Sparkles className="h-5 w-5 text-muted-foreground" />{" "}
+                  <h2 className="text-xl font-semibold flex items-center gap-2 font-syne">
+                    <Sparkles className="h-5 w-5 text-muted-foreground " />{" "}
                     Análisis a Profundidad
                   </h2>
                   <Badge

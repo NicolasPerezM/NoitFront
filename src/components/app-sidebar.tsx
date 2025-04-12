@@ -51,7 +51,7 @@ const data = {
           url: "/instagramAccountAnalysis",
         },
         {
-          title: "TikTok",
+          title: "LinkedIn",
           url: "#",
         },
         {
