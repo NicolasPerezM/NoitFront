@@ -1,5 +1,5 @@
 import { AnalysisTabs } from "./analysis-tabs";
-import GeneralStats from "./GeneralStats/GeneralStats";
+import GeneralStats from "./GeneralStats/GeneralStats.tsx";
 import FeedAnalyzer from "./feedAnalyzer/FeedAnalyzer.tsx";
 import PostAnalyzer from "./postAnalyzer/PostAnalyzer";
 import CommentsAnalyzer from "./commentsAnalyzer/CommentsAnalyzer";
@@ -9,9 +9,9 @@ export default function InstagramAccountAnalysis() {
     <AnalysisTabs
       defaultValue="general"
       children={{
-        general: <GeneralStats />,
+        general: <PostAnalyzer />,
         feed: <FeedAnalyzer />,
-        posts: <PostAnalyzer />,
+        posts: <GeneralStats />,
         comments: <CommentsAnalyzer />,
       }}
     />
