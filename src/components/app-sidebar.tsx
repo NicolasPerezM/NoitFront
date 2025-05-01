@@ -37,7 +37,7 @@ const data = {
   navMain: [
     {
       title: "Face It",
-      url: "#",
+      url: "/instagramAccountAnalysis",
       icon: FileChartColumn,
     },
     {
