@@ -1,8 +1,8 @@
 ---
 import DashboardLayout from '../layouts/DashboardLayout.astro';
 import '../styles/global.css';
-import InstagramAccountAnalysis from "../features/socialAnalysis/instagram/account-analysis.tsx"
-import InstagramHeader  from "../features/socialAnalysis/instagram/InstagramHeader";
+import { ChatInterface } from '../components/ChatInterface.tsx';
+
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -10,5 +10,7 @@ import InstagramHeader  from "../features/socialAnalysis/instagram/InstagramHead
 ---
 
 <DashboardLayout>
-	<InstagramHeader client:load/>
+	<div className="flex flex-col items-center justify-center min-h-screen bg-background px-4 py-8">
+		<ChatInterface />
+	  </div>
 </DashboardLayout>

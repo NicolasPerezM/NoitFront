@@ -36,42 +36,22 @@ const data = {
   },
   navMain: [
     {
-      title: "Análisis General",
+      title: "Face It",
       url: "#",
       icon: FileChartColumn,
     },
     {
-      title: "Redes Analizadas",
+      title: "Lifetime ecommerce",
       url: "#",
-      icon: Share2,
-      isActive: true,
-      items: [
-        {
-          title: "Instagram",
-          url: "/instagramAccountAnalysis",
-        },
-        {
-          title: "LinkedIn",
-          url: "#",
-        },
-        {
-          title: "Facebok",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Comparativas",
-      url: "#",
-      icon: GitCompareArrows,
-    },
+      icon: FileChartColumn,
+    }, 
+  ],
+  navSecondary: [
     {
       title: "Ajustes",
       url: "#",
       icon: Settings2,
     },
-  ],
-  navSecondary: [
     {
       title: "Soporte",
       url: "#",
