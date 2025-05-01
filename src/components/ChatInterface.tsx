@@ -41,7 +41,7 @@ export function ChatInterface() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto space-y-12 mt-20">
+    <div className="w-full max-w-3xl mx-auto space-y-12 mt-4">
       {/* Texto de bienvenida */}
       <h1 className="text-4xl font-bold text-center tracking-tight font-sora">Descubre oportunidades para tu marca, ¿qué te gustaría explorar hoy?</h1>
 
@@ -72,7 +72,7 @@ export function ChatInterface() {
       {/* Proyectos pasados */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold font-sora">Ideas de Negocio</h2>
+          <h2 className="text-xl font-semibold font-sora">Recientes</h2>
           <Button variant="ghost" size="sm">
             Ver todos
           </Button>

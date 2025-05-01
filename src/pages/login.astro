@@ -1,0 +1,12 @@
+---
+import LoginForm from "../features/auth/components/LoginForm.tsx";
+import ParticlesBackground from "../features/auth/components/ParticlesBackground.tsx";
+import '../styles/global.css';
+---
+
+<div class="flex min-h-screen w-full">
+  <LoginForm client:load />
+  <div class="hidden w-1/2 lg:block">
+    <ParticlesBackground client:load />
+  </div>
+</div>
