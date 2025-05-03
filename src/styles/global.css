@@ -13,6 +13,21 @@
   font-display: swap;
 }
 
+@font-face{
+  font-family: 'Montreal';
+  src: url('/fonts/PPNeueMontreal-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: 'Navara';
+  src: url('/fonts/Navara Demo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 @theme {
     --color-theme-darkest: #111111;   /* Negro mate, el más oscuro */
     --color-theme-dark: #232323;
@@ -30,6 +45,8 @@
     --font-orbitron: 'Orbitron Variable', sans-serif;
     --font-inter: 'Inter Variable', sans-serif;
     --font-britanica: 'Britanica', sans-serif;
+    --font-montreal: 'Montreal', sans-serif;
+    --font-navara: 'Navara', sans-serif;
 }
 
 @theme inline {
