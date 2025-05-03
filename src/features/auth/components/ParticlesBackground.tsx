@@ -24,7 +24,7 @@ export default function ParticlesBackground() {
             color: { value: "#ffffff" },
             links: {
               color: "#ffffff",
-              distance: 150,
+              distance: 180,
               enable: true,
               opacity: 0.5,
               width: 1,
