@@ -1,11 +1,16 @@
+// app/(auth)/LoginForm.tsx
 "use client"
 
 import { useState } from "react"
-import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { EmailInput } from "./EmailInput"
+import { PasswordInput } from "./PasswordInput"
+import { RememberMe } from "./RememberMe"
+import { Header } from "./LoginHeader"
+import { TermsFooter } from "./TermsFooter"
+import { LoginTitle } from "./LoginTitle"
+import { GoogleSignInButton } from "./GoogleSignInButton"
+
 
 export default function LoginForm() {
   const [email, setEmail] = useState("ejemplo@noit.com")
@@ -14,107 +19,31 @@ export default function LoginForm() {
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
+  const handleRegisterRedirect = () => {
+    window.location.href = "/register"
+  }
+
   return (
-    <div className="flex justify-around border flex-col items-center bg-background p-8 lg:w-1/2 lg:p-12">
-      {/* Encabezado */}
-      <div>
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-foreground text-sm font-bold">
-            NO
-          </div>
-          <span className="text-lg font-medium text-foreground">NOIT</span>
-        </div>
-
-        {/* Texto principal */}
-        <div className="mt-4 space-y-2">
-          <h1 className="text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl font-sora">
-          Inicia sesión para explorar el posicionamiento de tu industria
-          </h1>
-          
-        </div>
-
-        {/* Formulario */}
-        <form className="mt-8 space-y-4">
-          {/* Email */}
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-foreground">
-              Correo Electrónico
-            </Label>
-            <div className="relative">
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="border-l-4 border-l-primary bg-background pl-4 pr-10"
-              />
-              {isEmailValid && (
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 transform">
-                  <Check className="h-5 w-5 text-primary" />
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Contraseña */}
-          <div className="space-y-2">
-            <Label htmlFor="password" className="text-foreground">
-              Contraseña
-            </Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="bg-background pl-4"
-            />
-          </div>
-
-          {/* Recordarme y Olvidé mi contraseña */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                id="remember"
-                checked={rememberMe}
-                onCheckedChange={(checked) => setRememberMe(Boolean(checked))}
-              />
-              <Label htmlFor="remember" className="text-sm font-normal text-muted-foreground">
-                Recordarme
-              </Label>
-            </div>
-            <a href="/forgot-password" className="text-sm text-muted-foreground hover:underline">
-              Olvidé mi contraseña
-            </a>
-          </div>
-
-          {/* Botones */}
-          <div className="flex gap-4">
-            <Button type="submit" className="w-1/2">
+    
+    <div className="relative flex flex-col justify-center w-full max-w-md p-8 bg-background rounded-lg overflow-hidden">
+      <div className="gradient-top-left-primary" />
+      <div className="relative z-10">
+        <Header />
+        <LoginTitle />
+        <form className="space-y-4 w-full">
+          <EmailInput email={email} setEmail={setEmail} isValid={isEmailValid} />
+          <PasswordInput password={password} setPassword={setPassword} />
+          <RememberMe rememberMe={rememberMe} setRememberMe={setRememberMe} />
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button type="submit" className="w-full sm:w-1/2">
               INICIAR SESIÓN
             </Button>
-            <Button
-              type="button"
-              variant="outline"
-              className="w-1/2"
-              onClick={() => (window.location.href = "/register")}
-            >
+            <Button type="button" variant="outline" className="w-full sm:w-1/2" onClick={handleRegisterRedirect}>
               REGISTRARSE
             </Button>
           </div>
         </form>
-      </div>
-
-      {/* Términos y condiciones */}
-      <div className="mt-8 text-xs text-muted-foreground">
-        Al registrarte, aceptas nuestros{" "}
-        <a href="/terms" className="text-primary hover:underline">
-          Términos y Condiciones
-        </a>{" "}
-        y{" "}
-        <a href="/privacy" className="text-primary hover:underline">
-          Política de Privacidad
-        </a>
-        .
+        <TermsFooter />
       </div>
     </div>
   )

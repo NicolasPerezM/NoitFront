@@ -17,11 +17,11 @@ export default function ParticlesBackground() {
         init={particlesInit}
         options={{
           fullScreen: { enable: false },
-          background: { color: { value: "#000000" } },
+          background: { color: { value: "#2f2f2f" } },
           fpsLimit: 120,
           detectRetina: true,
           particles: {
-            color: { value: "#ffffff" },
+            color: { value: "#E15D12" },
             links: {
               color: "#ffffff",
               distance: 180,
