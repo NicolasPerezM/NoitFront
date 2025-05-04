@@ -26,7 +26,7 @@ export function PastProjectsSection() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-4xl font-navara">Recientes</h2>
+        <h2 className="text-subtitle font-navara">Recientes</h2>
         <Button variant="ghost" size="sm">
           Ver todos
         </Button>

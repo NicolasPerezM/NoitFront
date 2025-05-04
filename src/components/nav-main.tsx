@@ -34,7 +34,7 @@ export function NavMain({
 }) {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Ideas de Negocio</SidebarGroupLabel>
+      <SidebarGroupLabel className="lg:text-[17px] mb-2">Ideas de Negocio</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => {
           const hasSubItems = item.items?.length > 0;
@@ -76,8 +76,8 @@ export function NavMain({
                   tooltip={item.title}
                   className="cursor-pointer"
                 >
-                  {item.icon && <item.icon />}
-                  <a href={item.url}>
+                  {item.icon && <item.icon/>}
+                  <a href={item.url} className="lg:text-[17px]">
                     <span>{item.title}</span>
                   </a>
                 </SidebarMenuButton>

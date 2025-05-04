@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 import {
   BookOpen,
   Bot,
@@ -11,13 +11,14 @@ import {
   Settings2,
   SquareTerminal,
   Share2,
-  GitCompareArrows
-} from "lucide-react"
+  GitCompareArrows,
+  BotMessageSquare,
+} from "lucide-react";
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
+import { NavSecondary } from "@/components/nav-secondary";
+import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -26,7 +27,11 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import { Button } from "./ui/button";
+
+import logoLight from "@/assets/logos/logoLight.png";
+import logoDark from "@/assets/logos/logoDark.png";
 
 const data = {
   user: {
@@ -44,7 +49,7 @@ const data = {
       title: "Lifetime ecommerce",
       url: "#",
       icon: FileChartColumn,
-    }, 
+    },
   ],
   navSecondary: [
     {
@@ -80,7 +85,7 @@ const data = {
       icon: Map,
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -89,30 +94,45 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       className="top-(--header-height) h-[calc(100svh-var(--header-height))]!"
       {...props}
     >
-      <SidebarHeader>
+      <SidebarHeader className="mt-4 mb-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                <div className="bg-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium text-xl">Noit</span>
-                </div>
+                <img
+                  src={logoLight.src}
+                  alt="Logo Light"
+                  className="block dark:hidden"
+                />
+                <img
+                  src={logoDark.src}
+                  alt="Logo Dark"
+                  className="hidden dark:block"
+                />
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        {/*<NavProjects projects={data.projects} />*/}
+        <div className="flex flex-col h-full justify-between">
+          <NavMain items={data.navMain} />
+          {/*<NavProjects projects={data.projects} />*/}
+          <Button variant="outline" size="lg" className="w-auto mx-4">
+            Nuevo Chat
+            <BotMessageSquare className="mr-2 h-4 w-4" />
+          </Button>
+        </div>
+
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
-      {<SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>}
+
+      {
+        <SidebarFooter>
+          <NavUser user={data.user} />
+        </SidebarFooter>
+      }
     </Sidebar>
-  )
+  );
 }

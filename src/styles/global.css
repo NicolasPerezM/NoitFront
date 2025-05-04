@@ -29,25 +29,26 @@
   font-display: swap;
 }
 @theme {
-    --color-theme-darkest: #111111;   /* Negro mate, el más oscuro */
-    --color-theme-dark: #232323;
-    --color-theme-gray: #888888;       /* Gris */
-    --color-theme-light: #f7f7ff;   /* Color más claro */
-    --color-theme-primary: /*#E81840*/  hsl(227, 22%, 40%, 0.7);    /* Color primario y más llamativo */
-    --color-theme-white: #ffffff;
-    --color-theme-complementary: /*#18e8c0*/ #B2ABF2;
-    --color-theme-analogous: /*#e8c018*/ #FCBA04;
-    --color-theme-analogous-two:#e85818;
-    --color-theme-split: /*#18e858*/ #9EE493;
-    --color-theme-split-two: #18a8e8;
-    --font-sora: 'Sora Variable', sans-serif;
-    --font-syne: 'Syne Variable', sans-serif;
-    --font-orbitron: 'Orbitron Variable', sans-serif;
-    --font-inter: 'Inter Variable', sans-serif;
-    --font-britanica: 'Britanica', sans-serif;
-    --font-montreal: 'Montreal', sans-serif;
-    --font-navara: 'Navara', sans-serif;
+  --font-montreal: 'Montreal', sans-serif;
+  --font-navara: 'Navara', sans-serif;
+
+  /* Tamaños base */
+  --text-title: 60px;
+  --text-subtitle: 37px;
+  --text-paragraph: 17px;
+  --text-small: 14px;
+
+  /* Tablet (>= 768px) */
+  --text-title-tablet: 48px;
+  --text-paragraph-tablet: 16px;
+  --text-small-tablet: 13px;
+
+  /* Móvil (< 640px) */
+  --text-title-mobile: 36px;
+  --text-paragraph-mobile: 15px;
+  --text-small-mobile: 12px;
 }
+
 
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);

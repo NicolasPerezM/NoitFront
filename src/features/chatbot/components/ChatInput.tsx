@@ -20,7 +20,7 @@ export function ChatInput({ message, onMessageChange, onSubmit }: ChatInputProps
         value={message}
         onChange={(e) => onMessageChange(e.target.value)}
         placeholder="Ej: “Quiero lanzar una marca de skincare vegano”."
-        className="pr-24 py-6 text-base bg-background border-border"
+        className="pr-24 py-6 text-small bg-background border-border"
       />
       <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-2">
         <Button
