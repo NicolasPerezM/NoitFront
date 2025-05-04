@@ -1,11 +1,11 @@
 ---
 import DashboardLayout from '../layouts/DashboardLayout.astro';
 import '../styles/global.css';
-import { ChatInterface } from '../components/ChatInterface.tsx';
+import { ChatInterface } from '../features/chatbot/components/ChatInterface.tsx';
 ---
 
 <DashboardLayout>
-	<div class="flex flex-col items-center justify-center min-h-screen bg-background px-4 py-4">
+	<div class="flex flex-col items-center justify-center h-screen bg-background px-4">
 		<ChatInterface />
 	  </div>
 </DashboardLayout>
