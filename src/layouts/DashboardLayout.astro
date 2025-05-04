@@ -1,16 +1,18 @@
 ---
 import "../styles/global.css";
 import Sidebar from "../components/layout/Sidebar.jsx";
-import '@fontsource/barlow/400.css';
-import '@fontsource/barlow/500.css';
-import '@fontsource/barlow/700.css';
-import '@fontsource/barlow/900.css';
+import "@fontsource/barlow/400.css";
+import "@fontsource/barlow/500.css";
+import "@fontsource/barlow/700.css";
+import "@fontsource/barlow/900.css";
 // Supports weights 400-800
-import '@fontsource-variable/syne';
-import '@fontsource-variable/inter';
-import '@fontsource-variable/sora';
-import '@fontsource-variable/orbitron';
+import "@fontsource-variable/syne";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/sora";
+import "@fontsource-variable/orbitron";
+import ReactQueryProvider from "@/lib/api/ReactQueryProvider";
 ---
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -19,16 +21,18 @@ import '@fontsource-variable/orbitron';
     <title>DashboardLayout</title>
   </head>
   <body>
-    <div
-      id="app"
-      class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-montreal text-paragraph"
-    >
-      <aside class="[grid-area:sidebar] overflow-y-auto">
-        <Sidebar client:load>
-          <slot />
-        </Sidebar>
-      </aside>
-    </div>
+    <ReactQueryProvider client:only="react">
+      <div
+        id="app"
+        class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-montreal text-paragraph"
+      >
+        <aside class="[grid-area:sidebar] overflow-y-auto">
+          <Sidebar client:load>
+            <slot />
+          </Sidebar>
+        </aside>
+      </div>
+    </ReactQueryProvider>
   </body>
 </html>
 
@@ -36,16 +40,14 @@ import '@fontsource-variable/orbitron';
   #app {
     display: grid;
     overflow: hidden;
-    grid-template-areas:
-      "sidebar";
+    grid-template-areas: "sidebar";
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
 
   @media screen and (max-width: 768px) {
     #app {
-      grid-template-areas:
-        "sidebar";
+      grid-template-areas: "sidebar";
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
     }
