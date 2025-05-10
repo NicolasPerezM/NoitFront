@@ -1,6 +1,7 @@
 ---
-import LoginForm from "../features/auth/components/LoginForm.tsx";
-import ParticlesBackground from "../features/auth/components/ParticlesBackground.tsx";
+import {ClientRouter} from 'astro:transitions'
+import LoginForm from "../features/auth/components/login/LoginForm.tsx";
+import ParticlesBackground from "../features/auth/components/login/ParticlesBackground.tsx";
 import '../styles/global.css';
 ---
 
@@ -9,4 +10,8 @@ import '../styles/global.css';
   <div class="hidden w-3/4 lg:block">
     <ParticlesBackground client:load />
   </div>
+  <ClientRouter/>
 </div>
+
+
+

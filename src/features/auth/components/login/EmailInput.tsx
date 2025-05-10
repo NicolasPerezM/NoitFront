@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 export const EmailInput = ({ email, setEmail, isValid }: any) => (
   <div className="space-y-2">
     <Label htmlFor="email" className="text-foreground">
-      Correo Electrónico
+      Correo Electronico
     </Label>
     <div className="relative">
       <Input

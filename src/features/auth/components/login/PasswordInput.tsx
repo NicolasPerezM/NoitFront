@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label"
 export const PasswordInput = ({ password, setPassword }: any) => (
   <div className="space-y-2">
     <Label htmlFor="password" className="text-foreground">
-      Contraseña
+      Contrasena
     </Label>
     <Input
       id="password"
@@ -14,7 +14,7 @@ export const PasswordInput = ({ password, setPassword }: any) => (
       value={password}
       onChange={(e) => setPassword(e.target.value)}
       className="bg-background pl-4"
-      placeholder="Ingresa tu contraseña"
+      placeholder="Ingresa tu contrasena"
     />
   </div>
 )

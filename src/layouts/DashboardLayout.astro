@@ -11,6 +11,7 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/sora";
 import "@fontsource-variable/orbitron";
 import ReactQueryProvider from "@/lib/api/ReactQueryProvider";
+import {ClientRouter} from 'astro:transitions'
 ---
 
 <!doctype html>
@@ -21,7 +22,6 @@ import ReactQueryProvider from "@/lib/api/ReactQueryProvider";
     <title>DashboardLayout</title>
   </head>
   <body>
-    <ReactQueryProvider client:only="react">
       <div
         id="app"
         class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-montreal text-paragraph"
@@ -32,8 +32,8 @@ import ReactQueryProvider from "@/lib/api/ReactQueryProvider";
           </Sidebar>
         </aside>
       </div>
-    </ReactQueryProvider>
   </body>
+  <ClientRouter/>
 </html>
 
 <style>

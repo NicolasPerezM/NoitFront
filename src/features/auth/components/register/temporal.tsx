@@ -1,9 +1,9 @@
-// src/components/RegisterForm.tsx
-import React from "react";
-import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "@/lib/api/auth";
-import { queryClient } from "@/lib/api/queryClient";
+"use client";
+
+import { useState, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
+import { EmailInput } from "../login/EmailInput";
+import { PasswordInput } from "../login/PasswordInput";
 import { Header } from "../login/LoginHeader";
 import { TermsFooter } from "../login/TermsFooter";
 import { RegisterTitle } from "./RegisterTitle";
@@ -12,30 +12,30 @@ import { GoogleSignInButton } from "../login/GoogleSignInButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const RegisterForm = () => {
-  const mutation = useMutation(
-    {
-      mutationFn: registerUser,
-      onSuccess: (data) => {
-        window.location.href = "/";
-        console.log(data);
-      },
-      onError: (error: any) => {
-        alert("Hay un error: " + error.message);
-      },
-    },
-    queryClient
-  );
+export default function RegisterForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleLoginRedirect = () => {
+    window.location.href = "/login";
+  };
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    mutation.mutate({
-      email: formData.get("email") as string,
-      password: formData.get("password") as string,
-    });
+    console.log("Registrando usuario con:", formData);
   };
 
   return (
@@ -47,39 +47,43 @@ const RegisterForm = () => {
           <RegisterTitle />
           <RegisterSubtitle />
         </div>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-6 md:gap-8 w-full"
-        >
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6 md:gap-8 w-full">
           <div className="grid w-full gap-2">
             <Label htmlFor="name">Nombre</Label>
-            <Input id="name" name="name" type="text" required />
+            <Input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
           </div>
 
-          <div className="grid w-full gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" name="email" type="email" required />
-          </div>
+          <EmailInput
+            email={formData.email}
+            setEmail={(email) => setFormData(prev => ({ ...prev, email }))}
+            isValid={isEmailValid}
+          />
 
-          <div className="grid w-full gap-2">
-            <Label htmlFor="password">Contraseña</Label>
-            <Input id="password" name="password" type="password" required />
-          </div>
+          <PasswordInput 
+            password={formData.password}
+            setPassword={(password) => setFormData(prev => ({ ...prev, password }))}
+          />
 
           <div className="flex flex-col gap-3 sm:gap-4">
             <Button
               type="submit"
               className="w-full text-sm sm:text-base"
-              disabled={mutation.isPending}
             >
-              {mutation.isPending ? "Registrando..." : "REGISTRARSE"}
+              REGISTRARSE
             </Button>
 
             <Button
               type="button"
               variant="outline"
               className="w-full text-sm sm:text-base"
-              onClick={() => (window.location.href = "/login")}
+              onClick={handleLoginRedirect}
             >
               ¿Ya tienes cuenta? Iniciar Sesión
             </Button>
@@ -94,12 +98,10 @@ const RegisterForm = () => {
             </div>
           </div>
 
-          <GoogleSignInButton />
+          <GoogleSignInButton/>
         </form>
         <TermsFooter />
       </div>
     </div>
   );
-};
-
-export default RegisterForm;
+}

@@ -16,7 +16,7 @@ export const RememberMe = ({ rememberMe, setRememberMe }: any) => (
       </Label>
     </div>
     <a href="/forgot-password" className="text-sm text-muted-foreground hover:underline">
-      Olvidé mi contraseña
+      Olvide mi contraseña
     </a>
   </div>
 )

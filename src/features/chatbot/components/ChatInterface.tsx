@@ -15,6 +15,7 @@ export function ChatInterface() {
 
   return (
     <div className="w-full max-w-3xl mx-auto space-y-12">
+      <div className="gradient-top-primary" />
       <WelcomeMessage />
       <ChatInput message={message} onMessageChange={setMessage} onSubmit={handleSendMessage} />
       <PastProjectsSection />
