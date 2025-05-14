@@ -1,67 +1,58 @@
-import type { APIRoute } from 'astro';
+import type { APIRoute } from "astro";
 
-// Interface defining the expected response from noit login endpoint
-interface noitLoginResponse {
-  token: string;
-}
+export const prerender = false; 
 
-// POST endpoint handler for user login
 export const POST: APIRoute = async ({ request, cookies }) => {
   try {
-    // Extract email and password from form data
-    const formData = await request.formData();
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const { email, password } = await request.json();
 
-    // Validate required fields
-    if (!email || !password) {
-      return new Response(
-        JSON.stringify({ message: 'Email y contraseña son requeridos' }), 
-        { status: 400 }
-      );
-    }
+    const upstreamData = new URLSearchParams();
+    upstreamData.append("username", email); // FastAPI normalmente usa "username"
+    upstreamData.append("password", password);
 
-    // Call backend API to authenticate user
-    const backendApiResponse = await fetch(`${import.meta.env.PUBLIC_API_URL}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+    const res = await fetch("https://noit.com.co/api/v1/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: upstreamData,
     });
 
-    // Handle unsuccessful login attempts
-    if (!backendApiResponse.ok) {
-      const errorData = await backendApiResponse.json()
-        .catch(() => ({ message: 'Error de login en backend' }));
-      return new Response(JSON.stringify(errorData), { status: backendApiResponse.status });
+    if (!res.ok) {
+      const errorText = await res.text();
+      return new Response(JSON.stringify({ error: errorText }), {
+        status: res.status,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    // Extract token and user data from successful response
-    const { token } = await backendApiResponse.json() as noitLoginResponse;
+    const data = await res.json();
+    const token = data.access_token;
 
-    // Set session cookie with authentication token
-    cookies.set('astro_session_token', token, {
-      httpOnly: true, // Prevent JavaScript access to cookie
-      secure: import.meta.env.PROD, // Only send over HTTPS in production
-      path: '/', // Cookie available across all paths
-      maxAge: 60 * 60 * 24 * 7, // Cookie expires in 7 days
-      sameSite: 'lax', // Moderate CSRF protection
+    if (!token) {
+      return new Response(JSON.stringify({ error: "No se recibió token" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    cookies.set("token", token, {
+      httpOnly: true,
+      secure: true,
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7, // 1 semana
+      sameSite: "lax",
     });
 
-    // Return success response with token and user data
-    return new Response(
-      JSON.stringify({ 
-        message: 'Login exitoso', 
-        token 
-      }), 
-      { status: 200 }
-    );
-
-  } catch (error) {
-    // Log and handle unexpected errors
-    console.error('Error en /api/auth/login:', error);
-    return new Response(
-      JSON.stringify({ message: 'Error interno del servidor' }), 
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err: any) {
+    console.error("Error en /api/login:", err);
+    return new Response(JSON.stringify({ error: "Error interno del servidor" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 };

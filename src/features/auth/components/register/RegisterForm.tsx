@@ -1,7 +1,7 @@
 // src/components/RegisterForm.tsx
 import React from "react";
 import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "@/lib/api/auth";
+import { registerUser } from "@/lib/api/register";
 import { queryClient } from "@/lib/api/queryClient";
 import { Button } from "@/components/ui/button";
 import { Header } from "../login/LoginHeader";
