@@ -3,15 +3,18 @@ import {ClientRouter} from 'astro:transitions'
 import LoginForm from "../features/auth/components/login/LoginForm.tsx";
 import ParticlesBackground from "../features/auth/components/login/ParticlesBackground.tsx";
 import '../styles/global.css';
+import AuthLayout from '../layouts/AuthLayout.astro'
 ---
 
-<div class="flex min-h-screen w-full">
-  <LoginForm client:load />
-  <div class="hidden w-3/4 lg:block">
-    <ParticlesBackground client:load />
+<AuthLayout>
+  <div class="flex min-h-screen w-full">
+    <LoginForm client:load />
+    <div class="hidden w-3/4 lg:block">
+      <ParticlesBackground client:load />
+    </div>
+    <ClientRouter/>
   </div>
-  <ClientRouter/>
-</div>
+</AuthLayout>
 
 
 

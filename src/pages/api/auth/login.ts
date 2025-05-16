@@ -7,7 +7,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     const { email, password } = await request.json();
 
     const upstreamData = new URLSearchParams();
-    upstreamData.append("username", email);
+    upstreamData.append("username", email); 
     upstreamData.append("password", password);
 
     const res = await fetch("https://noit.com.co/api/v1/auth/login", {

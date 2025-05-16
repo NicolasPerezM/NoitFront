@@ -3,12 +3,15 @@ import RegisterForm from "../features/auth/components/register/RegisterForm.tsx"
 import ParticlesBackground from "../features/auth/components/login/ParticlesBackground.tsx";
 import '../styles/global.css';
 import {ClientRouter} from 'astro:transitions'
+import AuthLayout from '../layouts/AuthLayout.astro'
 ---
-
-<div class="flex min-h-screen w-full">
-  <RegisterForm client:load />
-  <div class="hidden w-3/4 lg:block">
-    <ParticlesBackground client:load />
+<AuthLayout>
+  <div class="flex min-h-screen w-full">
+    <RegisterForm client:load />
+    <div class="hidden w-3/4 lg:block">
+      <ParticlesBackground client:load />
+    </div>
+    <ClientRouter/>
   </div>
-  <ClientRouter/>
-</div>
+</AuthLayout>
+

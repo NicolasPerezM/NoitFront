@@ -74,15 +74,15 @@ const RegisterForm = () => {
             >
               {mutation.isPending ? "Registrando..." : "REGISTRARSE"}
             </Button>
-
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full text-sm sm:text-base"
-              onClick={() => (window.location.href = "/login")}
-            >
-              ¿Ya tienes cuenta? Iniciar Sesión
-            </Button>
+            <a href="/login">
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full text-sm sm:text-base"
+              >
+                ¿Ya tienes cuenta? Iniciar Sesión
+              </Button>
+            </a>
           </div>
 
           <div className="relative flex items-center justify-center w-full">
