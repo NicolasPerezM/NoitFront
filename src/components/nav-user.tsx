@@ -29,6 +29,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { handleLogout } from "@/lib/api/logout"
 
 export function NavUser({
   user,
@@ -40,6 +41,14 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
+
+  const onLogout = async () => {
+    try {
+      await handleLogout();
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error);
+    }
+  };
 
   return (
     <SidebarMenu>
@@ -102,7 +111,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={onLogout}>
               <LogOut />
               Cerrar sesión
             </DropdownMenuItem>

@@ -12,5 +12,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [react(), flowbiteReact()]
+  integrations: [react(), flowbiteReact()],
+  output: 'server'
 });

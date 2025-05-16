@@ -9,9 +9,10 @@ import { Header } from "./LoginHeader";
 import { TermsFooter } from "./TermsFooter";
 import { LoginTitle } from "./LoginTitle";
 import { GoogleSignInButton } from "./GoogleSignInButton";
+import { handleLogin } from "@/lib/api/login";
 
 export default function LoginForm() {
-  const [email, setEmail] = useState("ejemplo@noit.com");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -19,30 +20,13 @@ export default function LoginForm() {
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
   
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-  
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data?.error || "Error al iniciar sesión");
-      }
-  
-      // Redirigir al dashboard si el login fue exitoso
-      window.location.href = "/";
+      await handleLogin({ email, password });
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -60,7 +44,7 @@ export default function LoginForm() {
         </div>
         <form
           className="flex flex-col gap-6 md:gap-8 w-full"
-          onSubmit={handleLogin}
+          onSubmit={onSubmit}
         >
           <EmailInput
             email={email}
