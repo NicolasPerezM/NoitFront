@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Llamar a la API externa con el token
+    // Llamar al endpoint externo de Noit que inicia la conversación
     const response = await fetch("https://noit.com.co/api/v1/business-idea", {
       method: "POST",
       headers: {
@@ -33,15 +33,29 @@ export const POST: APIRoute = async ({ request }) => {
 
     const data = await response.json();
 
-    return new Response(JSON.stringify(data), {
-      status: response.status,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    // Si la API de Noit falla, reenviamos el mensaje de error
+    if (!response.ok) {
+      return new Response(JSON.stringify({ error: data }), {
+        status: response.status,
+      });
+    }
+
+    // Retornar el session_id y el primer mensaje (reply)
+    return new Response(
+      JSON.stringify({
+        session_id: data.id,
+      }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (err) {
     return new Response(
-      JSON.stringify({ error: "Error al iniciar la sesión", detail: err }),
+      JSON.stringify({
+        error: "Error al iniciar el chat",
+        detail: err instanceof Error ? err.message : err,
+      }),
       { status: 500 }
     );
   }
