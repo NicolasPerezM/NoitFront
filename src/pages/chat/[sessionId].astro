@@ -1,0 +1,31 @@
+---
+import ChatSessionPage from '@/features/chatbot/components/ChatSessionPage';
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+
+const { sessionId } = Astro.params;
+
+// Redirigir si no hay sessionId
+if (!sessionId) {
+  return Astro.redirect('/');
+}
+
+console.log(sessionId)
+
+---
+<DashboardLayout>
+        <ChatSessionPage 
+            client:load
+            sessionId={sessionId as string} 
+            firstMessage={typeof window !== 'undefined' ? sessionStorage.getItem('firstMessage') : null}
+        />
+</DashboardLayout>
+
+<script>
+  // Limpiar el mensaje del sessionStorage después de que se haya cargado
+  if (typeof window !== 'undefined') {
+    const firstMessage = sessionStorage.getItem('firstMessage');
+    if (firstMessage) {
+      sessionStorage.removeItem('firstMessage');
+    }
+  }
+</script>

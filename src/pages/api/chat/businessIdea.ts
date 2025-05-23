@@ -44,6 +44,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(
       JSON.stringify({
         session_id: data.id,
+        description: data.description,
       }),
       {
         status: 200,
