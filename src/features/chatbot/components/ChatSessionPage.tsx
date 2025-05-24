@@ -154,7 +154,7 @@ export default function ChatSessionPage({ sessionId }: ChatSessionPageProps) {
     const paragraphs = cleanText.split(/\n{2,}/);
 
     return (
-      <div className="space-y-3 text-sm leading-relaxed">
+      <div className="space-y-3 text-md leading-relaxed">
         {paragraphs.map((para, i) => (
           <p key={i} className="whitespace-pre-line">
             {para}
@@ -175,7 +175,7 @@ export default function ChatSessionPage({ sessionId }: ChatSessionPageProps) {
   return (
     <div>
       <div className="gradient-top-chat" />
-      <div className="min-h-[820px] text-foreground flex flex-col max-w-5xl mx-auto px-4 py-8">
+      <div className="min-h-[820px] text-foreground text-md flex flex-col max-w-5xl mx-auto px-4 py-8">
         <ScrollArea
           className="flex-grow mt-4 mb-2 h-[300px] rounded-lg p-4"
           ref={containerRef}
@@ -189,7 +189,7 @@ export default function ChatSessionPage({ sessionId }: ChatSessionPageProps) {
                 }`}
               >
                 <Card
-                  className={`max-w-sm px-4 py-3 shadow rounded-2xl text-sm whitespace-pre-wrap ${
+                  className={`max-w-sm px-4 py-3 shadow rounded-2xl whitespace-pre-wrap ${
                     msg.sender === "user"
                       ? "bg-primary text-primary-foreground rounded-br-sm"
                       : "bg-transparent rounded-bl-sm"
