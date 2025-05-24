@@ -10,7 +10,7 @@ export default function Page({children}) {
         <div className="flex flex-1">
           <AppSidebar />
           <SidebarInset>
-          <div className="p-4">{children}</div>
+          <div className="p-4 overflow-auto">{children}</div>
           </SidebarInset>
         </div>
       </SidebarProvider>
