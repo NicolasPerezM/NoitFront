@@ -8,6 +8,7 @@ interface ChatInputProps {
   onMessageChange: (value: string) => void;
   onSubmit: () => void; // Cambiado: onSubmit no necesita el mensaje, ya lo tiene del estado padre
   isSending: boolean; // Para deshabilitar controles mientras se envía
+  isFirstMessage?: boolean;
 }
 
 export function ChatInput({
@@ -15,6 +16,7 @@ export function ChatInput({
   onMessageChange,
   onSubmit,
   isSending,
+  isFirstMessage = true,
 }: ChatInputProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,11 +25,11 @@ export function ChatInput({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative">
+    <form onSubmit={handleSubmit} className="relative w-full">
       <Input
         value={message}
         onChange={(e) => onMessageChange(e.target.value)}
-        placeholder="Ej: “Quiero lanzar una marca de skincare vegano”."
+        placeholder={isFirstMessage ? 'Ej: "Quiero lanzar una marca de skincare vegano"' : ""}
         className="pr-24 py-6 text-small bg-background border-border"
         disabled={isSending}
       />

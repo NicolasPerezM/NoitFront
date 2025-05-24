@@ -1,10 +1,13 @@
-// src/pages/chat/[session_id].tsx
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { queryClient } from "@/lib/api/queryClient";
+
 import { ChatInput } from "./ChatInput";
-import { getNextQuestion, sendAnswer } from "@/lib/api/businessModel";
-import { getFirstChatMessage } from "@/lib/api/chatMessage";
+import { chatMessage } from "@/lib/api/chatMessage";
+import { nextChatMessage } from "@/lib/api/nextChatMessage";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
@@ -28,16 +31,69 @@ export default function ChatSessionPage({ sessionId }: ChatSessionPageProps) {
     },
   ]);
   const [input, setInput] = useState("");
+  const [isFirstMessage, setIsFirstMessage] = useState(true);
+  const [sessionId2, setSessionId2] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isFirstInteraction, setIsFirstInteraction] = useState(true);
+
+  const firstMessageMutation = useMutation(
+    {
+      mutationFn: chatMessage,
+      onSuccess: (data) => {
+        const botMessage: ChatMessage = {
+          id: crypto.randomUUID(),
+          text: data.reply,
+          sender: "bot",
+        };
+        setMessages((prev) => [...prev, botMessage]);
+        setIsFirstMessage(false);
+        
+        if (data.session_id) {
+          console.log('Setting session_id_2 from first response:', data.session_id);
+          setSessionId2(data.session_id);
+        } else {
+          console.error('No session_id in first response:', data);
+        }
+      },
+      onError: (error) => {
+        console.error('Error in first message:', error);
+        const errorMessage: ChatMessage = {
+          id: crypto.randomUUID(),
+          text: "Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta de nuevo.",
+          sender: "bot",
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+      },
+    },
+    queryClient
+  );
+
+  const nextMessageMutation = useMutation(
+    {
+      mutationFn: nextChatMessage,
+      onSuccess: (data) => {
+        const botMessage: ChatMessage = {
+          id: crypto.randomUUID(),
+          text: data.reply,
+          sender: "bot",
+        };
+        setMessages((prev) => [...prev, botMessage]);
+      },
+      onError: (error) => {
+        console.error('Error in next message:', error);
+        const errorMessage: ChatMessage = {
+          id: crypto.randomUUID(),
+          text: "Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta de nuevo.",
+          sender: "bot",
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+      },
+    },
+    queryClient
+  );
 
   const handleSend = () => {
     const trimmed = input.trim();
     if (!trimmed || !sessionId) return;
-
-    console.log('Enviando mensaje:', trimmed);
-    console.log('SessionId:', sessionId);
-    console.log('Es primera interacción:', isFirstInteraction);
 
     const userMessage: ChatMessage = {
       id: crypto.randomUUID(),
@@ -48,37 +104,29 @@ export default function ChatSessionPage({ sessionId }: ChatSessionPageProps) {
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
 
-    if (isFirstInteraction) {
-      console.log('Llamando a getFirstChatMessage...');
-      getFirstChatMessage(sessionId)
-        .then((data) => {
-          console.log('Respuesta de getFirstChatMessage:', data);
-          const botMessage: ChatMessage = {
-            id: crypto.randomUUID(),
-            text: data.message,
-            sender: "bot",
-          };
-          setMessages((prev) => [...prev, botMessage]);
-          setIsFirstInteraction(false);
-        })
-        .catch((error) => {
-          console.error('Error en getFirstChatMessage:', error);
-          // Mostrar mensaje de error al usuario
-          const errorMessage: ChatMessage = {
-            id: crypto.randomUUID(),
-            text: "Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta de nuevo.",
-            sender: "bot",
-          };
-          setMessages((prev) => [...prev, errorMessage]);
-        });
+    if (isFirstMessage) {
+      console.log('Sending first message with sessionId:', sessionId);
+      firstMessageMutation.mutate({ 
+        sessionId, 
+        message: trimmed, 
+        isFirstMessage: true
+      });
     } else {
-      sendAnswer(sessionId, trimmed).then((data) => {
-        const botMessage: ChatMessage = {
-          id: crypto.randomUUID(),
-          text: data.reply,
-          sender: "bot",
-        };
-        setMessages((prev) => [...prev, botMessage]);
+      if (!sessionId2) {
+        console.error('No session_id_2 available for next message');
+        return;
+      }
+      
+      console.log('Sending next message with:', {
+        sessionId,
+        session_id_2: sessionId2,
+        message: trimmed
+      });
+
+      nextMessageMutation.mutate({ 
+        sessionId, 
+        message: trimmed,
+        session_id_2: sessionId2
       });
     }
   };
@@ -89,43 +137,86 @@ export default function ChatSessionPage({ sessionId }: ChatSessionPageProps) {
     }
   }, [messages]);
 
+  function renderBotMessage(text: string) {
+    const suggestionMatch = text.match(
+      /\[SUGGESTION_DATA\](.+?)\[\/SUGGESTION_DATA\]/s
+    );
+    const suggestion = suggestionMatch?.[1]?.trim();
+
+    // Eliminar la sugerencia del texto visible si está duplicada antes del tag
+    let cleanText = text
+      .replace(/\[SUGGESTION_DATA\].*?\[\/SUGGESTION_DATA\]/s, "")
+      .trim();
+    if (suggestion && cleanText.includes(suggestion)) {
+      cleanText = cleanText.replace(suggestion, "").trim();
+    }
+
+    const paragraphs = cleanText.split(/\n{2,}/);
+
+    return (
+      <div className="space-y-3 text-sm leading-relaxed">
+        {paragraphs.map((para, i) => (
+          <p key={i} className="whitespace-pre-line">
+            {para}
+          </p>
+        ))}
+        {suggestion && (
+          <div className="mt-4 border border-primary rounded-md bg-primary/5 p-3 text-sm">
+            <h4 className="font-semibold mb-1 text-primary">
+              Sugerencia de respuesta
+            </h4>
+            <p className="whitespace-pre-wrap">{suggestion}</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen px-6 py-10 flex flex-col gap-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold">Chat de Sesión</h1>
-      <Separator />
-      <ScrollArea className="flex-grow border rounded-md p-4 h-[400px]" ref={containerRef}>
-        <div className="space-y-4">
-          {messages.map((msg) => (
-            <div key={msg.id} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-              <Card
-                className={`max-w-md p-3 shadow-md rounded-lg text-sm whitespace-pre-wrap ${
-                  msg.sender === "user"
-                    ? "bg-primary text-primary-foreground rounded-br-none"
-                    : "bg-muted text-muted-foreground rounded-bl-none"
+    <div>
+      <div className="gradient-top-chat" />
+      <div className="min-h-[820px] text-foreground flex flex-col max-w-5xl mx-auto px-4 py-8">
+        <ScrollArea
+          className="flex-grow mt-4 mb-2 h-[300px] rounded-lg p-4"
+          ref={containerRef}
+        >
+          <div className="space-y-3">
+            {messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
                 }`}
               >
-                <CardContent className="p-0">
-                  <p>{msg.text}</p>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+                <Card
+                  className={`max-w-sm px-4 py-3 shadow rounded-2xl text-sm whitespace-pre-wrap ${
+                    msg.sender === "user"
+                      ? "bg-primary text-primary-foreground rounded-br-sm"
+                      : "bg-transparent rounded-bl-sm"
+                  }`}
+                >
+                  <CardContent className="p-0">
+                    {msg.sender === "bot" ? (
+                      renderBotMessage(msg.text)
+                    ) : (
+                      <p>{msg.text}</p>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+        <div className="flex items-center gap-2 mt-2">
+          <ChatInput
+            message={input}
+            onMessageChange={setInput}
+            onSubmit={handleSend}
+            isSending={firstMessageMutation.isPending || nextMessageMutation.isPending}
+            isFirstMessage={isFirstMessage}
+          />
         </div>
-      </ScrollArea>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSend();
-        }}
-        className="flex items-center gap-2"
-      >
-        <ChatInput
-          message={input}
-          onMessageChange={setInput}
-          onSubmit={handleSend}
-          isSending={false}
-        />
-      </form>
+      </div>
     </div>
   );
 }

@@ -15,8 +15,9 @@ export function ChatInterface() {
     {
       mutationFn: businessIdea,
       onSuccess: (data) => {
-        console.log("✅ Session ID:", data.id);
-        window.location.href = `/chat/${data.id}`;
+        console.log("✅ Session ID:", data.session_id);
+        
+        window.location.href = `/chat/${data.session_id}`;
       },
       onError: (error: Error) => {
         alert("❌ Error: " + error.message);
