@@ -25,30 +25,13 @@ import {ClientRouter} from 'astro:transitions'
         id="app"
         class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-montreal text-paragraph"
       >
-        <aside class="[grid-area:sidebar] overflow-y-auto">
-          <Sidebar client:load>
-            <slot />
-          </Sidebar>
-        </aside>
+        <Sidebar client:load>
+          <slot />
+        </Sidebar>
       </div>
   </body>
   <ClientRouter/>
 </html>
 
 <style>
-  #app {
-    display: grid;
-    overflow: hidden;
-    grid-template-areas: "sidebar";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
-
-  @media screen and (max-width: 768px) {
-    #app {
-      grid-template-areas: "sidebar";
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-    }
-  }
 </style>

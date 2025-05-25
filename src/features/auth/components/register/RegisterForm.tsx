@@ -51,17 +51,17 @@ const RegisterForm = () => {
           onSubmit={handleSubmit}
           className="flex flex-col gap-6 md:gap-8 w-full"
         >
-          <div className="grid w-full gap-2">
+          <div className="flex flex-col space-y-2 w-full">
             <Label htmlFor="name">Nombre</Label>
             <Input id="name" name="name" type="text" required />
           </div>
 
-          <div className="grid w-full gap-2">
+          <div className="flex flex-col space-y-2 w-full">
             <Label htmlFor="email">Email</Label>
             <Input id="email" name="email" type="email" required />
           </div>
 
-          <div className="grid w-full gap-2">
+          <div className="flex flex-col space-y-2 w-full">
             <Label htmlFor="password">Contraseña</Label>
             <Input id="password" name="password" type="password" required />
           </div>
