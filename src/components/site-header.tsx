@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useSidebar } from "@/components/ui/sidebar";
 import ThemeToggle from "./common/ThemeToggle";
+import { SubscribeButton } from "./common/SubscribeButton";
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
@@ -43,10 +44,7 @@ export function SiteHeader() {
           </Breadcrumb>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="lg">
-            Chat
-            <BotMessageSquare className="mr-2 h-4 w-4" />
-          </Button>
+          <SubscribeButton variant="outline" size="lg" className="text-sm"/>
           <ThemeToggle variant="switch" size="sm" />
         </div>
       </div>

@@ -5,3 +5,4 @@ export const LoginTitle = () => (
     Explora tu industria. Domina tu marca.
   </h1>
 )
+
