@@ -1,49 +1,108 @@
 ---
+// Import global styles for the application.
 import "../styles/global.css";
+// Import the Sidebar layout component.
+// Note: This seems to be a React component (.jsx) being used in an Astro layout.
+// Astro allows mixing UI frameworks.
 import Sidebar from "../components/layout/Sidebar.jsx";
+
+// Import various font styles from the @fontsource project.
+// Specific weights for Barlow font.
 import "@fontsource/barlow/400.css";
 import "@fontsource/barlow/500.css";
 import "@fontsource/barlow/700.css";
 import "@fontsource/barlow/900.css";
-// Supports weights 400-800
+
+// Import variable fonts, which support a range of weights.
+// The comment "Supports weights 400-800" likely applies to these variable fonts.
 import "@fontsource-variable/syne";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/sora";
 import "@fontsource-variable/orbitron";
+
+// Import ClientRouter for Astro's View Transitions API.
+// This enables client-side navigation and animated transitions.
 import {ClientRouter} from 'astro:transitions'
 ---
 
-<!doctype html>
-<html lang="es">
+<!--
+  This Astro layout component defines the structure for the main dashboard interface.
+  It includes global styles, fonts, a sidebar, and the main content area.
+-->
+<!doctype html> <!-- Use of <!doctype html> is standard for HTML5. -->
+<html lang="es"> <!-- Document language set to Spanish. -->
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DashboardLayout</title>
+    <meta charset="UTF-8" /> <!-- UTF-8 character encoding. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive viewport configuration. -->
+    <title>DashboardLayout</title> <!-- Default title. Should be overridden by specific pages. -->
+    <!--
+      Consider adding a <slot name="head" /> here for page-specific head content,
+      like custom titles, meta descriptions, or additional stylesheets/scripts.
+    -->
   </head>
   <body>
+      <!--
+        Main application container div.
+        - id="app": Used for styling with CSS grid.
+        - Tailwind CSS classes for relative positioning, full screen height, themed backgrounds (light/dark),
+          themed text colors, and default font settings.
+      -->
       <div
         id="app"
         class="relative h-screen bg-theme-white dark:bg-theme-darkest text-theme-darkest dark:text-theme-light font-montreal text-paragraph"
       >
+        <!--
+          Aside element for the sidebar.
+          - [grid-area:sidebar]: Assigns this element to the 'sidebar' grid area defined in the <style> block.
+          - overflow-y-auto: Allows vertical scrolling within the sidebar if content exceeds its height.
+        -->
         <aside class="[grid-area:sidebar] overflow-y-auto">
+          {/*
+            Sidebar component instance.
+            - client:load: This Astro directive means the Sidebar React component will be loaded and hydrated on the client-side.
+                         This is necessary for interactive React components.
+          */}
           <Sidebar client:load>
+            {/*
+              The <slot /> tag is where the main content of the page using this layout will be injected.
+              In this specific setup, the page content is passed as children to the Sidebar component,
+              which then likely renders it within its own main content area (e.g., SidebarInset).
+            */}
             <slot />
           </Sidebar>
         </aside>
       </div>
   </body>
+  <!--
+    ClientRouter component for Astro's View Transitions.
+    Should typically be placed at the end of the <body> for optimal performance.
+  -->
   <ClientRouter/>
 </html>
 
 <style>
+  /*
+    CSS styles for the #app container.
+    It uses CSS Grid to define the layout.
+    Initially, it's a single-column/row grid with the 'sidebar' area taking up the whole space.
+    The Sidebar React component itself likely handles the internal division between the actual
+    sidebar panel and the main content area passed to it via <slot />.
+  */
   #app {
     display: grid;
-    overflow: hidden;
-    grid-template-areas: "sidebar";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    overflow: hidden; /* Prevents scrollbars on the #app container itself. */
+    grid-template-areas: "sidebar"; /* Defines a single grid area named 'sidebar'. */
+    grid-template-columns: 1fr; /* The 'sidebar' area takes up all available width. */
+    grid-template-rows: 1fr; /* The 'sidebar' area takes up all available height. */
   }
 
+  /*
+    Media query for screen widths up to 768px (typical mobile/tablet breakpoint).
+    The grid layout defined here is identical to the default. This media query might be
+    a remnant or placeholder for future responsive layout changes.
+    Alternatively, the actual responsive changes (like collapsing the sidebar)
+    are handled within the Sidebar.jsx component using JavaScript and its own styling.
+  */
   @media screen and (max-width: 768px) {
     #app {
       grid-template-areas: "sidebar";

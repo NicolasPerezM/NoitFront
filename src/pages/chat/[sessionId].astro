@@ -1,29 +1,60 @@
 ---
+// Import the React component responsible for rendering the chat session UI.
 import ChatSessionPage from '@/features/chatbot/components/ChatSessionPage';
+// Import the main dashboard layout for consistent page structure.
 import DashboardLayout from '../../layouts/DashboardLayout.astro';
 
+// Astro.params contains the dynamic route parameters.
+// In this case, [sessionId].astro means Astro.params will have a sessionId property.
 const { sessionId } = Astro.params;
 
-// Redirigir si no hay sessionId
+// Server-side guard: If sessionId is not present in the URL, redirect to the homepage.
+// This ensures that the page doesn't try to render without a necessary parameter.
 if (!sessionId) {
+  // Astro.redirect performs a server-side redirect.
   return Astro.redirect('/');
 }
 
-console.log(sessionId)
-
+// Log the sessionId to the server console for debugging purposes.
+// This will only be visible in the environment where the Astro server is running.
+console.log(sessionId);
 ---
+
+<!--
+  This Astro page uses the DashboardLayout to structure its content.
+  The main content of this page is the ChatSessionPage React component.
+-->
 <DashboardLayout>
-        <ChatSessionPage 
-            client:load
-            sessionId={sessionId as string} 
-            firstMessage={typeof window !== 'undefined' ? sessionStorage.getItem('firstMessage') : null}
-        />
+    {/*
+      Render the ChatSessionPage React component.
+      - client:load: This Astro directive tells Astro to load and hydrate this React component
+        on the client-side as soon as the page loads. This is necessary for interactive components.
+      - sessionId: The dynamic sessionId from the URL is passed as a prop to the React component.
+        It's cast to string `as string` for type safety, as Astro.params values can be string | undefined.
+      - firstMessage: This attempts to retrieve an item named 'firstMessage' from sessionStorage.
+        - `typeof window !== 'undefined'`: This check ensures sessionStorage (a browser API)
+          is only accessed on the client-side, preventing errors during server-side rendering.
+        - If on the client and 'firstMessage' exists, it's passed as a prop. Otherwise, null is passed.
+          This is likely used to carry over an initial message when starting a new chat session.
+    */}
+    <ChatSessionPage
+        client:load
+        sessionId={sessionId as string}
+        firstMessage={typeof window !== 'undefined' ? sessionStorage.getItem('firstMessage') : null}
+    />
 </DashboardLayout>
 
 <script>
-  // Limpiar el mensaje del sessionStorage después de que se haya cargado
+  // This client-side script runs after the page (and the ChatSessionPage component) has loaded.
+  // Its purpose is to clean up the 'firstMessage' from sessionStorage after it has been passed
+  // to the ChatSessionPage component. This prevents the same initial message from being used again
+  // if the user revisits or refreshes the page.
+
+  // Check if running in a browser environment.
   if (typeof window !== 'undefined') {
+    // Retrieve 'firstMessage' from sessionStorage.
     const firstMessage = sessionStorage.getItem('firstMessage');
+    // If it exists, remove it.
     if (firstMessage) {
       sessionStorage.removeItem('firstMessage');
     }
