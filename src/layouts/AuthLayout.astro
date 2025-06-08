@@ -1,17 +1,42 @@
 ---
+// Import ClientRouter from 'astro:transitions'.
+// ClientRouter is a component from Astro's View Transitions API.
+// It's used to enable client-side navigation and animated transitions between pages
+// without full page reloads, enhancing the user experience.
 import {ClientRouter} from 'astro:transitions'
 ---
 
-
+<!--
+  This is an Astro layout component, specifically designed for authentication-related pages
+  (e.g., login, registration, password reset).
+  Layout components in Astro are used to define the common structure for a set of pages.
+-->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- Sets the language of the document to Spanish. -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8"> <!-- Specifies the character encoding for the document (UTF-8 is recommended). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configures the viewport for responsive design. -->
+    <title>Document</title> <!-- Default document title. This should ideally be replaced by a dynamic title from the page using this layout. -->
+    <!--
+      It's common to include other <head> elements here, such as:
+      - <link rel="stylesheet" href="/styles/global.css"> for global styles.
+      - <link rel="icon" type="image/svg+xml" href="/favicon.svg"> for the favicon.
+      - SEO-related meta tags (description, keywords, etc.).
+      - Potentially, a <slot name="head" /> for page-specific head content.
+    -->
 </head>
 <body>
+    <!--
+      The <slot /> tag is a placeholder where the content of the Astro page
+      that uses this layout will be injected. This is the main content area.
+    -->
     <slot/>
+    <!--
+      The <ClientRouter /> component enables Astro's View Transitions.
+      When navigating between pages that use this layout (or other layouts with ClientRouter),
+      Astro will attempt to perform smooth, animated transitions instead of a full page reload.
+      It should typically be placed at the end of the <body>.
+    -->
     <ClientRouter/>
 </body>
 </html>
