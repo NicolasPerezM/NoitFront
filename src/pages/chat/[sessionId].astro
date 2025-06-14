@@ -13,11 +13,10 @@ console.log(sessionId)
 
 ---
 <DashboardLayout>
-        <ChatSessionPage 
-            client:load
-            sessionId={sessionId as string} 
-            firstMessage={typeof window !== 'undefined' ? sessionStorage.getItem('firstMessage') : null}
-        />
+  <ChatSessionPage 
+    client:load
+    sessionId={sessionId} 
+  />
 </DashboardLayout>
 
 <script>

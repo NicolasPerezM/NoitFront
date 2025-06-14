@@ -1,46 +1,49 @@
 "use client";
 
-import { Button } from "@/components/ui/button"
-import { ProjectCard } from "./ProjectCard"
-import { useQuery } from "@tanstack/react-query"
-import { getBusinessIdeas } from "@/lib/api/getBusinessIdeas"
-import { queryClient } from "@/lib/api/queryClient"
+import { Button } from "@/components/ui/button";
+import { ProjectCard } from "./ProjectCard";
+import { useQuery } from "@tanstack/react-query";
+import { getBusinessIdeas } from "@/lib/api/getBusinessIdeas";
+import { queryClient } from "@/lib/api/queryClient";
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  website_url: string | null;
+  user_id: string;
+  date: string;
+  created_at: string;
+  updated_at: string;
+}
 
 export function PastProjectsSection() {
-  const { 
-    data: allProjects = [], 
-    isLoading: loading, 
-    error 
-  } = useQuery(
+  const {
+    data: allProjects = [],
+    isLoading: loading,
+    error,
+  } = useQuery<Project[]>(
     {
-      queryKey: ['businessIdeas'],
+      queryKey: ["businessIdeas"],
       queryFn: async () => {
-        const data = await getBusinessIdeas()
-        return data.projects || []
+        const data = await getBusinessIdeas();
+        return data.projects || [];
       },
       staleTime: 5 * 60 * 1000, // 5 minutos
       gcTime: 10 * 60 * 1000, // 10 minutos
     },
     queryClient
-  )
+  );
 
-  // Obtener solo las 3 ideas más recientes
-  const recentProjects = allProjects
-    .sort((a, b) => {
-      // Asume que las ideas tienen un campo 'createdAt' o 'date'
-      // Ajusta el nombre del campo según tu estructura de datos
-      const dateA = new Date(a.createdAt || a.date || a.timestamp)
-      const dateB = new Date(b.createdAt || b.date || b.timestamp)
-      return dateB - dateA // Orden descendente (más reciente primero)
-    })
-    .slice(0, 3) // Tomar solo los primeros 3
+  // Obtener los 3 proyectos más recientes (últimos en la base de datos)
+  const recentProjects = allProjects.slice(-3).reverse();
 
   if (loading) {
     return (
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Recientes</h2>
-          <Button variant="ghost" size="sm">
+          <Button variant="outline" size="sm">
             Ver todos
           </Button>
         </div>
@@ -52,7 +55,7 @@ export function PastProjectsSection() {
           ))}
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -60,28 +63,34 @@ export function PastProjectsSection() {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Recientes</h2>
-          <Button variant="ghost" size="sm">
-            Ver todos
-          </Button>
+          <a href="/businessIdeas/businessIdeas">
+            <Button variant="outline" size="sm">
+              Ver todos
+            </Button>
+          </a>
         </div>
         <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
-          <p className="text-destructive">Error al cargar los proyectos: {error.message}</p>
+          <p className="text-destructive">
+            Error al cargar los proyectos: {error.message}
+          </p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-3xl">Recientes</h2>
-        <Button variant="outline" size="sm">
-          Ver todos
-        </Button>
+        <a href="/businessIdeas/businessIdeas">
+          <Button variant="outline" size="sm">
+            Ver todos
+          </Button>
+        </a>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {recentProjects.length > 0 ? (
-          recentProjects.map((project) => (
+          recentProjects.map((project: Project) => (
             <ProjectCard key={project.id} project={project} />
           ))
         ) : (
@@ -91,5 +100,5 @@ export function PastProjectsSection() {
         )}
       </div>
     </div>
-  )
+  );
 }

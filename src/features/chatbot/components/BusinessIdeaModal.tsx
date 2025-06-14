@@ -54,10 +54,9 @@ export function BusinessIdeaModal({ onSubmit }: BusinessIdeaModalProps) {
       <DialogTrigger asChild>
         <Button
           size="lg"
-          className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground border-0 px-8 py-6 text-lg font-semibold rounded-md shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
+          className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground border-0 px-8 py-6 text-lg rounded-md shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-          <Lightbulb className="w-5 h-5 mr-2" />
           Crear Idea de Negocio
           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
         </Button>

@@ -24,6 +24,7 @@ import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
+import { FeedbackModal } from "@/components/feedback-modal";
 import {
   Sidebar,
   SidebarContent,
@@ -33,6 +34,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/button";
 
 import logoLight from "@/assets/logos/logoLight.png";
@@ -47,18 +49,13 @@ const staticData = {
   navSecondary: [
     {
       title: "Ajustes",
-      url: "#",
+      url: "/settings/settings",
       icon: Settings2,
     },
     {
       title: "Soporte",
       url: "#",
       icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
     },
   ],
 };
@@ -122,7 +119,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <a href="/">
                 <img
                   src={logoLight.src}
                   alt="Logo Light"
@@ -139,17 +136,29 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent>
-        <div className="flex flex-col h-full justify-between">
-          <NavMain items={navMainItems} />
-          {/*<NavProjects projects={data.projects} />*/}
-          <Button variant="outline" size="lg" className="w-auto mx-4">
-            Nueva Idea de Negocio
+      <SidebarContent className="flex flex-col overflow-hidden">
+        {/* ScrollArea solo para NavMain */}
+        <div className="flex-1 overflow-hidden">
+          <ScrollArea className="h-full">
+            <div className="px-2">
+              <NavMain items={navMainItems} />
+            </div>
+          </ScrollArea>
+        </div>
+        
+        {/* Botón fijo en la parte inferior del área de navegación */}
+        <div className="flex-shrink-0 p-4 border-t">
+          <Button variant="outline" size="lg" className="w-full">
             <BotMessageSquare className="mr-2 h-4 w-4" />
+            Nueva Idea de Negocio
           </Button>
         </div>
 
-        <NavSecondary items={staticData.navSecondary} className="mt-auto" />
+        {/* Sección fija en la parte inferior */}
+        <div className="flex-shrink-0">
+          <NavSecondary items={staticData.navSecondary} />
+          <FeedbackModal />
+        </div>
       </SidebarContent>
 
       <SidebarFooter>

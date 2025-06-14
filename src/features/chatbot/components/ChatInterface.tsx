@@ -3,20 +3,27 @@
 import { useMutation } from "@tanstack/react-query";
 import { WelcomeMessage } from "./WelcomeMessage";
 import { PastProjectsSection } from "./PastProjectsSection";
-import { businessIdea } from "@/lib/api/businessIdea";
+import { postBusinessIdea } from "@/lib/api/postBusinessIdea";
 import { queryClient } from "@/lib/api/queryClient";
 import { BusinessIdeaModal } from "./BusinessIdeaModal";
 
 export function ChatInterface() {
   const mutation = useMutation(
     {
-      mutationFn: businessIdea,
+      mutationFn: postBusinessIdea,
       onSuccess: (data) => {
-        console.log("✅ Session ID:", data.session_id);
-        window.location.href = `/chat/${data.session_id}`;
+        console.log("✅ Business idea created:", data);
+        queryClient.invalidateQueries({ queryKey: ['businessIdeas'] });
+        // Redirigir al usuario a la página de chat con el sessionId
+        if (data.session_id) {
+          window.location.href = `/chat/${data.session_id}`;
+        } else {
+          console.error("No session_id in response:", data);
+        }
       },
       onError: (error: Error) => {
-        alert("❌ Error: " + error.message);
+        console.error("❌ Error creating business idea:", error);
+        alert("Error al crear la idea de negocio: " + error.message);
       },
     },
     queryClient
@@ -28,7 +35,7 @@ export function ChatInterface() {
     mutation.mutate({
       title: values.title,
       description: values.description,
-      url: values.url,
+      url: values.url
     });
   };
 

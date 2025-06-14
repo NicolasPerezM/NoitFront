@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "@/lib/api/queryClient"; 
-import { businessIdea } from "@/lib/api/businessIdea"; 
+import { businessIdea } from "@/lib/api/postBusinessIdea"; 
 
 
 import { ChatInput } from "./ChatInput"; // Asumo que está en la misma carpeta o ajusta la ruta
