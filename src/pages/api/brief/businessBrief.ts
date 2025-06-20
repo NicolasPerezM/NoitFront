@@ -3,7 +3,7 @@ import type { APIRoute } from "astro";
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { message, id } = body;
+    const { message, id, session_id } = body;
 
     // Validar que se proporcionen los campos requeridos
     if (!message || !id) {
@@ -34,6 +34,17 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // Preparar el body para la API
+    const apiBody: any = {
+      message,
+      business_id,
+    };
+
+    // Si hay session_id, incluirlo en la petición
+    if (session_id) {
+      apiBody.session_id = session_id;
+    }
+
     // Llamar al endpoint de business brief chat
     const response = await fetch(
       `https://noit.com.co/api/v1/business-brief/business/${business_id}/brief/chat`,
@@ -43,10 +54,7 @@ export const POST: APIRoute = async ({ request }) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          message,
-          business_id,
-        }),
+        body: JSON.stringify(apiBody),
       }
     );
 
