@@ -1,28 +1,11 @@
-// pages/api/businessIdea/[id].ts
+// pages/api/businessIdea/getBusinessIdea.ts
 import type { APIRoute } from 'astro';
 
-export function GET({ request, params }: Parameters<APIRoute>[0]) {
+export function GET({ request }: Parameters<APIRoute>[0]) {
   return (async () => {
     try {
-      console.log('🔍 Iniciando petición para obtener idea de negocio por ID...');
+      console.log('🔍 Iniciando petición a business ideas...');
       
-      // Obtener el ID de los parámetros
-      const { id } = params;
-      console.log('📋 ID solicitado:', id);
-      
-      if (!id) {
-        console.log('❌ ID no proporcionado');
-        return new Response(
-          JSON.stringify({ 
-            error: 'ID requerido. Proporciona un ID válido en la URL.' 
-          }), 
-          { 
-            status: 400,
-            headers: { 'Content-Type': 'application/json' }
-          }
-        );
-      }
-
       // Obtener las cookies del request
       const cookieHeader = request.headers.get('cookie');
       console.log('📋 Cookie header:', cookieHeader);
@@ -69,8 +52,8 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
 
       console.log('🚀 Haciendo petición a API externa...');
       
-      // Hacer fetch al endpoint externo con el ID específico
-      const response = await fetch(`https://noit.com.co/api/v1/business-idea/${id}`, {
+      // Hacer fetch al endpoint externo
+      const response = await fetch('https://noit.com.co/api/v1/business-idea/', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -86,21 +69,6 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
         const errorText = await response.text();
         console.log('❌ Error de API externa:', errorText);
         
-        // Manejar diferentes tipos de errores
-        if (response.status === 404) {
-          return new Response(
-            JSON.stringify({ 
-              error: `Idea de negocio con ID ${id} no encontrada`,
-              details: errorText,
-              tokenPresent: !!token
-            }), 
-            { 
-              status: 404,
-              headers: { 'Content-Type': 'application/json' }
-            }
-          );
-        }
-        
         return new Response(
           JSON.stringify({ 
             error: `Error del servidor externo: ${response.status} ${response.statusText}`,
@@ -115,11 +83,11 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
       }
 
       const data = await response.json();
-      console.log('✅ Datos recibidos para ID:', id);
+      console.log('✅ Datos recibidos:', data?.length || 'No array', 'elementos');
       
-      // Verificar que data es un objeto válido
-      if (!data || typeof data !== 'object') {
-        console.log('⚠️ La respuesta no es un objeto válido:', typeof data);
+      // Verificar que data es un array
+      if (!Array.isArray(data)) {
+        console.log('⚠️ La respuesta no es un array:', typeof data);
         return new Response(
           JSON.stringify({ 
             error: 'Formato de respuesta inesperado',
@@ -133,28 +101,28 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
         );
       }
       
-      // Mapear los datos del objeto
-      const businessIdea = {
-        id: data.id,
-        title: data.title || 'Sin título',
-        description: data.description || 'Sin descripción',
-        website_url: data.website_url || null,
-        user_id: data.user_id,
-        date: data.created_at 
-          ? new Date(data.created_at).toLocaleDateString('es-ES', {
+      // Mapear todos los elementos
+      const mappedProjects = data.map((item: any) => ({
+        id: item.id,
+        title: item.title || 'Sin título',
+        description: item.description || 'Sin descripción',
+        website_url: item.website_url || null,
+        user_id: item.user_id,
+        date: item.created_at 
+          ? new Date(item.created_at).toLocaleDateString('es-ES', {
               day: 'numeric',
               month: 'long',
               year: 'numeric'
             })
           : 'Sin fecha',
-        created_at: data.created_at,
-        updated_at: data.updated_at,
-      };
+        created_at: item.created_at,
+        updated_at: item.updated_at,
+      }));
 
-      console.log('✅ Idea de negocio mapeada:', businessIdea.title);
+      console.log('✅ Proyectos mapeados:', mappedProjects.length);
 
       return new Response(
-        JSON.stringify({ businessIdea }), 
+        JSON.stringify({ projects: mappedProjects }), 
         { 
           status: 200,
           headers: { 'Content-Type': 'application/json' }

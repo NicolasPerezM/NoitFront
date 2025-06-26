@@ -42,7 +42,7 @@ import logoDark from "@/assets/logos/logoDark.png";
 
 const staticData = {
   user: {
-    name: "shadcn",
+    name: "",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
@@ -104,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     // Convertir proyectos a formato NavMain
     return projects.map((project) => ({
       title: project.title,
-      url: `/chat/${project.id}`,
+      url: `/businessIdeas/businessIdea/${project.id}`,
       icon: FileChartColumn,
     }));
   }, [projects, loading, error]);

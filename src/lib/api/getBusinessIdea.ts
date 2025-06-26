@@ -1,6 +1,6 @@
 // lib/api/getBusinessIdea.ts
 
-type Project = {
+type BusinessIdea = {
     id: string;
     title: string;
     description: string;
@@ -21,8 +21,8 @@ type BusinessIdeaRaw = {
     updated_at: string;
 };
 
-type GetBusinessIdeasResponse = {
-    projects: Project[];
+type GetBusinessIdeaResponse = {
+    businessIdea: BusinessIdea;
 };
 
 type ApiErrorPayload = {
@@ -33,9 +33,13 @@ type ApiErrorPayload = {
     [key: string]: any;
 };
 
-export async function getBusinessIdeas(): Promise<GetBusinessIdeasResponse> {
+export async function getBusinessIdea(id: string): Promise<GetBusinessIdeaResponse> {
     try {
-        const response = await fetch('/api/businessIdea/getBusinessIdeas', {
+        if (!id || typeof id !== 'string' || id.trim() === '') {
+            throw new Error('ID de la idea de negocio es requerido y debe ser una cadena válida');
+        }
+
+        const response = await fetch(`/api/businessIdea/${encodeURIComponent(id.trim())}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,6 +73,11 @@ export async function getBusinessIdeas(): Promise<GetBusinessIdeasResponse> {
                     if (errorDetails.availableCookies && Array.isArray(errorDetails.availableCookies)) {
                         errorMessage += ` (Cookies disponibles: ${errorDetails.availableCookies.join(', ')})`;
                     }
+
+                    // Manejo específico para error 404
+                    if (response.status === 404) {
+                        errorMessage = `La idea de negocio con ID "${id}" no fue encontrada`;
+                    }
                 } else if (typeof errorDetails === 'string') {
                     errorMessage = errorDetails;
                 }
@@ -86,12 +95,22 @@ export async function getBusinessIdeas(): Promise<GetBusinessIdeasResponse> {
             throw new Error(errorMessage);
         }
 
-        const data: GetBusinessIdeasResponse = await response.json();
-        console.log('Business ideas response:', data);
+        const data: GetBusinessIdeaResponse = await response.json();
+        console.log('Business idea response:', data);
+        
+        // Validación adicional de la respuesta
+        if (!data.businessIdea || typeof data.businessIdea !== 'object') {
+            throw new Error('La respuesta del servidor no contiene una idea de negocio válida');
+        }
+
+        if (!data.businessIdea.id || data.businessIdea.id !== id) {
+            throw new Error('La idea de negocio recibida no coincide con el ID solicitado');
+        }
+
         return data;
     } catch (error) {
         if (error instanceof Error) {
-            throw new Error(error.message || 'Ocurrió un error desconocido al obtener las ideas de negocio.');
+            throw new Error(error.message || 'Ocurrió un error desconocido al obtener la idea de negocio.');
         } else {
             throw new Error(String(error) || 'Ocurrió un error desconocido y no estándar.');
         }

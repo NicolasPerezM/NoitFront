@@ -1,0 +1,16 @@
+---
+import { BusinessIdeaDetail } from "../../../features/businessIdea/businessIdea";
+import DashboardLayout from '../../../layouts/DashboardLayout.astro';
+const { id } = Astro.params;
+---
+
+<html>
+  <head>
+    <title>Idea de Negocio {id}</title>
+  </head>
+  <body>
+    <DashboardLayout>
+      <BusinessIdeaDetail id={id} />
+    </DashboardLayout>
+  </body>
+</html>
