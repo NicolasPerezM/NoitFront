@@ -91,7 +91,14 @@ export function PastProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {recentProjects.length > 0 ? (
           recentProjects.map((project: Project) => (
-            <ProjectCard key={project.id} project={project} />
+            <a
+              key={project.id}
+              href={`/businessIdeas/businessIdea/${project.id}`}
+              className="block"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <ProjectCard project={project} />
+            </a>
           ))
         ) : (
           <div className="col-span-full text-center py-8">

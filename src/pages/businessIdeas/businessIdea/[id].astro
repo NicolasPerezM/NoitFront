@@ -1,7 +1,16 @@
 ---
 import { BusinessIdeaDetail } from "../../../features/businessIdea/businessIdea";
 import DashboardLayout from '../../../layouts/DashboardLayout.astro';
+
+
 const { id } = Astro.params;
+
+// Verificar que el ID existe
+if (!id) {
+  return Astro.redirect('/businessIdeas');
+}
+
+console.log('🔍 ID recibido en página Astro:', id);
 ---
 
 <html>
@@ -10,7 +19,7 @@ const { id } = Astro.params;
   </head>
   <body>
     <DashboardLayout>
-      <BusinessIdeaDetail id={id} />
+      <BusinessIdeaDetail id={id} client:load />
     </DashboardLayout>
   </body>
 </html>

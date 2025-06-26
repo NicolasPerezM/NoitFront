@@ -136,58 +136,65 @@ export default function BusinessIdeasPage() {
           ) : (
             // Mostrar proyectos cuando ya están cargados
             filteredProjects.map((project) => (
-              <Card key={project.id} className="group transition-all hover:shadow-lg hover:scale-[1.02] hover:border hover:border-primary/50 cursor-pointer duration-200 border">
-                <CardHeader className="relative">
-                  <div className="absolute top-4 right-4">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-accent"
-                        >
-                          <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end" className="w-48">
-                        <DropdownMenuItem className="cursor-pointer">
-                          Explorar
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="cursor-pointer">
-                          Duplicar
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-destructive cursor-pointer">
-                          Eliminar
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </div>
-                  <CardTitle className="text-xl font-normal">{project.title}</CardTitle>
-                  <CardDescription className="flex items-center gap-2">
-                    <Badge variant="secondary" className="font-normal">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {project.date}
-                    </Badge>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
-                    <span className="text-muted-foreground text-sm">Sin vista previa disponible</span>
-                  </div>
-                </CardContent>
-                <CardFooter className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Avatar className="h-6 w-6">
-                    <AvatarFallback className="bg-primary text-primary-foreground text-xs font-medium">
-                      {project.user_id.charAt(0).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <span className="flex items-center gap-1">
-                    <User className="w-3 h-3" />
-                    {project.user_id}
-                  </span>
-                </CardFooter>
-              </Card>
+              <a
+                key={project.id}
+                href={`/businessIdeas/businessIdea/${project.id}`}
+                className="block group transition-all hover:shadow-lg hover:scale-[1.02] hover:border hover:border-primary/50 cursor-pointer duration-200 border rounded-lg no-underline"
+                style={{ color: "inherit" }}
+              >
+                <Card className="border-none shadow-none">
+                  <CardHeader className="relative">
+                    <div className="absolute top-4 right-4">
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-accent"
+                          >
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="w-48">
+                          <DropdownMenuItem className="cursor-pointer">
+                            Explorar
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="cursor-pointer">
+                            Duplicar
+                          </DropdownMenuItem>
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem className="text-destructive cursor-pointer">
+                            Eliminar
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                    <CardTitle className="text-xl font-normal">{project.title}</CardTitle>
+                    <CardDescription className="flex items-center gap-2">
+                      <Badge variant="secondary" className="font-normal">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {project.date}
+                      </Badge>
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="aspect-video bg-muted rounded-md flex items-center justify-center">
+                      <span className="text-muted-foreground text-sm">Sin vista previa disponible</span>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Avatar className="h-6 w-6">
+                      <AvatarFallback className="bg-primary text-primary-foreground text-xs font-medium">
+                        {project.user_id.charAt(0).toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="flex items-center gap-1">
+                      <User className="w-3 h-3" />
+                      {project.user_id}
+                    </span>
+                  </CardFooter>
+                </Card>
+              </a>
             ))
           )}
         </div>
