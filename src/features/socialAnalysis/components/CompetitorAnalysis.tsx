@@ -75,10 +75,10 @@ const CompetitorAnalysis = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background py-16 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-normal text-foreground">Análisis de Competidores</h1>
+    <div className="bg-background p-8 max-w-7xl mb-4 mx-auto">
+      <div className="mx-auto">
+        <div className="mb-8">
+          <h1 className="text-3xl font-normal text-foreground">Análisis de Competidores</h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

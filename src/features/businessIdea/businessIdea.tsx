@@ -79,36 +79,70 @@ export function BusinessIdeaDetail({ id }: { id: string }) {
     setIsChatMinimized(!isChatMinimized);
   };
 
-  if (isLoading) return <div className="text-foreground">Cargando idea de negocio...</div>;
+  if (isLoading) {
+    return (
+      <div className="mx-auto p-8 max-w-7xl">
+        <div className="mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="h-8 w-64 bg-muted animate-pulse rounded mb-2" />
+              <div className="h-4 w-80 bg-muted animate-pulse rounded" />
+            </div>
+            <div className="h-10 w-32 bg-muted animate-pulse rounded" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <div className="bg-card rounded-lg shadow p-6">
+              <div className="h-6 w-48 bg-muted animate-pulse rounded mb-4" />
+              <div className="h-4 w-32 bg-muted animate-pulse rounded mb-6" />
+              <div className="space-y-4">
+                <div className="h-4 w-40 bg-muted animate-pulse rounded" />
+                <div className="h-20 w-full bg-muted animate-pulse rounded" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="bg-card rounded-lg shadow p-6 h-64 flex flex-col gap-4">
+              <div className="h-6 w-32 bg-muted animate-pulse rounded" />
+              <div className="h-4 w-24 bg-muted animate-pulse rounded" />
+              <div className="h-8 w-full bg-muted animate-pulse rounded" />
+              <div className="h-8 w-1/2 bg-muted animate-pulse rounded" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   
   if (error) {
     const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
     return (
       <div className="text-destructive">
-        <p>Error al cargar la idea de negocio:</p>
-        <p className="text-sm">{errorMessage}</p>
+        <p className="font-normal text-lg">Error al cargar la idea de negocio:</p>
+        <p className="text-sm font-normal">{errorMessage}</p>
       </div>
     );
   }
   
   if (!data) {
-    return <div className="text-foreground">No se encontró la idea de negocio.</div>;
+    return <div className="text-foreground font-normal text-base">No se encontró la idea de negocio.</div>;
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-8">
       {/* Header con información del brief */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2 text-foreground">{data.title}</h1>
-            <p className="text-muted-foreground">Business Brief - Análisis completo de tu idea de negocio</p>
+            <h1 className="text-4xl font-normal mb-2 text-foreground">{data.title}</h1>
+            <p className="text-xl text-muted-foreground font-normal">Business Brief - Análisis completo de tu idea de negocio</p>
           </div>
           
           {/* Chat Button */}
           <Button
             onClick={toggleChat}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 font-normal text-base"
             variant="outline"
           >
             <MessageCircle className="w-4 h-4" />
@@ -117,44 +151,44 @@ export function BusinessIdeaDetail({ id }: { id: string }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-h-[480px]">
         {/* Información principal de la idea de negocio */}
         <div className="lg:col-span-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Detalles de la Idea de Negocio</CardTitle>
-              <CardDescription>Información básica de tu proyecto</CardDescription>
+          <Card className="h-full max-h-[480px] flex flex-col justify-between">
+            <CardHeader className="pb-4">
+              <CardTitle className="font-normal text-2xl">Detalles de la Idea de Negocio</CardTitle>
+              <CardDescription className="font-normal text-lg">Información básica de tu proyecto</CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Descripción</h3>
-                  <p className="text-muted-foreground leading-relaxed">{data.description}</p>
+            <CardContent className="pt-0">
+              <div className="space-y-8">
+                <div className="mb-4 max-h-[140px] overflow-auto">
+                  <h3 className="text-xl font-normal text-foreground mb-4">Descripción</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed font-normal">{data.description}</p>
                 </div>
 
                 {data.website_url && (
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Sitio Web</h3>
+                  <div className="mb-4">
+                    <h3 className="text-xl font-normal text-foreground mb-4">Sitio Web</h3>
                     <a 
                       href={data.website_url} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 underline break-all"
+                      className="text-base text-primary hover:text-primary/80 underline break-all font-normal"
                     >
                       {data.website_url}
                     </a>
                   </div>
                 )}
 
-                <div className="border-t border-border pt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
+                <div className="border-t border-border pt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-muted-foreground">
                     <div>
-                      <span className="font-semibold">Fecha de creación:</span>
-                      <p>{data.date}</p>
+                      <span className="font-normal text-base">Fecha de creación:</span>
+                      <p className="mt-4 font-normal text-base">{data.date}</p>
                     </div>
                     <div>
-                      <span className="font-semibold">ID:</span>
-                      <p className="font-mono text-xs break-all">{data.id}</p>
+                      <span className="font-normal text-base">ID:</span>
+                      <p className="font-mono text-xs break-all mt-4 font-normal">{data.id}</p>
                     </div>
                   </div>
                 </div>
@@ -164,10 +198,10 @@ export function BusinessIdeaDetail({ id }: { id: string }) {
         </div>
 
         {/* Estado del Brief */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 max-h-[480px]">
           <BriefStatusCard 
             currentQuestion={7}
-            totalQuestions={27}
+            totalQuestions={23}
             isCompleted={false}
           />
         </div>
