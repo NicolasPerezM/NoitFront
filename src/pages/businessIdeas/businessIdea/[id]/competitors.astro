@@ -1,0 +1,9 @@
+---
+const { id } = Astro.params;
+import Competitors from "@/features/socialAnalysis/components/Competitors";
+import DashboardLayout from '../../../../layouts/DashboardLayout.astro';
+---
+
+<DashboardLayout>
+  <Competitors businessId={id} client:load />
+</DashboardLayout>
