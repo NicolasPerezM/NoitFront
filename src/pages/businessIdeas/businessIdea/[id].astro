@@ -1,5 +1,6 @@
 ---
 import { BusinessIdeaDetail } from "../../../features/businessIdea/businessIdea";
+import CompetitorAnalysis from "../../../features/socialAnalysis/instagram/components/previewInstagramAnalysis";
 import DashboardLayout from '../../../layouts/DashboardLayout.astro';
 
 
@@ -20,6 +21,7 @@ console.log('🔍 ID recibido en página Astro:', id);
   <body>
     <DashboardLayout>
       <BusinessIdeaDetail id={id} client:load />
+      <CompetitorAnalysis client:load />
     </DashboardLayout>
   </body>
 </html>

@@ -20,14 +20,22 @@ export default function FloatingChat({
   isMinimized = false,
   onToggleMinimize,
 }: FloatingChatProps) {
-  if (!isOpen) return null;
+  console.log('🎯 FloatingChat renderizado:', { isOpen, sessionId, isMinimized });
+
+  if (!isOpen) {
+    console.log('❌ FloatingChat no se renderiza - isOpen es false');
+    return null;
+  }
+
+  console.log('✅ FloatingChat se renderiza correctamente');
 
   return (
     <div
       className={cn(
-        "fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out",
+        "fixed bottom-4 right-4 z-[9999] transition-all duration-300 ease-in-out",
         isMinimized ? "w-72 h-16" : "w-96 h-[600px]"
       )}
+      style={{ zIndex: 9999 }}
     >
       <div className="bg-background border rounded-4xl shadow-2xl h-full flex flex-col overflow-hidden">
         {/* Header */}

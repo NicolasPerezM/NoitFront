@@ -258,9 +258,9 @@ export default function ChatSessionPage({ sessionId: businessIdeaId }: ChatSessi
       
       // Verificar si current_question_index es 7 para redirigir
       if (data.current_question_index === 7) {
-        console.log('Redirigiendo a business brief page - current_question_index:', data.current_question_index);
-        // Redirigir a la nueva página con el session_id como parámetro
-        window.location.href = `/businessBrief?sessionId=${data.session_id}`;
+        console.log('Redirigiendo a business idea page - current_question_index:', data.current_question_index);
+        // Redirigir a la página dinámica de business idea con el business_id como parámetro y sessionId como query param
+        window.location.href = `/businessIdeas/businessIdea/${businessIdeaId}?sessionId=${data.session_id}`;
         return; // Salir temprano para evitar agregar el mensaje
       }
       

@@ -28,7 +28,8 @@ export default function TestRedirectButton({ businessIdeaId, sessionId }: TestRe
   // Usar el hook para manejar la redirección
   useBusinessBriefRedirect({
     data: mutation.data,
-    isLoading: mutation.isPending
+    isLoading: mutation.isPending,
+    businessId: businessIdeaId
   });
 
   const handleTestRedirect = () => {
