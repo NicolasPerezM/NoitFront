@@ -238,7 +238,7 @@ const EngagementByDay = ({ competitorId }: EngagementByDayProps) => {
     data.reduce((sum, item) => sum + item.rate, 0) / data.length;
 
   return (
-    <Card className="w-full h-full bg-background border border-border">
+    <Card className="w-full h-full bg-card border border-border">
       <CardHeader className="relative pb-4">
         <div className="flex justify-between items-start gap-4">
           <div>

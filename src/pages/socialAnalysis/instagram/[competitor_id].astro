@@ -1,19 +1,15 @@
 ---
 const { competitor_id } = Astro.params;
-import CompetitorInstagramAnalysis from "@/features/socialAnalysis/components/CompetitorInstagramAnalysis";
-import DashboardLayout from "@/layouts/dashboardLayout.astro";
+import DashboardLayout from "@/layouts/DashboardLayout.astro";
 import InstagramHeader from "@/features/socialAnalysis/instagram/InstagramHeader";
-import InstagramAccountAnalysis from "../../../features/socialAnalysis/instagram/account-analysis"
+import InstagramAccountAnalysis from "../../../features/socialAnalysis/instagram/account-analysis";
 ---
 
 <DashboardLayout>
   <div class="max-w-7xl mx-auto px-4 py-8">
     <div class="mb-6">
-      <InstagramHeader competitorId={competitor_id} client:load>
-      <h1 class="text-3xl font-bold text-foreground mb-2">Análisis de Instagram</h1>
-      <p class="text-muted-foreground">ID del competidor: <span class="font-mono">{competitor_id}</span></p>
+      <InstagramHeader competitorId={String(competitor_id)} client:load />
     </div>
-    <CompetitorInstagramAnalysis competitorId={competitor_id!} client:load />
-    <InstagramAccountAnalysis client:load>
+    <InstagramAccountAnalysis competitorId={String(competitor_id)} client:load />
   </div>
-</DashboardLayout></InstagramHeader>
+</DashboardLayout>
