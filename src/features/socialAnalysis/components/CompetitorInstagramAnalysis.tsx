@@ -29,6 +29,7 @@ import {
 } from "lucide-react"
 import { queryClient } from "@/lib/api/queryClient"
 import { useEffect, useState } from "react"
+import EngagementByDay from "../instagram/postAnalyzer/EngagementByDay"
 
 interface CompetitorInstagramAnalysisProps {
   competitorId: string
@@ -240,50 +241,7 @@ const CompetitorInstagramAnalysis: React.FC<CompetitorInstagramAnalysisProps> = 
         </div>
 
         {/* Competitor Header Card */}
-        <Card className="border-0 shadow-lg bg-gradient-to-r from-card via-card to-muted/5">
-          <CardContent className="p-8">
-            <div className="flex items-start gap-6">
-              <div className="relative">
-                <Avatar className="h-20 w-20 border-4 border-background shadow-lg">
-                  <AvatarImage
-                    src={`https://www.google.com/s2/favicons?domain=${competitor.website || "example.com"}&sz=128`}
-                    alt={competitor.competitor_name}
-                  />
-                  <AvatarFallback className="bg-gradient-to-br from-primary to-primary/80 text-primary-foreground font-bold text-xl">
-                    {competitor.competitor_name.slice(0, 2).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                  <Instagram className="w-4 h-4 text-primary-foreground" />
-                </div>
-              </div>
-
-              <div className="flex-1 space-y-4">
-                <div>
-                  <h1 className="text-3xl font-bold tracking-tight">{competitor.competitor_name}</h1>
-                  <p className="text-muted-foreground text-lg mt-2">{competitor.key_feature}</p>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <Badge variant="secondary" className="gap-2 px-3 py-1">
-                    <Target className="w-3 h-3" />
-                    {competitor.similarity_score}% similar
-                  </Badge>
-
-                  {competitor.instagram_url && (
-                    <Button variant="outline" size="sm" asChild className="gap-2 bg-transparent">
-                      <a href={competitor.instagram_url} target="_blank" rel="noopener noreferrer">
-                        <Instagram className="w-4 h-4" />
-                        Ver perfil
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        
 
         {/* Main Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -503,37 +461,9 @@ const CompetitorInstagramAnalysis: React.FC<CompetitorInstagramAnalysisProps> = 
 
         {/* Weekly Engagement */}
         <Card className="border-0 shadow-lg">
-          <CardHeader className="pb-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-muted/10 rounded-lg flex items-center justify-center">
-                <Clock className="w-5 h-5 text-muted-foreground" />
-              </div>
-              <div>
-                <CardTitle className="text-xl">Engagement Semanal</CardTitle>
-                <CardDescription>Rendimiento por día de la semana</CardDescription>
-              </div>
-            </div>
-          </CardHeader>
+          
           <CardContent>
-            <div className="space-y-4">
-              {Object.entries(instagramData.engagement_by_day_of_week).map(([day, engagement]) => {
-                const engagementPercentage = engagement * 100
-                const maxEngagement = Math.max(...Object.values(instagramData.engagement_by_day_of_week)) * 100
-                const relativePercentage = (engagementPercentage / maxEngagement) * 100
-
-                return (
-                  <div key={day} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">{dayNames[day as keyof typeof dayNames] || day}</span>
-                      <Badge variant="outline" className="text-xs">
-                        {engagementPercentage.toFixed(2)}%
-                      </Badge>
-                    </div>
-                    <Progress value={relativePercentage} className="h-3" />
-                  </div>
-                )
-              })}
-            </div>
+            <EngagementByDay competitorId={competitorId} />
           </CardContent>
         </Card>
       </div>

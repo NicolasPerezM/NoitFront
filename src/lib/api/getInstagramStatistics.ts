@@ -149,6 +149,11 @@ export async function getInstagramStatistics(competitorId: string): Promise<GetI
             topPostsLength: data.top_posts?.length || 0
         });
         
+        // Debug log para engagement_by_day_of_week
+        console.log('🔍 engagement_by_day_of_week:', data.engagement_by_day_of_week);
+        console.log('🔍 typeof engagement_by_day_of_week:', typeof data.engagement_by_day_of_week);
+        console.log('🔍 engagement_by_day_of_week keys:', data.engagement_by_day_of_week ? Object.keys(data.engagement_by_day_of_week) : 'No keys');
+        
         // Validación adicional de la respuesta
         if (typeof data.total_followers !== 'number') {
             console.error('❌ total_followers no válido en respuesta:', data);
@@ -164,6 +169,21 @@ export async function getInstagramStatistics(competitorId: string): Promise<GetI
             console.error('❌ engagement_trends no válidos en respuesta:', data);
             throw new Error('La respuesta del servidor no contiene tendencias de engagement válidas');
         }
+
+        // Validación específica para engagement_by_day_of_week
+        if (!data.engagement_by_day_of_week || typeof data.engagement_by_day_of_week !== 'object') {
+            console.error('❌ engagement_by_day_of_week no válido en respuesta:', data.engagement_by_day_of_week);
+            throw new Error('La respuesta del servidor no contiene datos de engagement por día de la semana válidos');
+        }
+
+        // Verificar que engagement_by_day_of_week tenga al menos un día
+        const engagementDays = Object.keys(data.engagement_by_day_of_week);
+        if (engagementDays.length === 0) {
+            console.error('❌ engagement_by_day_of_week está vacío:', data.engagement_by_day_of_week);
+            throw new Error('No se encontraron datos de engagement para ningún día de la semana');
+        }
+
+        console.log('✅ engagement_by_day_of_week válido con días:', engagementDays);
 
         // Validación de que cada top post tenga la estructura esperada
         const invalidTopPosts = data.top_posts.filter(post => 
