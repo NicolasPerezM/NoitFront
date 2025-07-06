@@ -39,11 +39,11 @@ const CustomTooltip = ({ active, payload }: any) => {
     const { category, count } = payload[0].payload;
     return (
       <div className="rounded-xl bg-popover p-4 border border-border text-foreground space-y-1 min-w-[180px]">
-        <p className="text-sm font-semibold text-muted-foreground">Categoría</p>
-        <p className="text-base font-medium text-foreground">{category}</p>
+        <p className="text-sm font-normal text-muted-foreground">Categoría</p>
+        <p className="text-lg font-normal text-foreground">{category}</p>
         <div className="h-px bg-border my-1" />
-        <p className="text-xs text-muted-foreground">Cantidad de comentarios</p>
-        <p className="text-sm font-semibold">{count}</p>
+        <p className="text-xs font-normal text-muted-foreground">Cantidad de comentarios</p>
+        <p className="text-base font-normal">{count}</p>
       </div>
     );
   }
@@ -88,7 +88,7 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
       <Card className="h-full w-full bg-background border border-border flex items-center justify-center">
         <div className="text-center space-y-2">
           <p className="text-destructive font-normal">Error al cargar datos</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm font-normal text-muted-foreground">
             {error instanceof Error ? error.message : "Error desconocido"}
           </p>
         </div>
@@ -102,17 +102,17 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
         <CardTitle className="text-2xl font-normal">
           Distribución de Categorías de Comentarios
         </CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">
+        <CardDescription className="text-base font-normal text-muted-foreground">
           Esta gráfica muestra la distribución de categorías de comentarios en
           el perfil de Instagram.
         </CardDescription>
         <InfoPopover>
-          <h4 className="font-normal text-sm">Acerca de esta gráfica</h4>
-          <p className="text-xs text-muted-foreground">
+          <h4 className="font-normal text-lg">Acerca de esta gráfica</h4>
+          <p className="text-sm font-normal text-muted-foreground">
             Esta gráfica muestra la distribución de categorías de comentarios en
             el perfil de Instagram.
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm font-normal text-muted-foreground">
             La categoría de un comentario se determina según el contenido del
             comentario y el contexto del perfil.
           </p>
@@ -148,10 +148,10 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
         ) : (
           <div className="flex h-full w-full items-center justify-center">
             <div className="text-center space-y-2">
-              <p className="text-muted-foreground">
+              <p className="text-base font-normal text-muted-foreground">
                 No se encontraron datos de categorías de comentarios
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs font-normal text-muted-foreground">
                 Competitor ID: {competitorId}
               </p>
             </div>
