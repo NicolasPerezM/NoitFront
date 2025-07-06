@@ -5,7 +5,7 @@ import OverallEmotionChart from "./OverallEmotionChart.tsx";
 import CategoryByChart from "./CategoryByChart.tsx";
 import AnalysisDialog from "./AnalysisDialog.tsx";
 
-export default function CommentsAnalyzer() {
+export default function CommentsAnalyzer({ competitorId }) {
   const {
     data: sentimentsData,
     loading: sentimentsLoading,
@@ -82,7 +82,7 @@ export default function CommentsAnalyzer() {
           <OverallEmotionChart emotionData={emotionData} />
         </div>
         <div className="lg:col-span-3 lg:row-start-2 lg:h-[500px] h-[400px]">
-          <CategoryByChart />
+          <CategoryByChart competitorId={competitorId} />
         </div>
         <div className="lg:col-start-4 lg:row-start-2 lg:h-[500px] h-[400px]">
           <img

@@ -17,7 +17,7 @@ export default function InstagramAccountAnalysis({ competitorId }: InstagramAcco
         general: <CompetitorInstagramAnalysis competitorId={competitorId} />,
         feed: <FeedAnalyzer />,
         posts: <GeneralStats />,
-        comments: <CommentsAnalyzer />,
+        comments: <CommentsAnalyzer competitorId={competitorId} />,
       }}
     />
   );
