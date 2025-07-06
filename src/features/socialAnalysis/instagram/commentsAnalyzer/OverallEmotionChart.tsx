@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
 import {
   PieChart,
   Pie,
@@ -11,94 +10,149 @@ import {
   Tooltip,
 } from "recharts";
 import InfoPopover from "../../../../components/common/InfoPopover";
+import { useQuery } from "@tanstack/react-query";
+import { getInstagramCommentsEmotions } from "@/lib/api/getInstagramCommentsEmotions";
+import { queryClient } from "@/lib/api/queryClient";
+import { Loader2 } from "lucide-react";
 
 // Paleta de colores para las emociones
-const COLORS = ["hsl(227, 22%, 40%, 0.2)", "hsl(227, 22%, 40%, 0.7)", "hsl(227, 22%, 40%, 0.5)", "hsl(227, 22%, 40%, 0.7)"];
+const COLORS = [
+  "hsl(17, 84%, 48%)",
+  "hsl(0, 0%, 18%)",
+  "hsl(227, 22%, 40%, 0.5)",
+  "hsl(227, 22%, 40%, 0.7)"
+];
 
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     const { name, value } = payload[0];
     return (
-      <div className="rounded-lg border border-border bg-popover text-foreground p-3 shadow-md backdrop-blur-sm">
-        <p className="text-sm font-medium capitalize">{name}</p>
-        <p className="text-xs text-muted-foreground">{`Cantidad: ${value}`}</p>
+      <div className="rounded-lg border border-border bg-popover text-foreground p-3">
+        <p className="text-sm font-normal capitalize">{name}</p>
+        <p className="text-xs font-normal text-muted-foreground">{`Cantidad: ${value}`}</p>
       </div>
     );
   }
-
   return null;
 };
 
-/**
- * DonutChart - Representa un gráfico de dona con los conteos de emociones
- * usando Recharts y ShadCN para un diseño sobrio y moderno.
- */
-const DonutChart = ({ emotionData }) => {
-  const overallEmotionCounts = emotionData.overall.emotion_counts;
+interface OverallEmotionChartProps {
+  competitorId: string;
+}
 
-  const chartData = Object.keys(overallEmotionCounts).map((emotion) => ({
-    name: emotion,
-    value: overallEmotionCounts[emotion],
-  }));
+const OverallEmotionChart = ({ competitorId }: OverallEmotionChartProps) => {
+  const {
+    data: emotionData,
+    isLoading,
+    error,
+  } = useQuery(
+    {
+      queryKey: ["instagramCommentsEmotions", competitorId],
+      queryFn: () => getInstagramCommentsEmotions(competitorId),
+      enabled: !!competitorId,
+      retry: 2,
+      staleTime: 5 * 60 * 1000,
+    },
+    queryClient,
+  );
+
+  let chartData: { name: string; value: number }[] = [];
+  if (emotionData && Array.isArray(emotionData.results)) {
+    const counts: Record<string, number> = {};
+    emotionData.results.forEach((comment: any) => {
+      const label = comment.top_label;
+      counts[label] = (counts[label] || 0) + 1;
+    });
+    chartData = Object.keys(counts).map((name) => ({
+      name,
+      value: counts[name],
+    }));
+  }
+  const hasData = chartData.length > 0;
+
+  if (isLoading) {
+    return (
+      <Card className="h-full w-full bg-background border border-border flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card className="h-full w-full bg-background border border-border flex items-center justify-center">
+        <div className="text-center space-y-2">
+          <p className="text-destructive font-normal">Error al cargar datos</p>
+          <p className="text-sm font-normal text-muted-foreground">
+            {error instanceof Error ? error.message : "Error desconocido"}
+          </p>
+        </div>
+      </Card>
+    );
+  }
 
   return (
-    <Card className="h-full w-full bg-white dark:bg-sidebar border-border shadow-lg rounded-2xl">
+    <Card className="h-full w-full bg-background border border-border rounded-2xl">
       <CardHeader className="relative">
-        <CardTitle className="text-xl md:text-2xl font-semibold font-britanica text-foreground">
+        <CardTitle className="text-xl md:text-2xl font-normal text-foreground">
           Distribución de Emociones
         </CardTitle>
         <InfoPopover>
-          <h4 className="font-medium text-sm">Acerca de esta gráfica</h4>
-          <p className="text-xs text-muted-foreground">
-            Esta gráfica muestra el promedio de engagement por día de la semana.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            El engagement representa el porcentaje de interacciones frente al
-            alcance del contenido.
+          <h4 className="font-normal text-lg">Acerca de esta gráfica</h4>
+          <p className="text-sm font-normal text-muted-foreground">
+            Esta gráfica muestra la distribución de emociones en los comentarios.
           </p>
         </InfoPopover>
-        <CardDescription className="text-sm">
+        <CardDescription className="text-base font-normal text-muted-foreground">
           Esta gráfica muestra la distribución de emociones en los comentarios.
         </CardDescription>
       </CardHeader>
       <CardContent className="h-[calc(100%-10rem)]">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={chartData}
-              dataKey="value"
-              nameKey="name"
-              cx="50%"
-              cy="50%"
-              innerRadius="35%"
-              outerRadius="65%"
-              startAngle={90}
-              endAngle={-270}
-              paddingAngle={4}
-              label={false}
-              stroke="none"
-            >
-              {chartData.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-            <Tooltip content={<CustomTooltip />} />
-            <Legend
-              verticalAlign="bottom"
-              iconType="circle"
-              wrapperStyle={{
-                fontSize: "0.875rem",
-                paddingTop: "1rem",
-              }}
-            />
-          </PieChart>
-        </ResponsiveContainer>
+        {hasData ? (
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={chartData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                innerRadius="35%"
+                outerRadius="65%"
+                startAngle={90}
+                endAngle={-270}
+                paddingAngle={4}
+                label={false}
+                stroke="none"
+              >
+                {chartData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip content={<CustomTooltip />} />
+              <Legend
+                verticalAlign="bottom"
+                iconType="circle"
+                wrapperStyle={{
+                  fontSize: "0.875rem",
+                  paddingTop: "1rem",
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center">
+            <p className="text-base font-normal text-muted-foreground">
+              No se encontraron datos de emociones
+            </p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
 };
 
-export default DonutChart;
+export default OverallEmotionChart;

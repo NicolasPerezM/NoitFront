@@ -23,11 +23,11 @@ export default function CommentsAnalyzer({ competitorId }) {
         <div className="lg:col-span-4 lg:h-[500px]">
           <SentimentsByPostChart competitorId={competitorId} />
         </div>
-        {/*
+        
         <div className="lg:col-span-2 lg:row-span-2 lg:col-start-5 lg:h-[1032px] h-[400px]">
           <OverallEmotionChart competitorId={competitorId} />
         </div>
-        */}
+        
         <div className="lg:col-span-3 lg:row-start-2 lg:h-[500px] h-[400px]">
           <CategoryByChart competitorId={competitorId} />
         </div>
