@@ -2,6 +2,7 @@ import { SentimentsByPostChart } from "./SentimentsByPostChart.tsx";
 import OverallEmotionChart from "./OverallEmotionChart.tsx";
 import CategoryByChart from "./CategoryByChart.tsx";
 import AnalysisDialog from "./AnalysisDialog.tsx";
+import TopicByChart from "./TopicByChart";
 
 export default function CommentsAnalyzer({ competitorId }) {
   return (
@@ -37,6 +38,10 @@ export default function CommentsAnalyzer({ competitorId }) {
             alt="placeholder"
             className="w-full h-full object-cover"
           />
+        </div>
+        {/* Nueva sección: Temas principales */}
+        <div className="lg:col-span-6 lg:h-[500px] h-[400px]">
+          <TopicByChart competitorId={competitorId} />
         </div>
       </div>
       <div></div>
