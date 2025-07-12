@@ -14,6 +14,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getInstagramCommentsEmotions } from "@/lib/api/getInstagramCommentsEmotions";
 import { queryClient } from "@/lib/api/queryClient";
 import { Loader2 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // Paleta de colores para las emociones
 const COLORS = [
@@ -58,22 +59,38 @@ const OverallEmotionChart = ({ competitorId }: OverallEmotionChartProps) => {
 
   let chartData: { name: string; value: number }[] = [];
   if (emotionData && Array.isArray(emotionData.results)) {
-    const counts: Record<string, number> = {};
+    const sumScores: Record<string, number> = {};
+    const countScores: Record<string, number> = {};
     emotionData.results.forEach((comment: any) => {
-      const label = comment.top_label;
-      counts[label] = (counts[label] || 0) + 1;
+      if (Array.isArray(comment.scores)) {
+        comment.scores.forEach((score: any) => {
+          const label = score.label;
+          sumScores[label] = (sumScores[label] || 0) + score.score;
+          countScores[label] = (countScores[label] || 0) + 1;
+        });
+      }
     });
-    chartData = Object.keys(counts).map((name) => ({
+    chartData = Object.keys(sumScores).map((name) => ({
       name,
-      value: counts[name],
+      value: countScores[name] ? sumScores[name] / countScores[name] : 0,
     }));
   }
   const hasData = chartData.length > 0;
 
   if (isLoading) {
     return (
-      <Card className="h-full w-full bg-background border border-border flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <Card className="h-full w-full rounded-2xl bg-background border border-border text-foreground">
+        <CardHeader className="relative">
+          <Skeleton className="h-7 w-2/3 mb-2" />
+          <Skeleton className="h-4 w-1/2 mb-4" />
+        </CardHeader>
+        <CardContent className="h-[calc(100%-10rem)] flex items-center justify-center">
+          <div className="w-full h-full flex flex-col items-center justify-center">
+            <Skeleton className="rounded-full h-48 w-48 mb-4" />
+            <Skeleton className="h-6 w-1/3 mb-2" />
+            <Skeleton className="h-4 w-1/4" />
+          </div>
+        </CardContent>
       </Card>
     );
   }

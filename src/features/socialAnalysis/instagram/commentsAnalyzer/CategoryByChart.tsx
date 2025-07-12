@@ -29,6 +29,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getInstagramCommentCategories } from "@/lib/api/getInstagramCommentsCategories";
 import { queryClient } from "@/lib/api/queryClient";
 import { Loader2 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface CategoryByChartProps {
   competitorId: string;
@@ -106,8 +107,20 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
 
   if (isLoading) {
     return (
-      <Card className="h-full w-full bg-background border border-border flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <Card className="h-full w-full rounded-2xl bg-background border border-border text-foreground">
+        <CardHeader className="relative">
+          <Skeleton className="h-7 w-2/3 mb-2" />
+          <Skeleton className="h-4 w-1/2 mb-4" />
+        </CardHeader>
+        <CardContent className="h-[calc(100%-10rem)] flex items-center justify-center">
+          <div className="w-full h-full flex flex-col gap-4">
+            <Skeleton className="h-8 w-5/6 mx-auto" />
+            <Skeleton className="h-8 w-4/6 mx-auto" />
+            <Skeleton className="h-8 w-3/6 mx-auto" />
+            <Skeleton className="h-8 w-2/6 mx-auto" />
+            <Skeleton className="h-8 w-1/6 mx-auto" />
+          </div>
+        </CardContent>
       </Card>
     );
   }

@@ -21,7 +21,7 @@ export default function CommentsAnalyzer({ competitorId }) {
           <AnalysisDialog />
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap-4">
+      <div className="flex flex-col  gap-4">
         <div className="lg:col-span-4 lg:h-[500px]">
           <SentimentsByPostChart competitorId={competitorId} />
         </div>
@@ -32,13 +32,6 @@ export default function CommentsAnalyzer({ competitorId }) {
         
         <div className="lg:col-span-3 lg:row-start-2 lg:h-[500px] h-[400px]">
           <CategoryByChart competitorId={competitorId} />
-        </div>
-        <div className="lg:col-start-4 lg:row-start-2 lg:h-[500px] h-[400px]">
-          <img
-            src="/data/output.png"
-            alt="placeholder"
-            className="w-full h-full object-cover"
-          />
         </div>
         {/* Nueva sección: Temas principales */}
         <div className="lg:col-span-6 lg:h-[500px] h-[400px]">

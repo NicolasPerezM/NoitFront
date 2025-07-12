@@ -25,6 +25,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getInstagramCommentsSentiments } from "@/lib/api/getInstagramCommentsSentiments";
 import { queryClient } from "@/lib/api/queryClient";
 import { Loader2 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface SentimentsByPostChartProps {
   competitorId: string;
@@ -95,8 +96,20 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
 
   if (isLoading) {
     return (
-      <Card className="bg-background border border-border flex items-center justify-center h-full w-full">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <Card className="bg-background border border-border rounded-2xl h-full w-full">
+        <CardHeader className="relative">
+          <Skeleton className="h-7 w-2/3 mb-2" />
+          <Skeleton className="h-4 w-1/2 mb-4" />
+        </CardHeader>
+        <CardContent className="h-full flex items-center justify-center">
+          <div className="w-full h-full flex flex-col gap-4">
+            <Skeleton className="h-8 w-5/6 mx-auto" />
+            <Skeleton className="h-8 w-4/6 mx-auto" />
+            <Skeleton className="h-8 w-3/6 mx-auto" />
+            <Skeleton className="h-8 w-2/6 mx-auto" />
+            <Skeleton className="h-8 w-1/6 mx-auto" />
+          </div>
+        </CardContent>
       </Card>
     );
   }
