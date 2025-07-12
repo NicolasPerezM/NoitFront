@@ -162,21 +162,21 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
                 stackId="a"
                 fill="var(--primary)"
                 name="Positivo"
-                stroke="var(--primary)"
+                stroke=""
               />
               <Bar
                 dataKey="NEU"
                 stackId="a"
                 fill="var(--muted)"
                 name="Neutral"
-                stroke="var(--muted-foreground)"
+                stroke=""
               />
               <Bar
                 dataKey="NEG"
                 stackId="a"
                 fill="var(--destructive)"
                 name="Negativo"
-                stroke="var(--destructive)"
+                stroke=""
               />
             </BarChart>
           </ResponsiveContainer>

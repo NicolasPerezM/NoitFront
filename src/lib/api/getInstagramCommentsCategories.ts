@@ -169,31 +169,27 @@ export async function getInstagramCommentCategories(competitorId: string): Promi
         console.log('✅ categorized_comments válido con categorías:', categorizedKeys);
 
         // Validación de que cada categoría en categorized_comments tenga comentarios válidos
-        const invalidCategories = [];
+        // En vez de lanzar error, filtra y normaliza los comentarios
         for (const category of categorizedKeys) {
             const comments = data.categorized_comments[category];
             if (!Array.isArray(comments)) {
-                invalidCategories.push(category);
+                console.warn(`⚠️ Categoría ignorada por no ser array: ${category}`);
+                data.categorized_comments[category] = [];
                 continue;
             }
-            
-            // Verificar que cada comentario tenga la estructura esperada
-            const invalidComments = comments.filter(comment => 
-                !comment.post_id || 
-                typeof comment.id_comentario !== 'string' || 
-                typeof comment.ownerUsername !== 'string' || 
-                typeof comment.contenido !== 'string'
-            );
-
-            if (invalidComments.length > 0) {
-                console.error(`❌ Comentarios con estructura inválida en categoría "${category}":`, invalidComments);
-                throw new Error(`Se encontraron ${invalidComments.length} comentarios con estructura inválida en la categoría "${category}"`);
+            // Solo comentarios con contenido válido
+            const validComments = comments.filter(comment => typeof comment === 'object' && typeof comment.contenido === 'string');
+            const filteredCount = comments.length - validComments.length;
+            if (filteredCount > 0) {
+                console.warn(`⚠️ Se filtraron ${filteredCount} comentarios inválidos en la categoría "${category}"`);
             }
-        }
-
-        if (invalidCategories.length > 0) {
-            console.error('❌ Categorías con estructura inválida:', invalidCategories);
-            throw new Error(`Se encontraron categorías con estructura inválida: ${invalidCategories.join(', ')}`);
+            // Normalizar los campos
+            data.categorized_comments[category] = validComments.map(comment => ({
+                post_id: typeof comment.post_id === 'string' ? comment.post_id : '',
+                id_comentario: typeof comment.id_comentario === 'string' ? comment.id_comentario : '',
+                ownerUsername: typeof comment.ownerUsername === 'string' ? comment.ownerUsername : '',
+                contenido: comment.contenido || '',
+            }));
         }
 
         // Validación de consistencia entre category_counts y categorized_comments

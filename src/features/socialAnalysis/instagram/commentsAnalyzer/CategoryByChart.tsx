@@ -66,13 +66,42 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
     queryClient,
   );
 
-  // Esperamos que la respuesta sea un objeto con category_counts
-  const chartData = categoriesData && categoriesData.category_counts
-    ? Object.entries(categoriesData.category_counts).map(([category, count]) => ({
-        category,
-        count,
-      }))
-    : [];
+  // DEBUG: Imprimir la respuesta y el error
+  console.log("categoriesData", categoriesData);
+  console.log("error", error);
+
+  // Limpieza y validación de datos
+  let chartData: { category: string; count: number }[] = [];
+  let invalidCategories: string[] = [];
+
+  if (categoriesData && categoriesData.category_counts) {
+    chartData = Object.entries(categoriesData.category_counts)
+      .filter(([category, count]) => typeof count === "number" && !isNaN(count))
+      .map(([category, count]) => ({ category, count }));
+  }
+
+  // Validar y normalizar comentarios categorizados (si existen)
+  let invalidCommentCategories: string[] = [];
+  let ignoredCommentsCount = 0;
+  if (categoriesData && categoriesData.categorized_comments) {
+    for (const [cat, comments] of Object.entries(categoriesData.categorized_comments)) {
+      // Filtrar solo los que tengan contenido válido
+      const validComments = (comments as any[]).filter(
+        (c) => typeof c === "object" && typeof c.contenido === "string"
+      );
+      ignoredCommentsCount += (comments as any[]).length - validComments.length;
+      // Normalizar los comentarios para que tengan todos los campos
+      (categoriesData.categorized_comments as any)[cat] = validComments.map((c) => ({
+        post_id: c.post_id || "",
+        id_comentario: c.id_comentario || "",
+        ownerUsername: c.ownerUsername || "",
+        contenido: c.contenido || "",
+      }));
+      if (validComments.length < (comments as any[]).length) {
+        invalidCommentCategories.push(cat);
+      }
+    }
+  }
   const hasData = chartData.length > 0;
 
   if (isLoading) {
@@ -119,6 +148,12 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
         </InfoPopover>
       </CardHeader>
       <CardContent className="h-[calc(100%-10rem)]">
+        {/* Mostrar advertencia si hay categorías con comentarios inválidos */}
+        {invalidCommentCategories.length > 0 && (
+          <div className="mb-2 p-2 rounded bg-yellow-100 text-yellow-800 text-xs">
+            Se ignoraron {ignoredCommentsCount} comentarios con estructura inválida en las categorías: {invalidCommentCategories.join(", ")}
+          </div>
+        )}
         {hasData ? (
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
