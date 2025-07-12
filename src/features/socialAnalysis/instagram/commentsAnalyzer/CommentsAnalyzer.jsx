@@ -3,6 +3,7 @@ import OverallEmotionChart from "./OverallEmotionChart.tsx";
 import CategoryByChart from "./CategoryByChart.tsx";
 import AnalysisDialog from "./AnalysisDialog.tsx";
 import TopicByChart from "./TopicByChart";
+import WordCloudChart from "./WordCloudChart";
 
 export default function CommentsAnalyzer({ competitorId }) {
   return (
@@ -42,6 +43,10 @@ export default function CommentsAnalyzer({ competitorId }) {
         {/* Nueva sección: Temas principales */}
         <div className="lg:col-span-6 lg:h-[500px] h-[400px]">
           <TopicByChart competitorId={competitorId} />
+        </div>
+        {/* Nueva sección: Wordcloud */}
+        <div className="lg:col-span-6 lg:h-[400px] h-[350px]">
+          <WordCloudChart competitorId={competitorId} />
         </div>
       </div>
       <div></div>
