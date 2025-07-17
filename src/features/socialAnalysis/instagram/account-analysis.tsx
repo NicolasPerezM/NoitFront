@@ -16,7 +16,7 @@ export default function InstagramAccountAnalysis({ competitorId }: InstagramAcco
       children={{
         general: <CompetitorInstagramAnalysis competitorId={competitorId} />,
         feed: <FeedAnalyzer />,
-        posts: <GeneralStats />,
+        posts: <GeneralStats competitorId={competitorId} />,
         comments: <CommentsAnalyzer competitorId={competitorId} />,
       }}
     />

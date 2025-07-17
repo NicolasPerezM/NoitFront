@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import {
   Card,
@@ -27,7 +25,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-interface GeneralStatsProps {
+interface ImageAnalysisChartProps {
   competitorId: string;
 }
 
@@ -55,7 +53,7 @@ const CustomTooltip = ({ active, payload }: any) => {
   return null;
 };
 
-export default function GeneralStats({ competitorId }: GeneralStatsProps) {
+export default function ImageAnalysisChart({ competitorId }: ImageAnalysisChartProps) {
   const {
     data: imageAnalysisData,
     isLoading,
@@ -317,4 +315,4 @@ export default function GeneralStats({ competitorId }: GeneralStatsProps) {
       </Card>
     </div>
   );
-}
+} 
