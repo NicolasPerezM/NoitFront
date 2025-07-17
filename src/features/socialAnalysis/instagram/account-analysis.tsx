@@ -1,6 +1,7 @@
 import { AnalysisTabs } from "./analysis-tabs";
 import GeneralStats from "./GeneralStats/GeneralStats.tsx";
-import FeedAnalyzer from "./feedAnalyzer/FeedAnalyzer.tsx";
+// import FeedAnalyzer from "./feedAnalyzer/FeedAnalyzer.tsx";
+import FeedAnalysisViewer from "./feedAnalyzer/FeedAnalysisViewer";
 // import PostAnalyzer from "./postAnalyzer/PostAnalyzer";
 import CommentsAnalyzer from "./commentsAnalyzer/CommentsAnalyzer";
 import CompetitorInstagramAnalysis from "../components/CompetitorInstagramAnalysis";
@@ -15,7 +16,7 @@ export default function InstagramAccountAnalysis({ competitorId }: InstagramAcco
       defaultValue="general"
       children={{
         general: <CompetitorInstagramAnalysis competitorId={competitorId} />,
-        feed: <FeedAnalyzer />,
+        feed: <FeedAnalysisViewer competitorId={competitorId} />,
         posts: <GeneralStats competitorId={competitorId} />,
         comments: <CommentsAnalyzer competitorId={competitorId} />,
       }}
