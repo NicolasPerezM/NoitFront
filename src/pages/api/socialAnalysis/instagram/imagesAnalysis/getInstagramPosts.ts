@@ -70,7 +70,7 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
 
       console.log('🚀 Haciendo petición a API externa...');
       
-      // Hacer fetch al endpoint externo con el competitor_id para obtener posts
+      // Hacer fetch al endpoint externo con el competitor_id
       const apiUrl = `https://noit.com.co/api/v1/analyze-competitors/instagram-image-analyzer/img-posts/${competitorId}`;
       console.log('📡 URL de API:', apiUrl);
       
@@ -107,14 +107,14 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
       const data = await response.json();
       console.log('✅ Datos recibidos para competitor_id:', competitorId);
       
-      // Verificar que la respuesta tenga la estructura esperada para posts de Instagram
-      if (!data || typeof data !== 'object') {
-        console.log('⚠️ La respuesta no tiene la estructura esperada:', typeof data);
+      // Verificar que la respuesta sea un array de posts
+      if (!Array.isArray(data)) {
+        console.log('⚠️ La respuesta no es un array:', typeof data);
         return new Response(
           JSON.stringify({ 
             error: 'Formato de respuesta inesperado',
             receivedData: data,
-            expectedStructure: 'Se esperaba un objeto con información de posts de Instagram'
+            expectedStructure: 'Se esperaba un array de posts de Instagram'
           }), 
           { 
             status: 500,
@@ -123,154 +123,88 @@ export function GET({ request, params }: Parameters<APIRoute>[0]) {
         );
       }
 
-      // Validar si es un post individual o un array de posts
-      let posts = [];
-      
-      if (Array.isArray(data)) {
-        // Si es un array directo de posts
-        posts = data;
-      } else if (data.id && data.type) {
-        // Si es un post individual
-        posts = [data];
-      } else if (data.posts && Array.isArray(data.posts)) {
-        // Si viene envuelto en un objeto con propiedad posts
-        posts = data.posts;
-      } else {
-        // Intentar encontrar posts en otras propiedades comunes
-        const possiblePostsKeys = ['data', 'items', 'content', 'results'];
-        const postsKey = possiblePostsKeys.find(key => 
-          data[key] && Array.isArray(data[key])
+      // Validar estructura de los posts
+      if (data.length === 0) {
+        console.log('⚠️ No se encontraron posts para este competidor');
+        return new Response(
+          JSON.stringify({ 
+            posts: [],
+            message: 'No se encontraron posts para este competidor',
+            competitorId
+          }), 
+          { 
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+          }
         );
-        
-        if (postsKey) {
-          posts = data[postsKey];
-        } else {
-          console.log('⚠️ No se pudieron identificar posts en la respuesta');
-          console.log('🔍 Claves disponibles:', Object.keys(data));
-        }
       }
 
-      // Validar estructura de posts individuales
-      const validPosts = posts.filter((post: any) => {
-        const hasRequiredFields = post && 
-          typeof post.id === 'string' && 
-          typeof post.type === 'string';
-        
-        if (!hasRequiredFields) {
-          console.log('⚠️ Post inválido encontrado:', {
-            id: post?.id,
-            type: post?.type,
-            hasId: !!post?.id,
-            hasType: !!post?.type
-          });
-        }
-        
-        return hasRequiredFields;
-      });
-
-      // Procesar y limpiar datos de posts
-      const processedPosts = validPosts.map((post: any) => {
-        // Procesar comentarios si existen
-        if (post.latestComments && Array.isArray(post.latestComments)) {
-          post.latestComments = post.latestComments.filter((comment: any) => 
-            comment && 
-            typeof comment.id === 'string' && 
-            typeof comment.text === 'string' &&
-            comment.owner && 
-            typeof comment.owner.username === 'string'
-          );
-          
-          // Procesar replies en comentarios
-          post.latestComments = post.latestComments.map((comment: any) => ({
-            ...comment,
-            replies: Array.isArray(comment.replies) 
-              ? comment.replies.filter((reply: any) => 
-                  reply && 
-                  typeof reply.id === 'string' && 
-                  typeof reply.text === 'string'
-                )
-              : []
-          }));
-        }
-
-        // Limpiar URLs rotas o inválidas
-        const cleanUrl = (url: string) => {
-          if (!url || typeof url !== 'string') return '';
-          try {
-            new URL(url);
-            return url;
-          } catch {
-            return '';
+      // Validar estructura del primer post para asegurar que sea válida
+      const firstPost = data[0];
+      const requiredFields = ['id', 'type', 'shortCode', 'url'];
+      const missingFields = requiredFields.filter(field => !firstPost[field]);
+      
+      if (missingFields.length > 0) {
+        console.log('⚠️ Estructura de post incompleta. Campos faltantes:', missingFields);
+        return new Response(
+          JSON.stringify({ 
+            error: 'Estructura de posts incompleta',
+            missingFields,
+            receivedKeys: Object.keys(firstPost),
+            expectedKeys: requiredFields
+          }), 
+          { 
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
           }
-        };
-
-        return {
-          ...post,
-          url: cleanUrl(post.url),
-          latestComments: post.latestComments || []
-        };
-      });
-
+        );
+      }
+      
       console.log('✅ Posts de Instagram obtenidos exitosamente');
       
       // Log estadísticas de los posts
       console.log('📊 Estadísticas de posts:');
-      console.log('  - Total de posts recibidos:', posts.length);
-      console.log('  - Posts válidos:', validPosts.length);
-      console.log('  - Posts procesados:', processedPosts.length);
-      
-      // Mostrar información de los primeros posts
-      if (processedPosts.length > 0) {
-        console.log('📱 Primeros posts:');
-        processedPosts.slice(0, 3).forEach((post: any, index: number) => {
-          console.log(`  ${index + 1}. Post ID: ${post.id || 'Sin ID'}`);
-          console.log(`     - Tipo: ${post.type || 'N/A'}`);
-          console.log(`     - Short Code: ${post.shortCode || 'N/A'}`);
-          console.log(`     - Caption disponible: ${post.caption ? 'Sí' : 'No'}`);
-          console.log(`     - Comentarios: ${post.commentsCount || 0}`);
-          console.log(`     - Comentarios recientes: ${post.latestComments?.length || 0}`);
-          console.log(`     - URL: ${post.url ? 'Sí' : 'No'}`);
-          
-          // Información de hashtags y menciones
-          if (post.hashtags && post.hashtags.length > 0) {
-            console.log(`     - Hashtags: ${post.hashtags.length}`);
-          }
-          if (post.mentions && post.mentions.length > 0) {
-            console.log(`     - Menciones: ${post.mentions.length}`);
-          }
-        });
-      }
+      console.log('  - Total de posts:', data.length);
+      console.log('  - Tipos de posts:', [...new Set(data.map((post: any) => post.type))]);
       
       // Calcular estadísticas adicionales
-      const totalComments = processedPosts.reduce((sum: number, post: any) => 
-        sum + (post.commentsCount || 0), 0);
-      console.log('💬 Total de comentarios en todos los posts:', totalComments);
+      const totalLikes = data.reduce((sum: number, post: any) => sum + (post.likesCount || 0), 0);
+      const totalComments = data.reduce((sum: number, post: any) => sum + (post.commentsCount || 0), 0);
+      const postsWithHashtags = data.filter((post: any) => post.hashtags && post.hashtags.length > 0).length;
+      const postsWithImages = data.filter((post: any) => post.images && post.images.length > 0).length;
+      
+      console.log('📈 Estadísticas adicionales:');
+      console.log('  - Total de likes:', totalLikes);
+      console.log('  - Total de comentarios:', totalComments);
+      console.log('  - Posts con hashtags:', postsWithHashtags);
+      console.log('  - Posts con imágenes:', postsWithImages);
+      
+      // Mostrar información de los primeros posts
+      if (data.length > 0) {
+        console.log('📱 Primeros posts:');
+        data.slice(0, 3).forEach((post: any, index: number) => {
+          console.log(`  ${index + 1}. ${post.shortCode || 'Sin shortCode'}`);
+          console.log(`     - Tipo: ${post.type || 'N/A'}`);
+          console.log(`     - Likes: ${post.likesCount || 0}`);
+          console.log(`     - Comentarios: ${post.commentsCount || 0}`);
+          console.log(`     - Hashtags: ${post.hashtags?.length || 0}`);
+          console.log(`     - Imágenes: ${post.images?.length || 0}`);
+        });
+      }
 
-      const postsWithComments = processedPosts.filter((post: any) => 
-        post.latestComments && post.latestComments.length > 0
-      ).length;
-      console.log('💭 Posts con comentarios recientes:', postsWithComments);
-
-      // Contar posts por tipo
-      const postsByType = processedPosts.reduce((acc: Record<string, number>, post: any) => {
-        const type = post.type || 'Unknown';
-        acc[type] = (acc[type] || 0) + 1;
-        return acc;
-      }, {});
-      console.log('📈 Posts por tipo:', postsByType);
-
-      // Devolver los datos procesados
+      // Devolver los datos tal como vienen de la API externa
       return new Response(
         JSON.stringify({
-          success: true,
-          totalPosts: processedPosts.length,
-          posts: processedPosts,
-          statistics: {
+          posts: data,
+          metadata: {
+            totalPosts: data.length,
+            totalLikes,
             totalComments,
-            postsWithComments,
-            postsByType
-          },
-          timestamp: new Date().toISOString()
+            postsWithHashtags,
+            postsWithImages,
+            competitorId,
+            timestamp: new Date().toISOString()
+          }
         }), 
         { 
           status: 200,

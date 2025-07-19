@@ -1,66 +1,80 @@
 // lib/api/getInstagramPosts.ts
 
 type InstagramPost = {
+    inputUrl: string;
     id: string;
-    type: string;
+    type: string; // "Image", "Sidecar", etc.
     shortCode: string;
     caption: string;
     hashtags: string[];
     mentions: string[];
     url: string;
     commentsCount: number;
-    firstComment: string | null;
-    latestComments: InstagramComment[];
-    inputUrl?: string;
-    timestamp?: string;
-};
-
-type InstagramComment = {
-    id: string;
-    text: string;
-    ownerUsername: string;
-    ownerProfilePicUrl: string;
-    timestamp: string;
-    repliesCount: number;
-    replies: InstagramReply[];
-    likesCount: number;
-    owner: {
+    firstComment: string;
+    latestComments: {
         id: string;
-        is_verified: boolean;
-        profile_pic_url: string;
-        username: string;
-    };
-};
-
-type InstagramReply = {
-    id: string;
-    text: string;
-    ownerUsername: string;
-    ownerProfilePicUrl: string;
-    timestamp: string;
-    repliesCount: number;
-    replies: InstagramReply[];
+        text: string;
+        ownerUsername: string;
+        ownerProfilePicUrl: string;
+        timestamp: string;
+        repliesCount: number;
+        replies: any[];
+        likesCount: number;
+        owner: {
+            id: string;
+            is_verified: boolean;
+            profile_pic_url: string;
+            username: string;
+        };
+    }[];
+    dimensionsHeight: number;
+    dimensionsWidth: number;
+    displayUrl: string;
+    images: string[];
+    alt: string;
     likesCount: number;
-    owner: {
+    timestamp: string;
+    childPosts: {
         id: string;
-        is_verified: boolean;
-        profile_pic_url: string;
-        username: string;
-    };
+        type: string;
+        shortCode: string;
+        caption: string;
+        hashtags: string[];
+        mentions: string[];
+        url: string;
+        commentsCount: number;
+        firstComment: string;
+        latestComments: any[];
+        dimensionsHeight: number;
+        dimensionsWidth: number;
+        displayUrl: string;
+        images: string[];
+        alt: string;
+        likesCount: number | null;
+        timestamp: string | null;
+        childPosts: any[];
+        ownerId: string | null;
+    }[];
+    ownerFullName: string;
+    ownerUsername: string;
+    ownerId: string;
+    isSponsored: boolean;
+    isCommentsDisabled: boolean;
 };
 
-type PostStatistics = {
+type PostsMetadata = {
+    totalPosts: number;
+    totalLikes: number;
     totalComments: number;
-    postsWithComments: number;
-    postsByType: Record<string, number>;
+    postsWithHashtags: number;
+    postsWithImages: number;
+    competitorId: string;
+    timestamp: string;
 };
 
 type GetInstagramPostsResponse = {
-    success: boolean;
-    totalPosts: number;
     posts: InstagramPost[];
-    statistics: PostStatistics;
-    timestamp: string;
+    metadata: PostsMetadata;
 };
 
 type ApiErrorPayload = {
@@ -165,141 +179,155 @@ export async function getInstagramPosts(competitorId: string): Promise<GetInstag
 
         console.log('✅ Respuesta OK, parseando JSON...');
         const data: GetInstagramPostsResponse = await response.json();
+        
+        const totalPosts = data.metadata?.totalPosts || data.posts?.length || 0;
+        const totalLikes = data.metadata?.totalLikes || 0;
+        const totalComments = data.metadata?.totalComments || 0;
+        const postsWithHashtags = data.metadata?.postsWithHashtags || 0;
+        const postsWithImages = data.metadata?.postsWithImages || 0;
+        
+        const topPosts = data.posts?.slice(0, 3) || [];
+        
         console.log('✅ Datos parseados exitosamente:', {
             competitorId: competitorId,
-            totalPosts: data.totalPosts || 0,
-            success: data.success,
-            postsByType: data.statistics?.postsByType || {},
-            totalComments: data.statistics?.totalComments || 0
+            totalPosts: totalPosts,
+            totalLikes: totalLikes,
+            totalComments: totalComments,
+            postsWithHashtags: postsWithHashtags,
+            postsWithImages: postsWithImages,
+            topPosts: topPosts.map(post => ({
+                shortCode: post.shortCode,
+                type: post.type,
+                likes: post.likesCount || 0,
+                comments: post.commentsCount || 0,
+                hashtags: post.hashtags?.length || 0,
+                images: post.images?.length || 0
+            }))
         });
         
-        // Debug logs para validación
-        console.log('🔍 success:', data.success);
-        console.log('🔍 typeof success:', typeof data.success);
-        console.log('🔍 totalPosts:', data.totalPosts);
-        console.log('🔍 typeof totalPosts:', typeof data.totalPosts);
-        console.log('🔍 posts:', data.posts);
-        console.log('🔍 typeof posts:', typeof data.posts);
-        console.log('🔍 posts length:', data.posts?.length);
-        console.log('🔍 statistics:', data.statistics);
+        // Debug log para la estructura de datos
+        console.log('🔍 Data structure:', {
+            hasPosts: !!data.posts,
+            hasMetadata: !!data.metadata,
+            postsType: typeof data.posts,
+            metadataType: typeof data.metadata,
+            postsLength: data.posts?.length || 0
+        });
         
-        // Validación de la respuesta
-        if (typeof data.success !== 'boolean') {
-            console.error('❌ success no válido en respuesta:', data);
-            throw new Error('La respuesta del servidor no contiene un estado de éxito válido');
+        // Validación básica de la respuesta
+        if (!data || typeof data !== 'object' || Array.isArray(data)) {
+            console.error('❌ Respuesta no válida:', data);
+            throw new Error('La respuesta del servidor no contiene datos de posts válidos');
         }
 
-        if (!data.success) {
-            console.error('❌ Respuesta indica fallo:', data);
-            throw new Error('El servidor reportó un fallo en el procesamiento de posts');
+        // Validación de posts
+        if (!data.posts || !Array.isArray(data.posts)) {
+            console.error('❌ posts no válido:', data.posts);
+            throw new Error('Los datos de posts no son válidos');
         }
 
-        if (typeof data.totalPosts !== 'number' || data.totalPosts < 0) {
-            console.error('❌ totalPosts no válido en respuesta:', data);
-            throw new Error('La respuesta del servidor no contiene un total de posts válido');
+        if (data.posts.length === 0) {
+            console.warn('⚠️ No se encontraron posts:', data.posts);
+            // No es un error, puede ser que simplemente no haya posts
         }
 
-        if (!Array.isArray(data.posts)) {
-            console.error('❌ posts no válido en respuesta:', data);
-            throw new Error('La respuesta del servidor no contiene posts válidos');
+        // Validación de metadata (opcional pero recomendada)
+        if (!data.metadata || typeof data.metadata !== 'object') {
+            console.warn('⚠️ metadata no válida o ausente:', data.metadata);
+            // Crear metadata básica si no existe
+            data.metadata = {
+                totalPosts: data.posts.length,
+                totalLikes: data.posts.reduce((sum, post) => sum + (post.likesCount || 0), 0),
+                totalComments: data.posts.reduce((sum, post) => sum + (post.commentsCount || 0), 0),
+                postsWithHashtags: data.posts.filter(post => post.hashtags && post.hashtags.length > 0).length,
+                postsWithImages: data.posts.filter(post => post.images && post.images.length > 0).length,
+                competitorId: competitorId,
+                timestamp: new Date().toISOString()
+            };
         }
 
-        // Verificar que posts tenga la longitud esperada
-        if (data.totalPosts !== data.posts.length) {
-            console.warn('⚠️ Inconsistencia entre totalPosts y posts.length:', {
-                totalPosts: data.totalPosts,
-                postsLength: data.posts.length
-            });
-        }
-
-        // Verificar que statistics sea válido
-        if (!data.statistics || typeof data.statistics !== 'object') {
-            console.error('❌ statistics no válido en respuesta:', data);
-            throw new Error('La respuesta del servidor no contiene estadísticas válidas');
-        }
-
-        if (typeof data.statistics.totalComments !== 'number' || data.statistics.totalComments < 0) {
-            console.error('❌ totalComments en statistics no válido:', data.statistics);
-            throw new Error('Las estadísticas no contienen un total de comentarios válido');
-        }
-
-        console.log('✅ Estructura de datos válida');
-
-        // Validación de que cada post tenga la estructura esperada
+        // Validación de la estructura de cada post (solo verificar campos esenciales)
         const invalidPosts = data.posts.filter(post => 
-            !post.id || 
+            !post ||
+            typeof post !== 'object' ||
             typeof post.id !== 'string' ||
-            !post.type || 
-            typeof post.type !== 'string' ||
             typeof post.shortCode !== 'string' ||
-            typeof post.caption !== 'string' ||
-            !Array.isArray(post.hashtags) ||
-            !Array.isArray(post.mentions) ||
+            typeof post.type !== 'string' ||
             typeof post.url !== 'string' ||
-            typeof post.commentsCount !== 'number' ||
-            !Array.isArray(post.latestComments)
+            post.id.trim() === '' ||
+            post.shortCode.trim() === '' ||
+            post.type.trim() === '' ||
+            post.url.trim() === ''
         );
 
         if (invalidPosts.length > 0) {
-            console.error(`❌ Posts con estructura inválida:`, invalidPosts.slice(0, 3)); // Solo mostrar los primeros 3
+            console.error('❌ Posts inválidos encontrados:', invalidPosts.slice(0, 3));
             throw new Error(`Se encontraron ${invalidPosts.length} posts con estructura inválida`);
         }
 
-        // Validación de comentarios en cada post
-        const postsWithInvalidComments = data.posts.filter(post => {
-            return post.latestComments.some(comment => 
-                !comment.id ||
-                typeof comment.id !== 'string' ||
-                typeof comment.text !== 'string' ||
-                typeof comment.ownerUsername !== 'string' ||
-                typeof comment.timestamp !== 'string' ||
-                typeof comment.likesCount !== 'number' ||
-                !Array.isArray(comment.replies) ||
-                !comment.owner ||
-                typeof comment.owner.username !== 'string'
-            );
+        // Validación de arrays dentro de cada post
+        const postsWithInvalidArrays = data.posts.filter(post => {
+            return !Array.isArray(post.hashtags) ||
+                   !Array.isArray(post.mentions) ||
+                   !Array.isArray(post.images) ||
+                   !Array.isArray(post.latestComments) ||
+                   !Array.isArray(post.childPosts);
         });
 
-        if (postsWithInvalidComments.length > 0) {
-            console.warn(`⚠️ Posts con comentarios de estructura inválida:`, postsWithInvalidComments.length);
-            // Solo advertir, no lanzar error ya que los posts principales siguen siendo utilizables
+        if (postsWithInvalidArrays.length > 0) {
+            console.error('❌ Posts con arrays inválidos:', postsWithInvalidArrays.slice(0, 3));
+            throw new Error(`Se encontraron ${postsWithInvalidArrays.length} posts con arrays inválidos`);
         }
 
-        // Validar tipos de post conocidos
-        const knownPostTypes = ['Sidecar', 'Video', 'Image', 'Reel', 'Story'];
-        const unknownPostTypes = data.posts.filter(post => 
-            !knownPostTypes.includes(post.type)
-        );
-
-        if (unknownPostTypes.length > 0) {
-            const uniqueUnknownTypes = [...new Set(unknownPostTypes.map(p => p.type))];
-            console.warn('⚠️ Tipos de post desconocidos encontrados:', uniqueUnknownTypes);
-            // Solo advertir, no lanzar error
-        }
-
-        // Validar URLs de posts
-        const postsWithInvalidUrls = data.posts.filter(post => {
-            if (!post.url) return false;
-            try {
-                new URL(post.url);
-                return false;
-            } catch {
-                return true;
-            }
+        // Validación de tipos de datos numéricos
+        const postsWithInvalidNumbers = data.posts.filter(post => {
+            return typeof post.likesCount !== 'number' ||
+                   typeof post.commentsCount !== 'number' ||
+                   typeof post.dimensionsHeight !== 'number' ||
+                   typeof post.dimensionsWidth !== 'number' ||
+                   isNaN(post.likesCount) ||
+                   isNaN(post.commentsCount) ||
+                   isNaN(post.dimensionsHeight) ||
+                   isNaN(post.dimensionsWidth) ||
+                   post.likesCount < 0 ||
+                   post.commentsCount < 0 ||
+                   post.dimensionsHeight <= 0 ||
+                   post.dimensionsWidth <= 0;
         });
 
-        if (postsWithInvalidUrls.length > 0) {
-            console.warn(`⚠️ Posts con URLs inválidas:`, postsWithInvalidUrls.length);
-            // Solo advertir, no lanzar error
+        if (postsWithInvalidNumbers.length > 0) {
+            console.error('❌ Posts con números inválidos:', postsWithInvalidNumbers.slice(0, 3));
+            throw new Error(`Se encontraron ${postsWithInvalidNumbers.length} posts con valores numéricos inválidos`);
         }
 
-        // Log de estadísticas finales
-        console.log('📊 Estadísticas de posts procesados:', {
-            totalPosts: data.totalPosts,
-            totalComments: data.statistics.totalComments,
-            postsWithComments: data.statistics.postsWithComments,
-            postsByType: data.statistics.postsByType,
-            averageCommentsPerPost: data.totalPosts > 0 ? (data.statistics.totalComments / data.totalPosts).toFixed(2) : 0
+        // Validación de fechas
+        const postsWithInvalidDates = data.posts.filter(post => {
+            if (!post.timestamp || typeof post.timestamp !== 'string') return true;
+            const date = new Date(post.timestamp);
+            return isNaN(date.getTime());
+        });
+
+        if (postsWithInvalidDates.length > 0) {
+            console.warn('⚠️ Posts con fechas inválidas:', postsWithInvalidDates.length);
+        }
+
+        // Validación de duplicados en shortCode
+        const shortCodes = data.posts.map(post => post.shortCode);
+        const uniqueShortCodes = new Set(shortCodes);
+        if (shortCodes.length !== uniqueShortCodes.size) {
+            console.warn('⚠️ Se encontraron shortCodes duplicados');
+        }
+
+        // Estadísticas adicionales
+        const postTypes = [...new Set(data.posts.map(post => post.type))];
+        const avgEngagement = data.posts.length > 0 ? 
+            (data.posts.reduce((sum, post) => sum + (post.likesCount || 0) + (post.commentsCount || 0), 0) / data.posts.length).toFixed(2) : 0;
+        const postsWithCaptions = data.posts.filter(post => post.caption && post.caption.trim() !== '').length;
+
+        console.log('📊 Estadísticas de posts:', {
+            postTypes,
+            avgEngagement,
+            postsWithCaptions
         });
 
         console.log('✅ getInstagramPosts completada exitosamente');
