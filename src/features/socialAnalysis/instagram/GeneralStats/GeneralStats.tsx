@@ -27,6 +27,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import ImageAnalysisReport from '../postAnalyzer/ImageAnalysisReport';
+import PostsListReport from '../postAnalyzer/PostsListReport';
 
 interface GeneralStatsProps {
   competitorId: string;
@@ -318,6 +319,8 @@ export default function GeneralStats({ competitorId }: GeneralStatsProps) {
       </Card>
       {/* Integración del nuevo reporte completo de imágenes */}
       <ImageAnalysisReport competitorId={competitorId} />
+      {/* Nuevo: Lista de posts y estadísticas */}
+      <PostsListReport competitorId={competitorId} />
     </div>
   );
 }
