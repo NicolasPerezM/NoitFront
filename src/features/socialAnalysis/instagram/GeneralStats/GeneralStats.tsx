@@ -26,6 +26,7 @@ import { queryClient } from "@/lib/api/queryClient";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import ImageAnalysisReport from '../postAnalyzer/ImageAnalysisReport';
 
 interface GeneralStatsProps {
   competitorId: string;
@@ -315,6 +316,8 @@ export default function GeneralStats({ competitorId }: GeneralStatsProps) {
           </div>
         </CardContent>
       </Card>
+      {/* Integración del nuevo reporte completo de imágenes */}
+      <ImageAnalysisReport competitorId={competitorId} />
     </div>
   );
 }
