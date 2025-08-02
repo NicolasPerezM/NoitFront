@@ -168,28 +168,48 @@ export default function CategoryByChart({ competitorId }: CategoryByChartProps) 
           </div>
         )}
         {hasData ? (
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height={Math.max(320, chartData.length * 48)}>
             <BarChart
               data={chartData}
               layout="vertical"
-              margin={{ top: 10, right: 20, bottom: 10, left: 40 }}
+              margin={{ top: 20, right: 40, bottom: 20, left: 120 }}
+              barCategoryGap={8}
             >
-              <XAxis type="number" />
-              <YAxis type="category" dataKey="category" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--muted)" />
+              <XAxis
+                type="number"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fontSize: 14, fill: "var(--muted-foreground)", fontWeight:400  }}
+              />
+              <YAxis
+                type="category"
+                dataKey="category"
+                axisLine={false}
+                tickLine={false}
+                width={120}
+                tick={{ fontSize: 16, fill: "var(--foreground)", fontWeight: 600 }}
+              />
               <Bar
                 dataKey="count"
                 fill="var(--primary)"
                 stroke="var(--primary)"
+                radius={[2, 2, 2, 2]}
+                minPointSize={2}
               >
                 <LabelList
                   dataKey="count"
                   position="right"
                   fill="var(--foreground)"
+                  fontSize={15}
+                  fontWeight={700}
+                  formatter={(value) => value}
                 />
               </Bar>
               <ChartTooltip
                 cursor={{ fill: "var(--muted)", opacity: 0.15 }}
                 content={<CustomTooltip />}
+                wrapperStyle={{ fontSize: 15, fontWeight: 500, color: "var(--foreground)" }}
               />
             </BarChart>
           </ResponsiveContainer>

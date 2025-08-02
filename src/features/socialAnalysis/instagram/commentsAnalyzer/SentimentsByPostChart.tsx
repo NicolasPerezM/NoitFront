@@ -66,7 +66,13 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
       else if (label === "NEU") grouped[postId].NEU += 1;
       else if (label === "NEG") grouped[postId].NEG += 1;
     });
-    return Object.values(grouped);
+    
+    // Convertir a array y agregar numeración
+    return Object.values(grouped).map((item, index) => ({
+      ...item,
+      postNumber: `Post ${index + 1}`,
+      originalPostId: item.postId, // Guardamos el ID original para el tooltip
+    }));
   };
 
   const CustomTooltip = ({ active, payload }: any) => {
@@ -74,7 +80,7 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
       return (
         <div className="rounded-xl bg-popover p-4 border border-border text-foreground space-y-1 min-w-[160px]">
           <p className="text-sm font-normal text-muted-foreground">
-            Post ID: <span className="text-foreground">{payload[0].payload.postId}</span>
+            Post ID: <span className="text-foreground">{payload[0].payload.originalPostId}</span>
           </p>
           {payload.map((entry: any, index: number) => (
             <div
@@ -152,7 +158,7 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
               margin={{ top: 20, right: 30, left: 10, bottom: 5 }}
             >
               <XAxis
-                dataKey="postId"
+                dataKey="postNumber"
                 tick={{ fontSize: 12 }}
                 width={50}
                 axisLine={true}
@@ -175,13 +181,16 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
                 stackId="a"
                 fill="var(--primary)"
                 name="Positivo"
+                radius={[2, 2, 2, 2]}
                 stroke=""
+
               />
               <Bar
                 dataKey="NEU"
                 stackId="a"
                 fill="var(--muted)"
                 name="Neutral"
+                radius={[2, 2, 2, 2]}
                 stroke=""
               />
               <Bar
@@ -189,6 +198,7 @@ export const SentimentsByPostChart = ({ competitorId }: SentimentsByPostChartPro
                 stackId="a"
                 fill="var(--destructive)"
                 name="Negativo"
+                radius={[2, 2, 2, 2]}
                 stroke=""
               />
             </BarChart>
