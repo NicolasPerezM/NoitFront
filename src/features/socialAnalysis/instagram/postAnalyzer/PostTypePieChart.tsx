@@ -25,11 +25,11 @@ import { useQuery } from "@tanstack/react-query";
 import { getInstagramStatistics } from "@/lib/api/getInstagramStatistics";
 import { queryClient } from "@/lib/api/queryClient";
 
-// Utiliza colores congruentes con el tema de global.css
+// Colores estrictamente del tema global.css
 const COLORS: Record<string, string> = {
-  Image: "var(--chart-1)",    // Amarillo principal
-  Sidecar: "var(--chart-4)",  // Amarillo claro
-  Video: "var(--primary)",    // Naranja principal
+  Image: "var(--primary)",      // Amarillo/naranja principal
+  Sidecar: "var(--primary)",   // Amarillo/naranja principal
+  Video: "var(--primary)",     // Amarillo/naranja principal
 };
 
 interface PostTypePieChartProps {
@@ -101,10 +101,10 @@ const PostTypePieChart = ({ competitorId }: PostTypePieChartProps) => {
     return (
       <Card className="h-full flex flex-col bg-background border border-border">
         <CardHeader className="relative flex-none pb-4">
-          <CardTitle className="text-xl text-foreground">
+          <CardTitle className="text-xl" style={{ color: "var(--foreground)" }}>
             Distribución de Tipos de Publicación
           </CardTitle>
-          <CardDescription className="text-sm text-muted-foreground">
+          <CardDescription className="text-sm" style={{ color: "var(--muted-foreground)" }}>
             Proporción de imágenes, carruseles y videos publicados
           </CardDescription>
         </CardHeader>
@@ -179,7 +179,7 @@ const PostTypePieChart = ({ competitorId }: PostTypePieChartProps) => {
           Proporción de imágenes, carruseles y videos publicados
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex-1 min-h-0 flex flex-col">
+        <CardContent className="flex-1 min-h-0 flex flex-col" style={{ background: "var(--card)" }}>
         {/* Contenedor con altura flexible para el gráfico */}
         <div className="flex-1 min-h-0">
           {hasData ? (
@@ -224,17 +224,17 @@ const PostTypePieChart = ({ competitorId }: PostTypePieChartProps) => {
         </div>
         {/* Leyenda */}
         {hasData && (
-          <div className="flex justify-center gap-4 mt-4 flex-wrap flex-none">
-            {chartData.map((entry, index) => (
-              <div key={`legend-${index}`} className="flex items-center gap-2">
-                <div
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: COLORS[entry.name] || "var(--primary)" }}
-                />
-                <span className="text-sm text-foreground">{entry.name}</span>
-              </div>
-            ))}
-          </div>
+        <div className="flex justify-center gap-4 mt-4 flex-wrap flex-none">
+          {chartData.map((entry, index) => (
+            <div key={`legend-${index}`} className="flex items-center gap-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: COLORS[entry.name] || "var(--primary)" }}
+              />
+              <span className="text-sm" style={{ color: "var(--foreground)" }}>{entry.name}</span>
+            </div>
+          ))}
+        </div>
         )}
       </CardContent>
     </Card>
